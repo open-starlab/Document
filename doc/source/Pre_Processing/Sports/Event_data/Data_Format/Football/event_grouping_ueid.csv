@@ -1,0 +1,26 @@
+﻿Overall,google research football,Statsbomb,Wyscout
+Short Pass,Short Pass,Ground pass/Low pass < 45 meters,Goal kick/Free kick/Simple pass < 45 meters
+,-,Half Start,-
+,-,-,Hand pass
+,-,-,Head pass
+,-,-,Smart pass
+,-,-,Throw in
+High Pass,High Pass,High pass,High pass
+Long Pass,Long Pass,Ground pass/Low pass > 45 meters,Goal kick/Free kick/Simple pass > 45 meters
+Shot,Shot,Shot,Shot
+,-,-,Free kick shot
+Carry,Sprint,Carry,Acceleration
+Dribble,Dribble,Dribble,Touch
+,-,-,Ground attacking duel off dribble
+Cross,(Could be considered as one type of the existing pass type),Cross/Corner,Cross/Free kick cross
+Defensive Action (Dropped),Sliding,-,-
+,-,Duel,Duel_Ground defending duel/Duel_Ground attacking duel
+,-,50/50,-
+,-,clearance,Clearance
+,-,-,Launch
+,-,Interception,-
+,-,-,-
+,-,-,-
+-,Stop-Dribble,-,-
+-,Stop-Moving,-,-
+-,Do-Nothing,-,-
