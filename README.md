@@ -13,7 +13,7 @@ python -m http.server
 ```
 Open a web browser and type http://localhost:8000 in the address bar. You should see the generated Sphinx documentation served as a website.
 
-## Alternatively 
+## Rebuild the doc
 ```
 sphinx-autobuild source build/html
 ```
