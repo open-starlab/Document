@@ -15,6 +15,6 @@ Open a web browser and type http://localhost:8000 in the address bar. You should
 
 ## Rebuild the doc
 ```
-pip install -r doc/requirement.txt
+pip install -r doc/requirements.txt 
 sphinx-autobuild source build/html
 ```
