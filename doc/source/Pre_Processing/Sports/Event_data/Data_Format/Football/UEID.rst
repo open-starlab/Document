@@ -10,6 +10,7 @@ Event Class Standardization
    :widths: 15, 15, 15, 15
    :file: event_grouping_ueid.csv
 
+- "_" : end of possession, "period_over", and "game_over" is added to end of each possession, period, and game.
 
 Pitch Coordinates Standardization
 ---------------------------------
@@ -104,4 +105,17 @@ Example of the UEID format for StatsBomb and SkillCorner::
 
     print(wyscout_df.head())
 
+Example of the UEID format for DataStadium::
+
+    import pandas as pd
+    from preprocessing import Event_data
+    data_dir = 'path/to/data/folder' #the dir contain folders that contain the play.csv and tracking.csv files
+
+
+    df_datastadium=Event_data(data_provider='datastadium',
+                                            event_path=data_dir,
+                                            preprocess_method="UIED",
+                                            max_workers=max_workers).preprocessing()
+
+    print(df_datastadium.head())
 

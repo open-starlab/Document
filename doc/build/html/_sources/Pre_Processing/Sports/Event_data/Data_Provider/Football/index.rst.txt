@@ -6,6 +6,7 @@ Football/Soccer Data Providers
 
 
    DataFactory/contents
+   DataStadium/contents
    Metrica/contents
    Opta/contents
    Robocup_2D_simulation/contents

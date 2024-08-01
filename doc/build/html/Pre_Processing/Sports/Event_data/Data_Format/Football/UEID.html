@@ -97,266 +97,9 @@
 <p>The UEID is an origninal designed to provide a standardize format for event data in football.</p>
 <section id="event-class-standardization">
 <h2>Event Class Standardization<a class="headerlink" href="#event-class-standardization" title="Permalink to this heading"></a></h2>
-<table class="docutils align-default" id="id1">
-<caption><span class="caption-text">Comparison of event classes across different data sources and formats</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 25.0%" />
-<col style="width: 25.0%" />
-<col style="width: 25.0%" />
-<col style="width: 25.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Overall</p></th>
-<th class="head"><p>google research football</p></th>
-<th class="head"><p>Statsbomb</p></th>
-<th class="head"><p>Wyscout</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Short Pass</p></td>
-<td><p>Short Pass</p></td>
-<td><p>Ground pass/Low pass &lt; 45 meters</p></td>
-<td><p>Goal kick/Free kick/Simple pass &lt; 45 meters</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><ul class="simple">
-<li></li>
+<ul class="simple">
+<li><p>“_” : end of possession, “period_over”, and “game_over” is added to end of each possession, period, and game.</p></li>
 </ul>
-</td>
-<td><p>Half Start</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Hand pass</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Head pass</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Smart pass</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Throw in</p></td>
-</tr>
-<tr class="row-even"><td><p>High Pass</p></td>
-<td><p>High Pass</p></td>
-<td><p>High pass</p></td>
-<td><p>High pass</p></td>
-</tr>
-<tr class="row-odd"><td><p>Long Pass</p></td>
-<td><p>Long Pass</p></td>
-<td><p>Ground pass/Low pass &gt; 45 meters</p></td>
-<td><p>Goal kick/Free kick/Simple pass &gt; 45 meters</p></td>
-</tr>
-<tr class="row-even"><td><p>Shot</p></td>
-<td><p>Shot</p></td>
-<td><p>Shot</p></td>
-<td><p>Shot</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Free kick shot</p></td>
-</tr>
-<tr class="row-even"><td><p>Carry</p></td>
-<td><p>Sprint</p></td>
-<td><p>Carry</p></td>
-<td><p>Acceleration</p></td>
-</tr>
-<tr class="row-odd"><td><p>Dribble</p></td>
-<td><p>Dribble</p></td>
-<td><p>Dribble</p></td>
-<td><p>Touch</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Ground attacking duel off dribble</p></td>
-</tr>
-<tr class="row-odd"><td><p>Cross</p></td>
-<td><p>(Could be considered as one type of the existing pass type)</p></td>
-<td><p>Cross/Corner</p></td>
-<td><p>Cross/Free kick cross</p></td>
-</tr>
-<tr class="row-even"><td><p>Defensive Action (Dropped)</p></td>
-<td><p>Sliding</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Duel</p></td>
-<td><p>Duel_Ground defending duel/Duel_Ground attacking duel</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>50/50</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>clearance</p></td>
-<td><p>Clearance</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Launch</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Interception</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Stop-Dribble</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Stop-Moving</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Do-Nothing</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 </section>
 <section id="pitch-coordinates-standardization">
 <h2>Pitch Coordinates Standardization<a class="headerlink" href="#pitch-coordinates-standardization" title="Permalink to this heading"></a></h2>
@@ -446,6 +189,20 @@
                                         <span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">)</span><span class="o">.</span><span class="n">preprocessing</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">wyscout_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Example of the UEID format for DataStadium:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;path/to/data/folder&#39;</span> <span class="c1">#the dir contain folders that contain the play.csv and tracking.csv files</span>
+
+
+<span class="n">df_datastadium</span><span class="o">=</span><span class="n">Event_data</span><span class="p">(</span><span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;datastadium&#39;</span><span class="p">,</span>
+                                        <span class="n">event_path</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span>
+                                        <span class="n">preprocess_method</span><span class="o">=</span><span class="s2">&quot;UIED&quot;</span><span class="p">,</span>
+                                        <span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">)</span><span class="o">.</span><span class="n">preprocessing</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_datastadium</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </section>
