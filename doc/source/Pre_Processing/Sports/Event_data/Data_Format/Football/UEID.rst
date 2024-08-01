@@ -7,7 +7,7 @@ Event Class Standardization
 ---------------------------
 .. csv-table:: Comparison of event classes across different data sources and formats
    :header-rows: 1
-   :widths: 15, 15, 15, 15
+   :widths: 15, 15, 15, 15, 15
    :file: event_grouping_ueid.csv
 
 - "_" : end of possession, "period_over", and "game_over" is added to end of each possession, period, and game.

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>United and Integrated Event Data (UEID) &mdash; Open-STAR-Lab v1 documentation</title>
+  <title>United and Integrated Event Data (UEID) &mdash; Open-STAR-Lab v0.1.4.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=92fd9be5" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=b30c7235"></script>
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=44430be5"></script>
         <script src="../../../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../_static/js/theme.js"></script>
@@ -97,6 +97,350 @@
 <p>The UEID is an origninal designed to provide a standardize format for event data in football.</p>
 <section id="event-class-standardization">
 <h2>Event Class Standardization<a class="headerlink" href="#event-class-standardization" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Comparison of event classes across different data sources and formats</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Overall</p></th>
+<th class="head"><p>google research football</p></th>
+<th class="head"><p>Statsbomb</p></th>
+<th class="head"><p>Wyscout</p></th>
+<th class="head"><p>DataStadium</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Short Pass</p></td>
+<td><p>Short Pass</p></td>
+<td><p>Ground pass</p></td>
+<td><p>Goal kick</p></td>
+<td><p>Direct FK - Pass</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Low pass</p></td>
+<td><p>Free kick</p></td>
+<td><p>Indirect FK</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Half Start</p></td>
+<td><p>Simple pass</p></td>
+<td><p>KickOff</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Hand pass</p></td>
+<td><p>HomePass</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Head pass</p></td>
+<td><p>AwayPass</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Smart pass</p></td>
+<td><p>PKPass</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Throw in</p></td>
+<td><p>Through Pass</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>ThrowIn</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Feed</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>FrickOn</p></td>
+</tr>
+<tr class="row-even"><td><p>High Pass</p></td>
+<td><p>High Pass</p></td>
+<td><p>High pass</p></td>
+<td><p>High pass</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Long Pass</p></td>
+<td><p>Long Pass</p></td>
+<td><p>Ground pass</p></td>
+<td><p>Goal kick</p></td>
+<td><p>Direct FK - Pass</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Low pass</p></td>
+<td><p>Free kick</p></td>
+<td><p>Indirect FK</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Simple pass</p></td>
+<td><p>KickOff</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>HomePass</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>AwayPass</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>PKPass</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Through Pass</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>ThrowIn</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Feed</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>FrickOn</p></td>
+</tr>
+<tr class="row-odd"><td><p>Shot</p></td>
+<td><p>Shot</p></td>
+<td><p>Shot</p></td>
+<td><p>Shot</p></td>
+<td><p>Shoot</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Free kick shot</p></td>
+<td><p>Direct FK - Shot</p></td>
+</tr>
+<tr class="row-odd"><td><p>Carry</p></td>
+<td><p>Sprint</p></td>
+<td><p>Carry</p></td>
+<td><p>Acceleration</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Dribble</p></td>
+<td><p>Dribble</p></td>
+<td><p>Dribble</p></td>
+<td><p>Touch</p></td>
+<td><p>Dribble</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Touch</p></td>
+</tr>
+<tr class="row-even"><td><p>Cross</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Cross</p></td>
+<td><p>Cross</p></td>
+<td><p>CK</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>Corner</p></td>
+<td><p>Free kick cross</p></td>
+<td><p>Cross</p></td>
+</tr>
+</tbody>
+</table>
 <ul class="simple">
 <li><p>“_” : end of possession, “period_over”, and “game_over” is added to end of each possession, period, and game.</p></li>
 </ul>
