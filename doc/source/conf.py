@@ -9,7 +9,7 @@
 project = 'Open-STAR-Lab'
 copyright = '2024,  Openstarlab'
 author = 'Calvin Yeung'
-release = 'v1'
+release = 'v0.1.4'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
