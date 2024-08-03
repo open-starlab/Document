@@ -9,7 +9,7 @@
 project = 'Open-STAR-Lab'
 copyright = '2024,  Openstarlab'
 author = 'Calvin Yeung'
-release = 'v0.1.4.1' #same version as the package and the last number is the patch number of the documentation
+release = 'v0.1.4.2' #same version as the package and the last number is the patch number of the documentation
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
