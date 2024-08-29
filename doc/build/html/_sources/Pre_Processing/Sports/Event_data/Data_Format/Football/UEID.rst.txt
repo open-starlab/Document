@@ -10,6 +10,7 @@ Event Class Standardization
    :widths: 15, 15, 15, 15, 15
    :file: event_grouping_ueid.csv
 
+- Short Pass and Long Pass are determined by the pass length (45 meters).
 - "_" : end of possession, "period_over", and "game_over" is added to end of each possession, period, and game.
 
 Pitch Coordinates Standardization
