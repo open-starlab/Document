@@ -30,7 +30,7 @@ Usage
         plot_row_soccer(df_path,i,save_path)
 
 
-        print("---------------done-----------------")
+    print("---------------done-----------------")
 
 Example output
 --------------
