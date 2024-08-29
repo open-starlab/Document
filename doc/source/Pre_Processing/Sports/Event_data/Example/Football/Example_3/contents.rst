@@ -32,5 +32,9 @@ Usage
 
         print("---------------done-----------------")
 
-        
+Example output
+--------------
+.. image:: example.png
+   :width: 600px
+   :align: center
 
