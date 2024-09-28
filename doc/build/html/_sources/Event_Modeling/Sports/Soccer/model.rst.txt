@@ -15,6 +15,8 @@ The following models are available for use in predicting soccer match events:
 
 TBA
 
+The yaml file for the pre-trained models can be found `here <https://github.com/open-starlab/Event/tree/main/event/sports/soccer/models/model_yaml>`_.
+
 Models: NMSTPP
 ------------------
 The Transformer-Based Neural Marked Spatio Temporal Point Process (NMSTPP) model is designed to handle the complex spatiotemporal dynamics of football match event data. Leveraging the neural temporal point processes (NTPP) framework, the model captures both the timing and spatial information of events, enabling more accurate predictions of future actions in a match. 
