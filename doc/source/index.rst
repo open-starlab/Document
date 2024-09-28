@@ -11,7 +11,7 @@ Welcome to Open-STAR-Lab documentation!
    :caption: Contents:
 
    Pre_Processing/index
-   Event_Modeling/contents
+   Event_Modeling/index
    Other/index
 
 

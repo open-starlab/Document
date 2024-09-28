@@ -1,7 +1,7 @@
 # Openstarlab Document
 [![Documentation Status](https://readthedocs.org/projects/openstarlab/badge/?version=latest)](https://openstarlab.readthedocs.io/en/latest/?badge=latest)
 
-## Document for the analysis platform
+## Document for the openstarlab
 
 Step 1
 ```
