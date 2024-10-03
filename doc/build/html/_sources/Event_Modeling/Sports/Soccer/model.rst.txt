@@ -73,6 +73,15 @@ The Large Events Model (LEM) for soccer is a deep learning framework designed to
       year={2024}
     }
 
+    @article{mendes2024towards,
+      title={Towards a foundation large events model for soccer},
+      author={Mendes-Neves, Tiago and Meireles, Lu{\'\i}s and Mendes-Moreira, Jo{\~a}o},
+      journal={Machine Learning},
+      pages={1--23},
+      year={2024},
+      publisher={Springer}
+    }
+
 Models: MAJ
 ------------------
 The Majority-class model (MAJ) is a simple baseline model that predicts the most frequent event class in the training data. This model is used to establish a baseline for comparison with more complex models.
