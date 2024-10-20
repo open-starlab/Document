@@ -26,3 +26,7 @@ sphinx-autobuild source build/html
 4. Update this repo 
 5. Check the document deployment on https://readthedocs.org/
 
+## Upload repo
+1. git add -A
+2. git commit -m "update"
+3. git push -u origin main

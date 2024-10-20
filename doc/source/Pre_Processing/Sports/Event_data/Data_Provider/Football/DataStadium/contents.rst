@@ -1,6 +1,6 @@
 DataStadium
 ==============
-.. class:: Event_data(event_path=play_csv_path, home_tracking_path=home_tracking_csv_path, away_tracking_path=away_tracking_csv_path).load_data() -> pd.DataFrame
+.. class:: Event_data(data_provider='datastadium',event_path=play_csv_path, home_tracking_path=home_tracking_csv_path, away_tracking_path=away_tracking_csv_path).load_data() -> pd.DataFrame
 
     Load and process stadium event and tracking data from CSV files and convert it into a DataFrame.
 
