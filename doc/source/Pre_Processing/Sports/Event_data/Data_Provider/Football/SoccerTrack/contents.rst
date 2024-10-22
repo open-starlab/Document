@@ -15,9 +15,6 @@ SoccerTrackv2
    :returns: A DataFrame containing the merged and processed event and tracking data.
    :rtype: pandas.DataFrame
 
-   :return: DataFrame containing merged and processed event and tracking data.
-   :rtype: pd.DataFrame
-
    **Example usage**:
 
    .. code-block:: python

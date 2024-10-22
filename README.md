@@ -18,6 +18,7 @@ Open a web browser and type http://localhost:8000 in the address bar. You should
 pip install -r doc/requirements.txt 
 sphinx-autobuild source build/html
 ```
+
 ## To Update this doc
 1. Clone this repo
 2. Update the content in ./doc/source
@@ -29,4 +30,4 @@ sphinx-autobuild source build/html
 ## Upload repo
 1. git add -A
 2. git commit -m "update"
-3. git push -u origin main
+3. git push -u origin master
