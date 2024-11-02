@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SoccerTrackv2 &mdash; Open-STAR-Lab v0.1.8.3 documentation</title>
+  <title>BePro &mdash; Open-STAR-Lab v0.1.12 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=92fd9be5" />
       <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js?v=f3af74f9"></script>
+        <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js?v=d540c963"></script>
         <script src="../../../../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../../_static/js/theme.js"></script>
@@ -82,7 +82,7 @@
           <li class="breadcrumb-item"><a href="../../../index.html">Event Data</a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Data Providers</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Football/Soccer Data Providers</a></li>
-      <li class="breadcrumb-item active">SoccerTrackv2</li>
+      <li class="breadcrumb-item active">BePro</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../../../_sources/Pre_Processing/Sports/Event_data/Data_Provider/Football/SoccerTrack/contents.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -92,12 +92,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="soccertrackv2">
-<h1>SoccerTrackv2<a class="headerlink" href="#soccertrackv2" title="Permalink to this heading"></a></h1>
+  <section id="bepro">
+<h1>BePro<a class="headerlink" href="#bepro" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="Event_data">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Event_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider='soccertrack'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_path=event_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">st_track_path=st_track_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">st_meta_path=st_meta_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=False).load_data(</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pd.DataFrame</span></span></span><a class="headerlink" href="#Event_data" title="Permalink to this definition"></a></dt>
-<dd><p>Load and process event and tracking data from the SoccerTrackv2 dataset.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Event_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider='bepro'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_path=event_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">st_track_path=st_track_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">st_meta_path=st_meta_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=False).load_data(</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pd.DataFrame</span></span></span><a class="headerlink" href="#Event_data" title="Permalink to this definition"></a></dt>
+<dd><p>Load and process event and tracking data for the SoccerTrackv2 dataset (BePro data).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -123,7 +123,7 @@
 <span class="n">meta_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/meta.xml&#39;</span>
 
 <span class="c1"># Load and process soccer data</span>
-<span class="n">soccertrack_df</span> <span class="o">=</span> <span class="n">Event_data</span><span class="p">(</span><span class="s1">&#39;soccertrack&#39;</span><span class="p">,</span><span class="n">event_path</span><span class="p">,</span>
+<span class="n">soccertrack_df</span> <span class="o">=</span> <span class="n">Event_data</span><span class="p">(</span><span class="s1">&#39;bepro&#39;</span><span class="p">,</span><span class="n">event_path</span><span class="p">,</span>
                                   <span class="n">st_track_path</span> <span class="o">=</span> <span class="n">tracking_path</span><span class="p">,</span>
                                   <span class="n">st_meta_path</span> <span class="o">=</span> <span class="n">meta_path</span><span class="p">)</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">soccertrack_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>

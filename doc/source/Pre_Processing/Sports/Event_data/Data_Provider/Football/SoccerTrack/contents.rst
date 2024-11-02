@@ -1,8 +1,8 @@
-SoccerTrackv2
+BePro
 ==============
-.. class:: Event_data(data_provider='soccertrack', event_path=event_path, st_track_path=st_track_path, st_meta_path=st_meta_path, verbose=False).load_data() -> pd.DataFrame
+.. class:: Event_data(data_provider='bepro', event_path=event_path, st_track_path=st_track_path, st_meta_path=st_meta_path, verbose=False).load_data() -> pd.DataFrame
 
-   Load and process event and tracking data from the SoccerTrackv2 dataset.
+   Load and process event and tracking data for the SoccerTrackv2 dataset (BePro data).
 
    :param event_path: Path to the CSV file containing event data.
    :type event_path: str
@@ -27,7 +27,7 @@ SoccerTrackv2
         meta_path = 'path/to/meta.xml'
 
         # Load and process soccer data
-        soccertrack_df = Event_data('soccertrack',event_path, 
+        soccertrack_df = Event_data('bepro',event_path, 
                                           st_track_path = tracking_path, 
                                           st_meta_path = meta_path).load_data()
         print(soccertrack_df.head())
