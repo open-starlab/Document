@@ -6,6 +6,7 @@ Football/Soccer Event Modeling
 
 
    model
-   functions
+   model_class
+   application
    example
    

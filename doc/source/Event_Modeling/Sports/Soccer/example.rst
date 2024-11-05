@@ -32,7 +32,7 @@ After training, you can perform inference. Here’s how to do it:
     model.inference(model_path, model_config)
 
     # Simulation with evaluation
-    model.inference(model_path, model_config, simulation=True, random_selection=True, max_iter=20)
+    model.inference(model_path, model_config, simulation=True, random_selection=True, max_iter=26)
 
 Inference on Other Data
 ------------------------
@@ -42,12 +42,14 @@ To run inference on other datasets, set the `train_path` in the YAML file to `No
 .. code-block:: python
 
     min_max_dict_path = 'path/to/min_max_dict.json'
+    path_to_inference_data = 'path/to/inference.csv'
 
     # Simple inference
-    model.inference(model_path, model_config, min_max_dict_path=min_max_dict_path)
+    model.inference(model_path, model_config, valid_path=path_to_inference_data, min_max_dict_path=min_max_dict_path)
 
     # Simulation with evaluation
-    model.inference(model_path, model_config, simulation=True, random_selection=True, max_iter=20, min_max_dict_path=min_max_dict_path)
+    model.inference(model_path, model_config, valid_path=path_to_inference_data, simulation=True, random_selection=True, max_iter=26, min_max_dict_path=min_max_dict_path)
+
 
 YAML Configuration for Training the NMSTPP Model
 ---------------------------------------------------

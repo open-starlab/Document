@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example: Train and Inference NMSTPP model &mdash; Open-STAR-Lab v0.1.13 documentation</title>
+  <title>Example: Train and Inference NMSTPP model &mdash; Open-STAR-Lab v0.1.14 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -15,14 +15,14 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=71384d7a"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=bab1ddb7"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Other" href="../../../Other/index.html" />
-    <link rel="prev" title="Event_Model Class" href="functions.html" /> 
+    <link rel="prev" title="Application of the Event Model in Soccer" href="application.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,7 +51,8 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Sports</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Football/Soccer Event Modeling</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="model.html">Models and Framework</a></li>
-<li class="toctree-l4"><a class="reference internal" href="functions.html">Event_Model Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="model_class.html">Event_Model Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="application.html">Application of the Event Model in Soccer</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Example: Train and Inference NMSTPP model</a></li>
 </ul>
 </li>
@@ -117,7 +118,7 @@
 <span class="n">model</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">model_config</span><span class="p">)</span>
 
 <span class="c1"># Simulation with evaluation</span>
-<span class="n">model</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">model_config</span><span class="p">,</span> <span class="n">simulation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_selection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">model_config</span><span class="p">,</span> <span class="n">simulation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_selection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -125,12 +126,13 @@
 <h2>Inference on Other Data<a class="headerlink" href="#inference-on-other-data" title="Permalink to this heading"></a></h2>
 <p>To run inference on other datasets, set the <cite>train_path</cite> in the YAML file to <cite>None</cite>. Here’s an example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">min_max_dict_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/min_max_dict.json&#39;</span>
+<span class="n">path_to_inference_data</span> <span class="o">=</span> <span class="s1">&#39;path/to/inference.csv&#39;</span>
 
 <span class="c1"># Simple inference</span>
-<span class="n">model</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">model_config</span><span class="p">,</span> <span class="n">min_max_dict_path</span><span class="o">=</span><span class="n">min_max_dict_path</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">model_config</span><span class="p">,</span> <span class="n">valid_path</span><span class="o">=</span><span class="n">path_to_inference_data</span><span class="p">,</span> <span class="n">min_max_dict_path</span><span class="o">=</span><span class="n">min_max_dict_path</span><span class="p">)</span>
 
 <span class="c1"># Simulation with evaluation</span>
-<span class="n">model</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">model_config</span><span class="p">,</span> <span class="n">simulation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_selection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">min_max_dict_path</span><span class="o">=</span><span class="n">min_max_dict_path</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">model_config</span><span class="p">,</span> <span class="n">valid_path</span><span class="o">=</span><span class="n">path_to_inference_data</span><span class="p">,</span> <span class="n">simulation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_selection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">min_max_dict_path</span><span class="o">=</span><span class="n">min_max_dict_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -235,7 +237,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="functions.html" class="btn btn-neutral float-left" title="Event_Model Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="application.html" class="btn btn-neutral float-left" title="Application of the Event Model in Soccer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../../../Other/index.html" class="btn btn-neutral float-right" title="Other" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -1,7 +1,7 @@
 Pre_Processing Package
 ==================================
 
-The structure of the Pre_Processing package and doc is as follows:
+The structure of the Pre_Processing package is as follows:
 
 structure
 ---------
