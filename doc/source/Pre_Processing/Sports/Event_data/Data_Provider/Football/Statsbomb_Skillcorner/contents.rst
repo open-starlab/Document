@@ -1,6 +1,6 @@
 Statsbomb with Skillcorner
 ============================
-.. class:: Event_data(data_provider='statsbomb_skillcorner',statsbomb_event_dir=statsbomb_event_dir,skillcorner_tracking_dir=skillcorner_tracking_dir,skillcorner_match_dir=skillcorner_match_dir,statsbomb_match_id=statsbomb_match_id,skillcorner_match_id=skillcorner_match_id,match_id_df=match_id_df,max_workers=max_workers).load_data()
+.. class:: Event_data(data_provider='statsbomb_skillcorner',statsbomb_event_dir=statsbomb_event_dir,skillcorner_tracking_dir=skillcorner_tracking_dir,skillcorner_match_dir=skillcorner_match_dir,statsbomb_match_id=statsbomb_match_id,skillcorner_match_id=skillcorner_match_id,match_id_df=match_id_df,max_workers=max_workers,preprocess_tracking=False).load_data()
 
     Load and merge StatsBomb event data with SkillCorner tracking data.
 
@@ -11,6 +11,7 @@ Statsbomb with Skillcorner
     :param str skillcorner_match_id: Match ID for SkillCorner data.
     :param str match_id_df: Path to a CSV file containing match IDs for multiple matches.
     :param int max_workers: Maximum number of workers to use for parallel processing.
+    :param bool preprocess_tracking: Whether to preprocess tracking data and event data in to one coordiante system.
     :return: A DataFrame containing the combined event and tracking data.
     :rtype: pd.DataFrame
 
@@ -34,6 +35,7 @@ Statsbomb with Skillcorner
                                           skillcorner_match_dir=skillcorner_match_dir,
                                           statsbomb_match_id=statsbomb_match_id,
                                           skillcorner_match_id=skillcorner_match_id
+                                          preprocess_tracking=False #True if you want to preprocess tracking data and event data in to one coordiante system
                                           ).load_data()
         print(statsbomb_skillcorner_df.head())
 
@@ -56,7 +58,9 @@ Statsbomb with Skillcorner
                                         skillcorner_tracking_dir=skillcorner_tracking_dir,
                                         skillcorner_match_dir=skillcorner_match_dir,
                                         match_id_df=match_id_df,
-                                        max_workers=10).load_data()
+                                        max_workers=10
+                                        preprocess_tracking=False #True if you want to preprocess tracking data and event data in to one coordiante system
+                                        ).load_data()
         print(statsbomb_skillcorner_df.head())
 
     **Details**:
@@ -93,6 +97,7 @@ Statsbomb with Skillcorner
 
     - ``h1_x, h1_y, ..., h16_x, h16_y``: X and Y coordinates for each player on the home team (indexed from h1 to h16).
     - ``a1_x, a1_y, ..., a16_x, a16_y``: X and Y coordinates for each player on the away team (indexed from a1 to a16).
+    - ``home_side``: Side of the field where the home team is positioned (e.g., "left" or "right"), determined based on the X-coordinate of the home and away team's goalkeepers.
 
     The tracking data provides positional information for each player during specific moments of the match, allowing for detailed analysis and visualization of player movements and interactions throughout the game.
 

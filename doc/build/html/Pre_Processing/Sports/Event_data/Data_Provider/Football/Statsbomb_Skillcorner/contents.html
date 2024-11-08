@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Statsbomb with Skillcorner &mdash; Open-STAR-Lab v0.1.14 documentation</title>
+  <title>Statsbomb with Skillcorner &mdash; Open-STAR-Lab v0.1.15 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=92fd9be5" />
       <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js?v=bab1ddb7"></script>
+        <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js?v=1ec959ae"></script>
         <script src="../../../../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../../_static/js/theme.js"></script>
@@ -47,7 +47,6 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Pre-Processing</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../../../Animal/contents.html">Animal</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../../index.html">Sports</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../../../index.html">Event Data</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="../../index.html">Data Providers</a></li>
@@ -96,7 +95,7 @@
 <h1>Statsbomb with Skillcorner<a class="headerlink" href="#statsbomb-with-skillcorner" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="Event_data">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Event_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider='statsbomb_skillcorner'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statsbomb_event_dir=statsbomb_event_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skillcorner_tracking_dir=skillcorner_tracking_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skillcorner_match_dir=skillcorner_match_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statsbomb_match_id=statsbomb_match_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skillcorner_match_id=skillcorner_match_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id_df=match_id_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers=max_workers).load_data(</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Event_data" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Event_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider='statsbomb_skillcorner'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statsbomb_event_dir=statsbomb_event_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skillcorner_tracking_dir=skillcorner_tracking_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skillcorner_match_dir=skillcorner_match_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statsbomb_match_id=statsbomb_match_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skillcorner_match_id=skillcorner_match_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id_df=match_id_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers=max_workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess_tracking=False).load_data(</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Event_data" title="Permalink to this definition"></a></dt>
 <dd><p>Load and merge StatsBomb event data with SkillCorner tracking data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -108,6 +107,7 @@
 <li><p><strong>skillcorner_match_id</strong> (<em>str</em>) – Match ID for SkillCorner data.</p></li>
 <li><p><strong>match_id_df</strong> (<em>str</em>) – Path to a CSV file containing match IDs for multiple matches.</p></li>
 <li><p><strong>max_workers</strong> (<em>int</em>) – Maximum number of workers to use for parallel processing.</p></li>
+<li><p><strong>preprocess_tracking</strong> (<em>bool</em>) – Whether to preprocess tracking data and event data in to one coordiante system.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -134,6 +134,7 @@
                                   <span class="n">skillcorner_match_dir</span><span class="o">=</span><span class="n">skillcorner_match_dir</span><span class="p">,</span>
                                   <span class="n">statsbomb_match_id</span><span class="o">=</span><span class="n">statsbomb_match_id</span><span class="p">,</span>
                                   <span class="n">skillcorner_match_id</span><span class="o">=</span><span class="n">skillcorner_match_id</span>
+                                  <span class="n">preprocess_tracking</span><span class="o">=</span><span class="kc">False</span> <span class="c1">#True if you want to preprocess tracking data and event data in to one coordiante system</span>
                                   <span class="p">)</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">statsbomb_skillcorner_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
@@ -153,7 +154,9 @@
                                 <span class="n">skillcorner_tracking_dir</span><span class="o">=</span><span class="n">skillcorner_tracking_dir</span><span class="p">,</span>
                                 <span class="n">skillcorner_match_dir</span><span class="o">=</span><span class="n">skillcorner_match_dir</span><span class="p">,</span>
                                 <span class="n">match_id_df</span><span class="o">=</span><span class="n">match_id_df</span><span class="p">,</span>
-                                <span class="n">max_workers</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+                                <span class="n">max_workers</span><span class="o">=</span><span class="mi">10</span>
+                                <span class="n">preprocess_tracking</span><span class="o">=</span><span class="kc">False</span> <span class="c1">#True if you want to preprocess tracking data and event data in to one coordiante system</span>
+                                <span class="p">)</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">statsbomb_skillcorner_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -190,6 +193,7 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">h1_x,</span> <span class="pre">h1_y,</span> <span class="pre">...,</span> <span class="pre">h16_x,</span> <span class="pre">h16_y</span></code>: X and Y coordinates for each player on the home team (indexed from h1 to h16).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">a1_x,</span> <span class="pre">a1_y,</span> <span class="pre">...,</span> <span class="pre">a16_x,</span> <span class="pre">a16_y</span></code>: X and Y coordinates for each player on the away team (indexed from a1 to a16).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">home_side</span></code>: Side of the field where the home team is positioned (e.g., “left” or “right”), determined based on the X-coordinate of the home and away team’s goalkeepers.</p></li>
 </ul>
 <p>The tracking data provides positional information for each player during specific moments of the match, allowing for detailed analysis and visualization of player movements and interactions throughout the game.</p>
 </dd></dl>
