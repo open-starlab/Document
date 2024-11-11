@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unified and Integrated Event Data (UEID) &mdash; Open-STAR-Lab v0.1.17 documentation</title>
+  <title>Unified and Integrated Event Data (UIED) &mdash; Open-STAR-Lab v0.1.17 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=92fd9be5" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=19f00094" />
 
@@ -81,7 +81,7 @@
           <li class="breadcrumb-item"><a href="../../index.html">Event Data</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Data Format</a></li>
           <li class="breadcrumb-item"><a href="index.html">Football/Soccer Data Format</a></li>
-      <li class="breadcrumb-item active">Unified and Integrated Event Data (UEID)</li>
+      <li class="breadcrumb-item active">Unified and Integrated Event Data (UIED)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../../_sources/Pre_Processing/Sports/Event_data/Data_Format/Football/UEID.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,9 +91,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="unified-and-integrated-event-data-ueid">
-<h1>Unified and Integrated Event Data (UEID)<a class="headerlink" href="#unified-and-integrated-event-data-ueid" title="Permalink to this heading"></a></h1>
-<p>The UEID is an origninal designed to provide a standardize format for event data in football.</p>
+  <section id="unified-and-integrated-event-data-uied">
+<h1>Unified and Integrated Event Data (UIED)<a class="headerlink" href="#unified-and-integrated-event-data-uied" title="Permalink to this heading"></a></h1>
+<p>The UIED is an origninal designed to provide a standardize format for event data in football.</p>
 <section id="event-class-standardization">
 <h2>Event Class Standardization<a class="headerlink" href="#event-class-standardization" title="Permalink to this heading"></a></h2>
 <table class="docutils align-default" id="id1">
@@ -449,10 +449,10 @@
 <h2>Pitch Coordinates Standardization<a class="headerlink" href="#pitch-coordinates-standardization" title="Permalink to this heading"></a></h2>
 <a class="reference internal image-reference" href="../../../../../_images/pitch_coord.png"><img alt="../../../../../_images/pitch_coord.png" class="align-center" src="../../../../../_images/pitch_coord.png" style="width: 600px;" /></a>
 </section>
-<section id="ueid-format">
-<h2>UEID Format<a class="headerlink" href="#ueid-format" title="Permalink to this heading"></a></h2>
+<section id="uied-format">
+<h2>UIED Format<a class="headerlink" href="#uied-format" title="Permalink to this heading"></a></h2>
 <dl class="simple">
-<dt>The UEID format includes the following columns:</dt><dd><ul class="simple">
+<dt>The UIED format includes the following columns:</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">match_id</span> <span class="pre">(int)</span></code>: Unique identifier for each match.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">poss_id</span> <span class="pre">(int)</span></code>: Unique identifier for each possession within a match.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">team</span> <span class="pre">(str)</span></code>: The team associated with the event.</p></li>
@@ -482,7 +482,7 @@
 <section id="examples-for-standardizing-multiple-matches">
 <h2>Examples for Standardizing Multiple Matches<a class="headerlink" href="#examples-for-standardizing-multiple-matches" title="Permalink to this heading"></a></h2>
 <p>Refer to the data provider pages to convet between single file and multiple file</p>
-<p>Example of the UEID format for Wyscout:</p>
+<p>Example of the UIED format for Wyscout:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
 
@@ -495,7 +495,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">wyscout_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>Example of the UEID format for StatsBomb:</p>
+<p>Example of the UIED format for StatsBomb:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
 
@@ -514,7 +514,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">statsbomb_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>Example of the UEID format for StatsBomb and SkillCorner:</p>
+<p>Example of the UIED format for StatsBomb and SkillCorner:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
 
@@ -535,7 +535,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">wyscout_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>Example of the UEID format for DataStadium:</p>
+<p>Example of the UIED format for DataStadium:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
 <span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;path/to/data/folder&#39;</span> <span class="c1">#the dir contain folders that contain the play.csv and tracking.csv files</span>

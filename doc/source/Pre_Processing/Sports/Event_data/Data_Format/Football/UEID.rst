@@ -1,7 +1,7 @@
-Unified and Integrated Event Data (UEID)
+Unified and Integrated Event Data (UIED)
 ====================================================================
 
-The UEID is an origninal designed to provide a standardize format for event data in football. 
+The UIED is an origninal designed to provide a standardize format for event data in football. 
 
 Event Class Standardization
 ---------------------------
@@ -19,10 +19,10 @@ Pitch Coordinates Standardization
    :width: 600px
    :align: center
 
-UEID Format
+UIED Format
 ------------
 
-The UEID format includes the following columns:
+The UIED format includes the following columns:
     - ``match_id (int)``: Unique identifier for each match.
     - ``poss_id (int)``: Unique identifier for each possession within a match.
     - ``team (str)``: The team associated with the event.
@@ -51,7 +51,7 @@ Examples for Standardizing Multiple Matches
 --------------------------------------------
 Refer to the data provider pages to convet between single file and multiple file
 
-Example of the UEID format for Wyscout::
+Example of the UIED format for Wyscout::
 
     import pandas as pd
     from preprocessing import Event_data
@@ -65,7 +65,7 @@ Example of the UEID format for Wyscout::
     print(wyscout_df.head())
 
 
-Example of the UEID format for StatsBomb::
+Example of the UIED format for StatsBomb::
 
     import pandas as pd
     from preprocessing import Event_data
@@ -85,7 +85,7 @@ Example of the UEID format for StatsBomb::
     print(statsbomb_df.head())
 
 
-Example of the UEID format for StatsBomb and SkillCorner::
+Example of the UIED format for StatsBomb and SkillCorner::
 
     import pandas as pd
     from preprocessing import Event_data
@@ -106,7 +106,7 @@ Example of the UEID format for StatsBomb and SkillCorner::
 
     print(wyscout_df.head())
 
-Example of the UEID format for DataStadium::
+Example of the UIED format for DataStadium::
 
     import pandas as pd
     from preprocessing import Event_data
