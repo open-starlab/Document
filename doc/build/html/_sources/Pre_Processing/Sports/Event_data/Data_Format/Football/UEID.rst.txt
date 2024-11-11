@@ -1,4 +1,4 @@
-United and Integrated Event Data (UEID)
+unified and Integrated Event Data (UEID)
 ====================================================================
 
 The UEID is an origninal designed to provide a standardize format for event data in football. 
