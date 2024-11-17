@@ -7,15 +7,25 @@ The models in this package has been edited to be compatible with the framework s
 
 Framework
 ---------
-TBA
+The data were then converted to the `UIED format <https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Event_data/Data_Format/Football/UEID.html>`_ using the OpenSTARLab `Pre-Processing <https://github.com/open-starlab/PreProcessing>`_ package. Afterward, all models were trained with the OpenSTARLab Event package. For more details refer to our paper.
+
+.. code-block:: text
+
+    @article{TBA},
+      title={},
+      author={},
+      journal={},
+      year={}
+    }
+
 
 Pre-Trained Models
 ------------------
-The following models are available for use in predicting soccer match events:
+The  are available for use in predicting soccer match events are introduced in the following section. 
 
-TBA
+The pre-trained models can be found `here <https://drive.google.com/drive/folders/1iJmNALHYaDX0Na1Swmcp_RatUB1eWDmh?usp=drive_link>`_. Download the desire model folder and the corresponding model.yaml file in the model_yaml fodler. Remenber to update the path in the hyperparameters.json and model.yaml files to the correct path of the pre-trained models.
 
-The yaml file for the pre-trained models can be found `here <https://github.com/open-starlab/Event/tree/main/event/sports/soccer/models/model_yaml>`_.
+The YAML file for the pre-trained models can also be found `here <https://github.com/open-starlab/Event/tree/main/event/sports/soccer/models/model_yaml>`_.
 
 Models: NMSTPP
 ------------------
@@ -25,7 +35,7 @@ The Transformer-Based Neural Marked Spatio Temporal Point Process (NMSTPP) model
 
     @article{yeung2023transformer,
       title={Transformer-based neural marked spatio temporal point process model for football match events analysis},
-      author={Yeung, Calvin CK and Sit, Tony and Fujii, Keisuke},
+      author={Yeung, Calvin and Sit, Tony and Fujii, Keisuke},
       journal={arXiv preprint arXiv:2302.09276},
       year={2023}
     }
