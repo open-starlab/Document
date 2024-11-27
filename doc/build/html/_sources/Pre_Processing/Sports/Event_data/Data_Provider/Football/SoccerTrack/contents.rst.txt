@@ -59,6 +59,7 @@ BePro
    - ``event_type``: Primary type of the event.
    - ``home_team``: Binary indicator (1 for home team, 0 for away team).
    - ``x_unscaled``, ``y_unscaled``: Unscaled coordinates of the event on the pitch.
+   - ``tracking_time``: The matchTime of the synced tracking data in milliseconds.
 
    For each player (both home and away teams):
 
