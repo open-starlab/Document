@@ -6,6 +6,11 @@
 Welcome to Open-STAR-Lab documentation!
 =============================================
 
+.. image:: https://img.shields.io/badge/GitHub-open--starlab-blue?logo=github
+   :target: https://github.com/open-starlab
+   :alt: GitHub
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
