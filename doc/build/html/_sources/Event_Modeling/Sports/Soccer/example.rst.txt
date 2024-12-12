@@ -2,6 +2,11 @@ Example: Train and Inference NMSTPP model
 =============================================
 To train, infer, and simulate using the NMSTPP model, you can utilize the following code snippets.
 
+.. note::
+   Wyscout data can be utilized for both training and inference, to create the dataset, see the following example:
+   `Wyscout Dataset Example on Colab <https://colab.research.google.com/drive/1c7pAwXDVaT_XTYNHvgvxgmxj0E-6IEKH?authuser=1#scrollTo=jtQIUUhHf43K>`_.
+
+
 Training the NMSTPP Model
 ---------------------------
 
