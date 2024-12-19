@@ -3,7 +3,7 @@ DataStadium
 
 .. class:: Tracking_data('soccer').process_tracking_data(game_id, data_path, event_data_name="play.csv", player_data_name="player.csv", tracking_data_name1="tracking_1stHalf.csv", tracking_data_name2="tracking_2ndHalf.csv")-> tuple
 
-    Process and load tracking and event data for a specific game, including tracking data for home and away teams, as well as jersey numbers.
+    Process and load tracking data for a specific game, including tracking data for home and away teams, as well as jersey numbers.
 
     :param game_id: Index of the game folder in the dataset to process.
     :type game_id: int
