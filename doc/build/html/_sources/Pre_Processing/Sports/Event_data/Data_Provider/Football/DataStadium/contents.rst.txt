@@ -14,6 +14,13 @@ DataStadium
     :return: DataFrame containing merged and processed event and tracking data.
     :rtype: pd.DataFrame
 
+    .. note::
+
+        The `DataStadium` tracking data data requires preprocessing. Which could be handled with the `Tracking_data` class. Ensure this preprocessing step is completed before using this function.
+
+        For more details, refer to the `Tracking_data` class documentation: 
+        `process_datadium_tracking_data Documentation <https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Tracking_data/Data_Provider/Football/DataStadium/contents.html>`_
+
     **Example for single match**
 
     .. code-block:: python
