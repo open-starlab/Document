@@ -1,10 +1,8 @@
-Sports
+Data Providers
 =============================================
 
 .. toctree::
    :maxdepth: 2
 
 
-   Event_data/index
-   SAR_data/index
-   Tracking_data/index
+   Football/index

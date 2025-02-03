@@ -1,10 +1,8 @@
-Sports
+RLearn-Modeling
 =============================================
 
 .. toctree::
    :maxdepth: 2
 
 
-   Event_data/index
-   SAR_data/index
-   Tracking_data/index
+   Sports/index
