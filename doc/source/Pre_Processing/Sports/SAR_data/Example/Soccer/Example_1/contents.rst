@@ -1,5 +1,5 @@
 Download and Preprocess DataStadium Data
-====================================
+=====================================================
 
 This script downloads, unzips, and preprocesses DataStadium event and match data. The processed data is then split into training, validation, and test sets.
 

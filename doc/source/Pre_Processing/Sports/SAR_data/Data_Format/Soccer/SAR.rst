@@ -5,7 +5,7 @@ The SAR is an origninal designed to provide a standardize format for event data 
 
 Pitch Coordinates Standardization
 ---------------------------------
-.. image:: sar_format_pitch_coord.png
+.. image:: sar_format_pitch_coord.webp
    :width: 600px
    :align: center
 
@@ -13,6 +13,7 @@ SAR Format
 ------------
 
 The SAR format consists of event data and tracking data.
+
 The event data includes the following columns:
     - ``match_id (int)``: Unique identifier for each match.
     - ``frame_id (int)``: Unique identifier for each frame within a match.
@@ -40,7 +41,7 @@ The event data includes the following columns:
     - ``seconds (float)``: The total seconds elapsed since the start of the match, adjusted for different periods.
     - ``start_x (float)``: The x-coordinate of the player location when event's starting (scaled).
     - ``start_y (float)``: The y-coordinate of the player location when event's starting (scaled).
-    - ``ball_y (float)``: The x-coordinate of the ball location when event's starting (scaled).
+    - ``ball_x (float)``: The x-coordinate of the ball location when event's starting (scaled).
     - ``ball_y (float)``: The y-coordinate of the ball location when event's starting (scaled).
     - ``ball_touch (int)``: Only event valid as play $1$ Ball out, fouls, etc. $0$.
     - ``series_num (int)``: Sequential number of the sequence of in-play of the match.
@@ -97,5 +98,3 @@ Example of the SAR format for StatsBomb and SkillCorner::
                                             max_workers=max_workers).preprocessing()
 
     print(wyscout_df.head())
-
-

@@ -5,4 +5,4 @@ Examples
    :maxdepth: 2
 
 
-   Football/index
+   Soccer/index
