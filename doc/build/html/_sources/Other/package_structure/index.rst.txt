@@ -6,3 +6,4 @@ Package Structure
 
    preprocessing
    event_model
+   SAR_model
