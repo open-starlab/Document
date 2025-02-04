@@ -1,9 +1,8 @@
-Package Structure
+Football/Soccer Data Format
 =============================================
 
 .. toctree::
    :maxdepth: 1
 
-   preprocessing
-   event_model
-   SAR_model
+   SAR
+
