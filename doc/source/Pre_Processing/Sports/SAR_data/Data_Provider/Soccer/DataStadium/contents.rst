@@ -71,7 +71,7 @@ DataStadium
 
     The returned DataFrame consists of event and tracking data.
     The event data includes the following columns:
-    
+
     - ``match_id (int)``: Unique identifier for each match.
     - ``frame_id (int)``: Unique identifier for each frame within a match.
     - ``team (str)``: The team associated with the event.
@@ -109,6 +109,7 @@ DataStadium
 
 
     The tracking data includes the following columns:
+    
     - ``match_id (int)``: Unique identifier for each match.
     - ``frame_id (int)``: Unique identifier for each frame within a match.
     - ``home_team (int)``: Indicator of whether the team is the home team (1: home, 0: away).
