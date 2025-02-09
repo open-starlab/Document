@@ -11,11 +11,11 @@ The data were then converted to the `UIED format <https://openstarlab.readthedoc
 
 .. code-block:: text
 
-    @article{TBA},
-      title={},
-      author={},
-      journal={},
-      year={}
+    @article{yeung2025openstarlab,
+      title={OpenSTARLab: Open Approach for Spatio-Temporal Agent Data Analysis in Soccer},
+      author={Yeung, Calvin and Ide, Kenjiro and Someya, Taiga and Fujii, Keisuke},
+      journal={arXiv preprint arXiv:2502.02785},
+      year={2025}
     }
 
 
