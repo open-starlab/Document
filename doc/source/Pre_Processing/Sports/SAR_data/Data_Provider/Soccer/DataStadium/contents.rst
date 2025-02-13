@@ -1,18 +1,15 @@
 DataStadium
 ==============
-.. class:: SAR_data(data_provider='datastadium',event_path=play_csv_path, home_tracking_path=home_tracking_csv_path, away_tracking_path=away_tracking_csv_path).load_data() -> pd.DataFrame
+.. class:: SAR_data(data_provider='datastadium', data_path=datastadium_path, match_id=match_id, config_path=config_path).load_data() -> pd.DataFrame
 
     Load and process stadium event and tracking data from CSV files and convert it into a DataFrame.
 
-    :param event_path: Path to the play CSV file containing event data.
+    :param data_path: Path to the folder containing the event data and tracking data CSV files.
     :type event_path: str
-    :param home_tracking_path: Path to the home_tracking CSV file containing home team tracking data.
+    :param match_id: The ID of the match. Defaults to None.
     :type home_tracking_path: str
-    :param away_tracking_path: Path to the away_tracking CSV file containing away team tracking data.
+    :param config_path: The path to the configuration file.
     :type away_tracking_path: str
-
-    :return: DataFrame containing merged and processed event and tracking data.
-    :rtype: pd.DataFrame
 
     .. note::
 
@@ -28,17 +25,16 @@ DataStadium
         import pandas as pd
         from preprocessing import SAR_data
 
-        event_path = 'path/to/play.csv'
-        home_tracking_path = 'path/to/home_tracking.csv'
-        away_tracking_path = 'path/to/away_tracking.csv'
-        
-        datastadium_df = SAR_data(
-            event_path=event_path, 
-            home_tracking_path=home_tracking_path,
-            away_tracking_path=away_tracking_path
+        datastadium_path = "/path/to/data_folder/"
+        match_id = "match_id"
+        config_path = "/path/to/preprocess_config.json"
+
+        SAR_data(
+            data_provider='datastadium',
+            data_path=datastadium_path,
+            match_id=match_id,
+            config_path=config_path
         ).load_data()
-        
-        print(datastadium_df.head())
 
     **Example for mutiple match**
 
@@ -47,30 +43,38 @@ DataStadium
         import pandas as pd
         from preprocessing import SAR_data
 
-        data_dir = 'path/to/data/dir' #the dir contain folders that contain the play.csv and tracking.csv files
-        
-        datastadium_df = SAR_data(
-            event_path=data_dir
+        datastadium_path = "/path/to/data_folder/"
+        config_path = "/path/to/preprocess_config.json"
+
+        Soccer_SAR_data(
+            data_provider='datastadium',
+            data_path=datastadium_path,
+            config_path=config_path,
+            max_workers=2
         ).load_data()
-        
-        print(datastadium_df.head())
 
     **Details**
 
     This function performs the following steps:
 
-    1. Loads the event data from the CSV file specified by `event_path`.
-    2. Loads the home and away team tracking data from the CSV files specified by `home_tracking_path` and `away_tracking_path`.
-    3. Filters and preprocesses the event data by retaining required columns and sorting by absolute time.
-    4. Creates a new column `event_type_2` based on event flags.
-    5. Renames columns to standardized names and reorders them.
-    6. Converts event types to English using predefined dictionaries.
-    7. Calculates the period, minute, and second for each event based on absolute time.
-    8. Appends tracking data to the event data by aligning timestamps.
-    9. Creates and returns a final DataFrame with event and tracking data.
+    1. Loads the event data from the CSV file specified by  `data_path/event_data`.
+    2. Checks and renames the event columns to standardized names.
+    3. Gets the changed player list separated by the team.
+    4. Loads the player data from the CSV file specified by `data_path/player_path`.
+    5. Checks and renames the player columns.
+    6. Loads the home and away team tracking data from the CSV files specified by `data_path/home_tracking_path` and `data_path/away_tracking_path`.
+    7. Splits the tracking data into player and ball tracking data.
+    8. Checks and renames the player and ball tracking columns.
+    9. Interpolates the ball tracking data.
+    10. Merges the player and ball tracking data.
+    11. Interpolates the player tracking data.
+    12. Calculates the player and ball velocity and acceleration.
+    13. Merges the event data with the tracking data.
+    14. Saves the processed data to a CSV file.
 
     The returned DataFrame consists of event and tracking data.
     The event data includes the following columns:
+
     - ``match_id (int)``: Unique identifier for each match.
     - ``frame_id (int)``: Unique identifier for each frame within a match.
     - ``team (str)``: The team associated with the event.
@@ -108,6 +112,7 @@ DataStadium
 
 
     The tracking data includes the following columns:
+
     - ``match_id (int)``: Unique identifier for each match.
     - ``frame_id (int)``: Unique identifier for each frame within a match.
     - ``home_team (int)``: Indicator of whether the team is the home team (1: home, 0: away).

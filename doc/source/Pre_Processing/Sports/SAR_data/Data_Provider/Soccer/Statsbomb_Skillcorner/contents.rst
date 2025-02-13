@@ -1,19 +1,13 @@
 Statsbomb with Skillcorner
 ============================
-.. class:: SAR_data(data_provider='statsbomb_skillcorner',statsbomb_event_dir=statsbomb_event_dir,skillcorner_tracking_dir=skillcorner_tracking_dir,skillcorner_match_dir=skillcorner_match_dir,statsbomb_match_id=statsbomb_match_id,skillcorner_match_id=skillcorner_match_id,match_id_df=match_id_df,max_workers=max_workers,preprocess_tracking=False).load_data()
+.. class:: Soccer_SAR_data(data_provider='statsbomb_skillcorner', data_path=statsbomb_skillcorner_path, match_id="1120811", config_path=config_path, statsbomb_skillcorner_match_id=statsbomb_skillcorner_match_id).load_data()
 
     Load and merge StatsBomb event data with SkillCorner tracking data.
 
-    :param str statsbomb_event_dir: Directory path for StatsBomb event data.
-    :param str skillcorner_tracking_dir: Directory path for SkillCorner tracking data.
-    :param str skillcorner_match_dir: Directory path for SkillCorner match data.
-    :param str statsbomb_match_id: Match ID for StatsBomb data.
-    :param str skillcorner_match_id: Match ID for SkillCorner data.
-    :param str match_id_df: Path to a CSV file containing match IDs for multiple matches.
-    :param int max_workers: Maximum number of workers to use for parallel processing.
-    :param bool preprocess_tracking: Whether to preprocess tracking data and event data in to one coordiante system.
-    :return: A DataFrame containing the combined event and tracking data.
-    :rtype: pd.DataFrame
+    :param str data_path: Directory path for StatsBomb and SkillCorner data.
+    :param str match_id: Match ID for SkillCorner data.
+    :param str config_path: Path to the configuration file.
+    :param str statsbomb_skillcorner_match_id: Path to a CSV file containing match IDs for multiple matches.
 
     **Example usage for single match**:
 
@@ -22,22 +16,19 @@ Statsbomb with Skillcorner
         import pandas as pd
         from preprocessing import SAR_data
 
-        statsbomb_event_dir = '/path/to/statsbomb/events'
-        skillcorner_tracking_dir = '/path/to/skillcorner/tracking'
-        skillcorner_match_dir = '/path/to/skillcorner/match'
-        statsbomb_match_id = 'statsbomb_match_id'
-        skillcorner_match_id = 'skillcorner_match_id'
+        data_path = '/path/to/statsbomb_skillcorner'
+        match_id = 'match_id'
+        config_path = '/path/to/preprocess_config.json'
+        statsbomb_skillcorner_match_id = '/path/to/statsbomb_skillcorner_match_id.json'
 
         #Load single match data
-        statsbomb_skillcorner_df=SAR_data(data_provider='statsbomb_skillcorner',
-                                          statsbomb_event_dir=statsbomb_event_dir,
-                                          skillcorner_tracking_dir=skillcorner_tracking_dir,
-                                          skillcorner_match_dir=skillcorner_match_dir,
-                                          statsbomb_match_id=statsbomb_match_id,
-                                          skillcorner_match_id=skillcorner_match_id
-                                          preprocess_tracking=False #True if you want to preprocess tracking data and event data in to one coordiante system
-                                          ).load_data()
-        print(statsbomb_skillcorner_df.head())
+        Soccer_SAR_data(
+            data_provider='statsbomb_skillcorner',
+            data_path=data_path,
+            match_id=match_id, # match_id for skillcorner
+            config_path=config_path,
+            statsbomb_skillcorner_match_id=statsbomb_skillcorner_match_id,
+        ).load_data()
 
 
     **Example usage for multiple matches**:
@@ -47,21 +38,18 @@ Statsbomb with Skillcorner
         import pandas as pd
         from preprocessing import SAR_data
 
-        statsbomb_event_dir = '/path/to/statsbomb/events'
-        skillcorner_tracking_dir = '/path/to/skillcorner/tracking'
-        skillcorner_match_dir = '/path/to/skillcorner/match'
-        match_id_df = '/path/to/match_id.csv' #(For laliga 23-24 data, lcoated in "openstarlab_preprocessing/open/example/id_matching.csv")
+        data_path = '/path/to/statsbomb_skillcorner'
+        config_path = '/path/to/preprocess_config.json'
+        statsbomb_skillcorner_match_id = '/path/to/statsbomb_skillcorner_match_id.json'
 
         #Load multiple matches data
-        statsbomb_skillcorner_df=SAR_data(data_provider='statsbomb_skillcorner',
-                                        statsbomb_event_dir=statsbomb_event_dir,
-                                        skillcorner_tracking_dir=skillcorner_tracking_dir,
-                                        skillcorner_match_dir=skillcorner_match_dir,
-                                        match_id_df=match_id_df,
-                                        max_workers=10
-                                        preprocess_tracking=False #True if you want to preprocess tracking data and event data in to one coordiante system
-                                        ).load_data()
-        print(statsbomb_skillcorner_df.head())
+        Soccer_SAR_data(
+            data_provider='statsbomb_skillcorner',
+            data_path=data_path,
+            config_path=config_path,
+            statsbomb_skillcorner_match_id=statsbomb_skillcorner_match_id,
+            max_workers=2
+        ).load_data()
 
     **Details**:
 
@@ -74,9 +62,14 @@ Statsbomb with Skillcorner
     5. **Data Processing**: Iterates through StatsBomb event data, extracts event details, and integrates them with tracking data.
     6. **DataFrame Creation**: Constructs a DataFrame containing event details, team names, player names, event coordinates, and tracking data (if available).
     7. **Sorting**: Sorts events chronologically by 'period', 'minute', and 'second'.
+    8. **Spliting Data Structures**: Splits the event and tracking data into play.csv (event data), player.csv (player tracking data), ball.csv (ball tracking data), and players.csv (player metadata).
+    9. **Cleaning Data**: Removes unnecessary columns and standardizes column names.
+    10. **Interpolating Data**: Interpolates missing tracking data.
+    11. **Saving Data**: Saves the processed data to a CSV file.
 
     The returned DataFrame consists of event and tracking data.
     The event data includes the following columns:
+
     - ``match_id (int)``: Unique identifier for each match.
     - ``frame_id (int)``: Unique identifier for each frame within a match.
     - ``team (str)``: The team associated with the event.
@@ -114,6 +107,7 @@ Statsbomb with Skillcorner
 
 
     The tracking data includes the following columns:
+
     - ``match_id (int)``: Unique identifier for each match.
     - ``frame_id (int)``: Unique identifier for each frame within a match.
     - ``home_team (int)``: Indicator of whether the team is the home team (1: home, 0: away).
