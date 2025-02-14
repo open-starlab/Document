@@ -1,12 +1,12 @@
-SAR_Model Class
+RLearn_Model Class
 =========================
-This class provides the spliting test anda train data for the SAR model, attacker simple observation, train the SAR model and visualize the Q values.
+This class provides the spliting test anda train data for the SAR model, attacker simple observation, train the RLearn model and visualize the Q values.
 
 Initialization
 -------------------------
 .. method:: __init__(config=None)
 
-   Initializes the SAR model with the specified configuration.
+   Initializes the RLearn model with the specified configuration.
 
    :param model_name: (str, optional) Name of the model to be used. Defaults to 'SARSA'.
    :param config: (str) Path to a JSON configuration file.
@@ -31,7 +31,7 @@ Methods
 
 .. method:: train_model(exp_name, run_name, accelerator, devices, strategy)
     
-   Trains the SAR model using the preprocessed data.
+   Trains the RLearn model using the preprocessed data.
 
    :param exp_name: (str) Name of the experiment. Defaults to 'sarsa_attacker'.
    :param run_name: (str) Name to save in tensorflow, mlflow, etc.
@@ -42,7 +42,7 @@ Methods
 
 .. method:: visualize_q_values(model_name, checkpoint_path, match_id, sequence_id)
 
-   Visualizes the Q-values for the trained SAR model.
+   Visualizes the Q-values for the trained RLearn model.
 
    :param model_name: (str) Name of the model used for training.
    :param checkpoint_path: (str) Path to the saved model checkpoint.

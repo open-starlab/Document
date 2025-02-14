@@ -1,6 +1,6 @@
-Example: Train and Visualize sarsa_attacker Model
+Example: Train and Visualize RLearn Model
 =============================================
-To train and visualize the sarsa_attacker model, you can utilize the following code snippets.
+To train and visualize the RLearn model, you can utilize the following code snippets.
 
 Spliting Test and Train Data
 -----------------------------
@@ -40,7 +40,7 @@ Preprocess Observations
     ).preprocess_observations(batch_size=64)
 
 
-Train the sarsa_attacker Model
+Train the RLearn Model
 -------------------------------
 
 .. code-block:: python

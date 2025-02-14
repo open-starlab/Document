@@ -1,11 +1,11 @@
-Application of the SAR Model in Soccer
+Application of the RLearn Model in Soccer
 ========================================
-This section demonstrates applications of the SAR Model in soccer.
+This section demonstrates applications of the RLearn Model in soccer.
 
 Q-values and Location Visualization
 ------------------------------------------------------------------------------
 
-The following code snippet shows how to use the `SAR_Model` class to plot a heat map of the next event location based on model predictions.
+The following code snippet shows how to visualize the Q-values for the trained RLearn model.
 
 .. code-block:: python
 

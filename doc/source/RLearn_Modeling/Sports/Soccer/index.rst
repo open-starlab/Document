@@ -1,4 +1,4 @@
-Football/Soccer Event Modeling
+Football/Soccer RLearn Modeling
 =============================================
 
 .. toctree::
