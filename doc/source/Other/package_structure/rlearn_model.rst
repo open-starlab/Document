@@ -5,7 +5,7 @@ The structure of the Rlearn_Modeling package is as follows:
 
 structure
 ---------
-.. code-block:: text
+.. code-block:: python
     
     └── main_class.py  #main class for the event data
     └── Sports
