@@ -28,6 +28,8 @@ sphinx-autobuild source build/html
 5. Check the document deployment on https://readthedocs.org/
 
 ## Upload repo
-1. git add -A
-2. git commit -m "update"
-3. git push -u origin master
+```
+git add -A
+git commit -m "update"
+git push -u origin master
+```

@@ -112,7 +112,7 @@ DataStadium
 
 
     The tracking data includes the following columns:
-
+    
     - ``match_id (int)``: Unique identifier for each match.
     - ``frame_id (int)``: Unique identifier for each frame within a match.
     - ``home_team (int)``: Indicator of whether the team is the home team (1: home, 0: away).
