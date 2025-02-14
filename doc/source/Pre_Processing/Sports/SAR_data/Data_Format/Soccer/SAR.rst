@@ -67,15 +67,17 @@ Refer to the data provider pages to convet between single file and multiple file
 Example of the SAR format for DataStadium::
 
     import pandas as pd
-    from preprocessing import Event_data
+    from preprocessing import SAR_data
 
-    event_folder = 'path/to/event/folder'
-    match_folder = 'path/to/match/folder'
-    max_workers = 1
+    datastadium_path = "/path/to/data_folder/"
+    config_path = "/path/to/preprocess_config.json"
 
-    datastadium_df = SAR_data(data_provider='datastadium',event_path=event_folder,match_folder=match_folder,
-                            preprocess_method="SAR",max_workers=max_workers).preprocessing()
-    print(datastadium_df.head())
+    Soccer_SAR_data(
+        data_provider='datastadium',
+        data_path=datastadium_path,
+        config_path=config_path,
+        max_workers=2
+    ).load_data()
 
 
 Example of the SAR format for StatsBomb and SkillCorner::
@@ -83,18 +85,14 @@ Example of the SAR format for StatsBomb and SkillCorner::
     import pandas as pd
     from preprocessing import SAR_data
 
-    event_folder = 'path/to/event/folder'
-    tracking_folder = 'path/to/tracking/folder'
-    match_folder = 'path/to/match/folder'
-    match_id_df = 'path/to/match_id.csv'
-    max_workers = 1
+    data_path = '/path/to/statsbomb_skillcorner'
+    config_path = '/path/to/preprocess_config.json'
+    statsbomb_skillcorner_match_id = '/path/to/statsbomb_skillcorner_match_id.json'
 
-    df_statsbomb_skillcorner=Event_data(data_provider='statsbomb_skillcorner',
-                                            statsbomb_event_dir=event_folder,
-                                            skillcorner_tracking_dir=tracking_folder,
-                                            skillcorner_match_dir=match_folder,
-                                            match_id_df=match_id_df,
-                                            preprocess_method="SAR",
-                                            max_workers=max_workers).preprocessing()
-
-    print(wyscout_df.head())
+    Soccer_SAR_data(
+        data_provider='statsbomb_skillcorner',
+        data_path=data_path,
+        config_path=config_path,
+        statsbomb_skillcorner_match_id=statsbomb_skillcorner_match_id,
+        max_workers=2
+    ).load_data()
