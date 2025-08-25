@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
 <head>
@@ -5,23 +7,19 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Statsbomb with Skillcorner &mdash; Open-STAR-Lab v0.1.27 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=92fd9be5" />
-      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js?v=20192711"></script>
-        <script src="../../../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js?v=20192711"></script>
+      <script src="../../../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
-    <link rel="next" title="Data Format" href="../../../Data_Format/index.html" />
+    <link rel="next" title="FIFAWorldCup" href="../FIFAWorldCup/contents.html" />
     <link rel="prev" title="DataStadium" href="../DataStadium/contents.html" /> 
 </head>
 
@@ -97,70 +95,62 @@
   <section id="statsbomb-with-skillcorner">
 <h1>Statsbomb with Skillcorner<a class="headerlink" href="#statsbomb-with-skillcorner" title="Permalink to this heading"></a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="SAR_data">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SAR_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider='statsbomb_skillcorner'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statsbomb_event_dir=statsbomb_event_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skillcorner_tracking_dir=skillcorner_tracking_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skillcorner_match_dir=skillcorner_match_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statsbomb_match_id=statsbomb_match_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skillcorner_match_id=skillcorner_match_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id_df=match_id_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_workers=max_workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess_tracking=False).load_data(</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SAR_data" title="Permalink to this definition"></a></dt>
-<dd><p>Load and merge StatsBomb event data with SkillCorner tracking data.</p>
+<dt class="sig sig-object py" id="Soccer_SAR_data">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Soccer_SAR_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider='statsbomb_skillcorner'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_def=state_def</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_path=statsbomb_skillcorner_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id=&quot;1120811&quot;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_path=config_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statsbomb_skillcorner_match_id=statsbomb_skillcorner_match_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess_method='SAR').preprocess_data(</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Soccer_SAR_data" title="Permalink to this definition"></a></dt>
+<dd><p>Load, merge and process StatsBomb event data with SkillCorner tracking data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>statsbomb_event_dir</strong> (<em>str</em>) – Directory path for StatsBomb event data.</p></li>
-<li><p><strong>skillcorner_tracking_dir</strong> (<em>str</em>) – Directory path for SkillCorner tracking data.</p></li>
-<li><p><strong>skillcorner_match_dir</strong> (<em>str</em>) – Directory path for SkillCorner match data.</p></li>
-<li><p><strong>statsbomb_match_id</strong> (<em>str</em>) – Match ID for StatsBomb data.</p></li>
-<li><p><strong>skillcorner_match_id</strong> (<em>str</em>) – Match ID for SkillCorner data.</p></li>
-<li><p><strong>match_id_df</strong> (<em>str</em>) – Path to a CSV file containing match IDs for multiple matches.</p></li>
-<li><p><strong>max_workers</strong> (<em>int</em>) – Maximum number of workers to use for parallel processing.</p></li>
-<li><p><strong>preprocess_tracking</strong> (<em>bool</em>) – Whether to preprocess tracking data and event data in to one coordiante system.</p></li>
+<li><p><strong>state_def</strong> (<em>str</em>) – The state definition to use for preprocessing.</p></li>
+<li><p><strong>data_path</strong> (<em>str</em>) – Directory path for StatsBomb and SkillCorner data.</p></li>
+<li><p><strong>match_id</strong> (<em>str</em>) – Match ID for SkillCorner data.</p></li>
+<li><p><strong>config_path</strong> (<em>str</em>) – Path to the configuration file.</p></li>
+<li><p><strong>statsbomb_skillcorner_match_id</strong> (<em>str</em>) – Path to a CSV file containing match IDs for multiple matches.</p></li>
+<li><p><strong>preprocess_method</strong> (<em>str</em>) – The preprocessing method to use. Defaults to None.</p></li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A DataFrame containing the combined event and tracking data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pd.DataFrame</p>
 </dd>
 </dl>
 <p><strong>Example usage for single match</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">SAR_data</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAR_data</span>
 
-<span class="n">statsbomb_event_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/statsbomb/events&#39;</span>
-<span class="n">skillcorner_tracking_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/skillcorner/tracking&#39;</span>
-<span class="n">skillcorner_match_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/skillcorner/match&#39;</span>
-<span class="n">statsbomb_match_id</span> <span class="o">=</span> <span class="s1">&#39;statsbomb_match_id&#39;</span>
-<span class="n">skillcorner_match_id</span> <span class="o">=</span> <span class="s1">&#39;skillcorner_match_id&#39;</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;/path/to/statsbomb_skillcorner&#39;</span>
+<span class="n">state_def</span> <span class="o">=</span> <span class="s1">&#39;PVS&#39;</span>
+<span class="n">match_id</span> <span class="o">=</span> <span class="s1">&#39;match_id&#39;</span>
+<span class="n">config_path</span> <span class="o">=</span> <span class="s1">&#39;/path/to/preprocess_config.json&#39;</span>
+<span class="n">statsbomb_skillcorner_match_id</span> <span class="o">=</span> <span class="s1">&#39;/path/to/statsbomb_skillcorner_match_id.json&#39;</span>
 
 <span class="c1">#Load single match data</span>
-<span class="n">statsbomb_skillcorner_df</span><span class="o">=</span><span class="n">SAR_data</span><span class="p">(</span><span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;statsbomb_skillcorner&#39;</span><span class="p">,</span>
-                                  <span class="n">statsbomb_event_dir</span><span class="o">=</span><span class="n">statsbomb_event_dir</span><span class="p">,</span>
-                                  <span class="n">skillcorner_tracking_dir</span><span class="o">=</span><span class="n">skillcorner_tracking_dir</span><span class="p">,</span>
-                                  <span class="n">skillcorner_match_dir</span><span class="o">=</span><span class="n">skillcorner_match_dir</span><span class="p">,</span>
-                                  <span class="n">statsbomb_match_id</span><span class="o">=</span><span class="n">statsbomb_match_id</span><span class="p">,</span>
-                                  <span class="n">skillcorner_match_id</span><span class="o">=</span><span class="n">skillcorner_match_id</span>
-                                  <span class="n">preprocess_tracking</span><span class="o">=</span><span class="kc">False</span> <span class="c1">#True if you want to preprocess tracking data and event data in to one coordiante system</span>
-                                  <span class="p">)</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">statsbomb_skillcorner_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">Soccer_SAR_data</span><span class="p">(</span>
+    <span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;statsbomb_skillcorner&#39;</span><span class="p">,</span>
+    <span class="n">state_def</span><span class="o">=</span><span class="n">state_def</span><span class="p">,</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="n">data_path</span><span class="p">,</span>
+    <span class="n">match_id</span><span class="o">=</span><span class="n">match_id</span><span class="p">,</span> <span class="c1"># match_id for skillcorner</span>
+    <span class="n">config_path</span><span class="o">=</span><span class="n">config_path</span><span class="p">,</span>
+    <span class="n">statsbomb_skillcorner_match_id</span><span class="o">=</span><span class="n">statsbomb_skillcorner_match_id</span><span class="p">,</span>
+    <span class="n">preprocess_method</span><span class="o">=</span><span class="s1">&#39;SAR&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">preprocess_method</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><strong>Example usage for multiple matches</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">SAR_data</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAR_data</span>
 
-<span class="n">statsbomb_event_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/statsbomb/events&#39;</span>
-<span class="n">skillcorner_tracking_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/skillcorner/tracking&#39;</span>
-<span class="n">skillcorner_match_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/skillcorner/match&#39;</span>
-<span class="n">match_id_df</span> <span class="o">=</span> <span class="s1">&#39;/path/to/match_id.csv&#39;</span> <span class="c1">#(For laliga 23-24 data, lcoated in &quot;openstarlab_preprocessing/open/example/id_matching.csv&quot;)</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;/path/to/statsbomb_skillcorner&#39;</span>
+<span class="n">state_def</span> <span class="o">=</span> <span class="s1">&#39;PVS&#39;</span>
+<span class="n">config_path</span> <span class="o">=</span> <span class="s1">&#39;/path/to/preprocess_config.json&#39;</span>
+<span class="n">statsbomb_skillcorner_match_id</span> <span class="o">=</span> <span class="s1">&#39;/path/to/statsbomb_skillcorner_match_id.json&#39;</span>
 
 <span class="c1">#Load multiple matches data</span>
-<span class="n">statsbomb_skillcorner_df</span><span class="o">=</span><span class="n">SAR_data</span><span class="p">(</span><span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;statsbomb_skillcorner&#39;</span><span class="p">,</span>
-                                <span class="n">statsbomb_event_dir</span><span class="o">=</span><span class="n">statsbomb_event_dir</span><span class="p">,</span>
-                                <span class="n">skillcorner_tracking_dir</span><span class="o">=</span><span class="n">skillcorner_tracking_dir</span><span class="p">,</span>
-                                <span class="n">skillcorner_match_dir</span><span class="o">=</span><span class="n">skillcorner_match_dir</span><span class="p">,</span>
-                                <span class="n">match_id_df</span><span class="o">=</span><span class="n">match_id_df</span><span class="p">,</span>
-                                <span class="n">max_workers</span><span class="o">=</span><span class="mi">10</span>
-                                <span class="n">preprocess_tracking</span><span class="o">=</span><span class="kc">False</span> <span class="c1">#True if you want to preprocess tracking data and event data in to one coordiante system</span>
-                                <span class="p">)</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">statsbomb_skillcorner_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">Soccer_SAR_data</span><span class="p">(</span>
+    <span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;statsbomb_skillcorner&#39;</span><span class="p">,</span>
+    <span class="n">state_def</span><span class="o">=</span><span class="n">state_def</span><span class="p">,</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="n">data_path</span><span class="p">,</span>
+    <span class="n">config_path</span><span class="o">=</span><span class="n">config_path</span><span class="p">,</span>
+    <span class="n">statsbomb_skillcorner_match_id</span><span class="o">=</span><span class="n">statsbomb_skillcorner_match_id</span><span class="p">,</span>
+    <span class="n">max_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">preprocess_method</span><span class="o">=</span><span class="s1">&#39;SAR&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">preprocess_data</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><strong>Details</strong>:</p>
@@ -173,6 +163,10 @@
 <li><p><strong>Data Processing</strong>: Iterates through StatsBomb event data, extracts event details, and integrates them with tracking data.</p></li>
 <li><p><strong>DataFrame Creation</strong>: Constructs a DataFrame containing event details, team names, player names, event coordinates, and tracking data (if available).</p></li>
 <li><p><strong>Sorting</strong>: Sorts events chronologically by ‘period’, ‘minute’, and ‘second’.</p></li>
+<li><p><strong>Spliting Data Structures</strong>: Splits the event and tracking data into play.csv (event data), player.csv (player tracking data), ball.csv (ball tracking data), and players.csv (player metadata).</p></li>
+<li><p><strong>Cleaning Data</strong>: Removes unnecessary columns and standardizes column names.</p></li>
+<li><p><strong>Interpolating Data</strong>: Interpolates missing tracking data.</p></li>
+<li><p><strong>Saving Data</strong>: Saves the processed data to a CSV file.</p></li>
 </ol>
 <p>The returned DataFrame consists of event and tracking data.
 The event data includes the following columns:</p>
@@ -230,7 +224,7 @@ The event data includes the following columns:</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../DataStadium/contents.html" class="btn btn-neutral float-left" title="DataStadium" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../../Data_Format/index.html" class="btn btn-neutral float-right" title="Data Format" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../FIFAWorldCup/contents.html" class="btn btn-neutral float-right" title="FIFAWorldCup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

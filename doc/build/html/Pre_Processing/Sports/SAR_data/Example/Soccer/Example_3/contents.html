@@ -1,23 +1,21 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Visualize a row data for the soccer event &mdash; Open-STAR-Lab v0.1.27 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=92fd9be5" />
-      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=19f00094" />
+  <title>Download and Preprocess FIFAWorldCup Data &mdash; Open-STAR-Lab v0.1.27 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js?v=20192711"></script>
-        <script src="../../../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js?v=20192711"></script>
+      <script src="../../../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
@@ -52,6 +50,7 @@
 <li class="toctree-l3 current"><a class="reference internal" href="../../../index.html">SAR Data</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../../../Data_Provider/index.html">Data Providers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../Data_Format/index.html">Data Format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../State_Definition/index.html">State Definition</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../../index.html">Examples</a></li>
 </ul>
 </li>
@@ -84,7 +83,7 @@
           <li class="breadcrumb-item"><a href="../../../index.html">SAR Data</a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Examples</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Football/Soccer</a></li>
-      <li class="breadcrumb-item active">Visualize a row data for the soccer event</li>
+      <li class="breadcrumb-item active">Download and Preprocess FIFAWorldCup Data</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../../../_sources/Pre_Processing/Sports/SAR_data/Example/Soccer/Example_3/contents.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -94,9 +93,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="visualize-a-row-data-for-the-soccer-event">
-<h1>Visualize a row data for the soccer event<a class="headerlink" href="#visualize-a-row-data-for-the-soccer-event" title="Permalink to this heading"></a></h1>
-<p>TBA</p>
+  <section id="download-and-preprocess-fifaworldcup-data">
+<h1>Download and Preprocess FIFAWorldCup Data<a class="headerlink" href="#download-and-preprocess-fifaworldcup-data" title="Permalink to this heading"></a></h1>
+<p>This script downloads and preprocesses FIFAWorldCup data.</p>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><cite>openstarlab_preprocessing</cite></p></li>
+</ul>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAR_data</span>
+
+<span class="n">fifawc_dir</span> <span class="o">=</span> <span class="s2">&quot;/path/to/data_folder/&quot;</span>
+<span class="n">state_def</span> <span class="o">=</span> <span class="s2">&quot;PVS&quot;</span>
+<span class="n">match_id</span> <span class="o">=</span> <span class="s2">&quot;3812&quot;</span>
+<span class="n">config_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/preprocess_config.json&quot;</span>
+
+
+<span class="c1"># load and preprocess fifawc (single file)</span>
+<span class="n">Soccer_SAR_data</span><span class="p">(</span>
+    <span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;fifawc&#39;</span><span class="p">,</span>
+    <span class="n">state_def</span><span class="o">=</span><span class="n">state_def</span><span class="p">,</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="n">fifawc_dir</span><span class="p">,</span>
+    <span class="n">match_id</span><span class="o">=</span><span class="n">match_id</span><span class="p">,</span>
+    <span class="n">config_path</span><span class="o">=</span><span class="n">config_path</span><span class="p">,</span>
+    <span class="n">preprocess_method</span><span class="o">=</span><span class="s1">&#39;SAR&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">preprocess_data</span><span class="p">()</span>
+
+<span class="c1"># load and preprocess fifawc (multiple files)</span>
+<span class="n">Soccer_SAR_data</span><span class="p">(</span>
+    <span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;fifawc&#39;</span><span class="p">,</span>
+    <span class="n">state_def</span><span class="o">=</span><span class="n">state_def</span><span class="p">,</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="n">fifawc_dir</span><span class="p">,</span>
+    <span class="n">config_path</span><span class="o">=</span><span class="n">config_path</span><span class="p">,</span>
+    <span class="n">max_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">preprocess_method</span><span class="o">=</span><span class="s1">&#39;SAR&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">preprocess_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 

@@ -1,5 +1,5 @@
 Application of the RLearn Model in Soccer
-========================================
+==========================================
 This section demonstrates applications of the RLearn Model in soccer.
 
 Q-values and Location Visualization
