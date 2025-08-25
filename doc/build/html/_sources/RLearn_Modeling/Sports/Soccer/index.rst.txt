@@ -1,12 +1,11 @@
-Football/Soccer Event Modeling
+Football/Soccer RLearn Modeling
 =============================================
 
 .. toctree::
    :maxdepth: 1
 
-
-   model
    model_class
+   model
    application
    example
    

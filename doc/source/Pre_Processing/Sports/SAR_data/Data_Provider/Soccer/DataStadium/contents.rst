@@ -1,22 +1,19 @@
 DataStadium
 ==============
-.. class:: SAR_data(data_provider='datastadium', data_path=datastadium_path, match_id=match_id, config_path=config_path).load_data() -> pd.DataFrame
+.. class:: SAR_data(data_provider='datastadium', state_def=state_def, data_path=datastadium_path, match_id=match_id, config_path=config_path, preprocess_method='SAR').preprocess_data()
 
-    Load and process stadium event and tracking data from CSV files and convert it into a DataFrame.
+    Load and process stadium event and tracking data from CSV files and convert it into a Jsonl file.
 
+    :param state_def: The state definition to use for preprocessing.
+    :type state_def: str
     :param data_path: Path to the folder containing the event data and tracking data CSV files.
-    :type event_path: str
+    :type event_tracking_path: str
     :param match_id: The ID of the match. Defaults to None.
-    :type home_tracking_path: str
+    :type match_id: str
     :param config_path: The path to the configuration file.
-    :type away_tracking_path: str
-
-    .. note::
-
-        The `DataStadium` tracking data data requires preprocessing. Which could be handled with the `Tracking_data` class. Ensure this preprocessing step is completed before using this function.
-
-        For more details, refer to the `Tracking_data` class documentation: 
-        `process_datadium_tracking_data Documentation <https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Tracking_data/Data_Provider/Football/DataStadium/contents.html>`_
+    :type config_path: str
+    :param preprocess_method: The preprocessing method to use. Defaults to None.
+    :type preprocess_method: str
 
     **Example for single match**
 
@@ -26,15 +23,18 @@ DataStadium
         from preprocessing import SAR_data
 
         datastadium_path = "/path/to/data_folder/"
+        state_def = 'PVS'
         match_id = "match_id"
         config_path = "/path/to/preprocess_config.json"
 
         SAR_data(
             data_provider='datastadium',
+            state_def=state_def,
             data_path=datastadium_path,
             match_id=match_id,
-            config_path=config_path
-        ).load_data()
+            config_path=config_path,
+            preprocess_method='SAR'
+        ).preprocess_data()
 
     **Example for mutiple match**
 
@@ -44,14 +44,17 @@ DataStadium
         from preprocessing import SAR_data
 
         datastadium_path = "/path/to/data_folder/"
+        state_def = 'PVS'
         config_path = "/path/to/preprocess_config.json"
 
         Soccer_SAR_data(
             data_provider='datastadium',
+            state_def=state_def,
             data_path=datastadium_path,
             config_path=config_path,
-            max_workers=2
-        ).load_data()
+            max_workers=2,
+            preprocess_method='SAR'
+        ).preprocess_data()
 
     **Details**
 

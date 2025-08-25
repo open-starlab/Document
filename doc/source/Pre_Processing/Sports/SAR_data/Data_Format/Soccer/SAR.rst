@@ -74,10 +74,28 @@ Example of the SAR format for DataStadium::
 
     Soccer_SAR_data(
         data_provider='datastadium',
+        state_def="PVS",
         data_path=datastadium_path,
         config_path=config_path,
-        max_workers=2
-    ).load_data()
+        preprocess_method="SAR"
+    ).preprocess_data()
+
+
+Example of the SAR format for FIFA World Cup 2022::
+
+    import pandas as pd
+    from preprocessing import SAR_data
+
+    fifawc_path = "/path/to/data_folder/"
+    config_path = "/path/to/preprocess_config.json"
+
+    Soccer_SAR_data(
+        data_provider='fifawc',
+        state_def="PVS",
+        data_path=fifawc_path,
+        config_path=config_path,
+        preprocess_method="SAR"
+    ).preprocess_data()
 
 
 Example of the SAR format for StatsBomb and SkillCorner::
@@ -91,8 +109,9 @@ Example of the SAR format for StatsBomb and SkillCorner::
 
     Soccer_SAR_data(
         data_provider='statsbomb_skillcorner',
+        state_def="PVS",
         data_path=data_path,
         config_path=config_path,
         statsbomb_skillcorner_match_id=statsbomb_skillcorner_match_id,
-        max_workers=2
-    ).load_data()
+        preprocess_method="SAR"
+    ).preprocess_data()

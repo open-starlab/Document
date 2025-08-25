@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
 <head>
@@ -5,19 +7,15 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DataStadium &mdash; Open-STAR-Lab v0.1.27 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=92fd9be5" />
-      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js?v=20192711"></script>
-        <script src="../../../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js?v=20192711"></script>
+      <script src="../../../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
@@ -98,71 +96,73 @@
 <h1>DataStadium<a class="headerlink" href="#datastadium" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="SAR_data">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SAR_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider='datastadium'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_path=play_csv_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">home_tracking_path=home_tracking_csv_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">away_tracking_path=away_tracking_csv_path).load_data(</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pd.DataFrame</span></span></span><a class="headerlink" href="#SAR_data" title="Permalink to this definition"></a></dt>
-<dd><p>Load and process stadium event and tracking data from CSV files and convert it into a DataFrame.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SAR_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider='datastadium'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_def=state_def</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_path=datastadium_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id=match_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_path=config_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess_method='SAR').preprocess_data(</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SAR_data" title="Permalink to this definition"></a></dt>
+<dd><p>Load and process stadium event and tracking data from CSV files and convert it into a Jsonl file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>event_path</strong> (<em>str</em>) – Path to the play CSV file containing event data.</p></li>
-<li><p><strong>home_tracking_path</strong> (<em>str</em>) – Path to the home_tracking CSV file containing home team tracking data.</p></li>
-<li><p><strong>away_tracking_path</strong> (<em>str</em>) – Path to the away_tracking CSV file containing away team tracking data.</p></li>
+<li><p><strong>state_def</strong> (<em>str</em>) – The state definition to use for preprocessing.</p></li>
+<li><p><strong>data_path</strong> – Path to the folder containing the event data and tracking data CSV files.</p></li>
+<li><p><strong>match_id</strong> (<em>str</em>) – The ID of the match. Defaults to None.</p></li>
+<li><p><strong>config_path</strong> (<em>str</em>) – The path to the configuration file.</p></li>
+<li><p><strong>preprocess_method</strong> (<em>str</em>) – The preprocessing method to use. Defaults to None.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>DataFrame containing merged and processed event and tracking data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pd.DataFrame</p>
-</dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <cite>DataStadium</cite> tracking data data requires preprocessing. Which could be handled with the <cite>Tracking_data</cite> class. Ensure this preprocessing step is completed before using this function.</p>
-<p>For more details, refer to the <cite>Tracking_data</cite> class documentation:
-<a class="reference external" href="https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Tracking_data/Data_Provider/Football/DataStadium/contents.html">process_datadium_tracking_data Documentation</a></p>
-</div>
 <p><strong>Example for single match</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">SAR_data</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAR_data</span>
 
-<span class="n">event_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/play.csv&#39;</span>
-<span class="n">home_tracking_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/home_tracking.csv&#39;</span>
-<span class="n">away_tracking_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/away_tracking.csv&#39;</span>
+<span class="n">datastadium_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/data_folder/&quot;</span>
+<span class="n">state_def</span> <span class="o">=</span> <span class="s1">&#39;PVS&#39;</span>
+<span class="n">match_id</span> <span class="o">=</span> <span class="s2">&quot;match_id&quot;</span>
+<span class="n">config_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/preprocess_config.json&quot;</span>
 
-<span class="n">datastadium_df</span> <span class="o">=</span> <span class="n">SAR_data</span><span class="p">(</span>
-    <span class="n">event_path</span><span class="o">=</span><span class="n">event_path</span><span class="p">,</span>
-    <span class="n">home_tracking_path</span><span class="o">=</span><span class="n">home_tracking_path</span><span class="p">,</span>
-    <span class="n">away_tracking_path</span><span class="o">=</span><span class="n">away_tracking_path</span>
-<span class="p">)</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">datastadium_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">SAR_data</span><span class="p">(</span>
+    <span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;datastadium&#39;</span><span class="p">,</span>
+    <span class="n">state_def</span><span class="o">=</span><span class="n">state_def</span><span class="p">,</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="n">datastadium_path</span><span class="p">,</span>
+    <span class="n">match_id</span><span class="o">=</span><span class="n">match_id</span><span class="p">,</span>
+    <span class="n">config_path</span><span class="o">=</span><span class="n">config_path</span><span class="p">,</span>
+    <span class="n">preprocess_method</span><span class="o">=</span><span class="s1">&#39;SAR&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">preprocess_data</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><strong>Example for mutiple match</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">SAR_data</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAR_data</span>
 
-<span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;path/to/data/dir&#39;</span> <span class="c1">#the dir contain folders that contain the play.csv and tracking.csv files</span>
+<span class="n">datastadium_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/data_folder/&quot;</span>
+<span class="n">state_def</span> <span class="o">=</span> <span class="s1">&#39;PVS&#39;</span>
+<span class="n">config_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/preprocess_config.json&quot;</span>
 
-<span class="n">datastadium_df</span> <span class="o">=</span> <span class="n">SAR_data</span><span class="p">(</span>
-    <span class="n">event_path</span><span class="o">=</span><span class="n">data_dir</span>
-<span class="p">)</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">datastadium_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">Soccer_SAR_data</span><span class="p">(</span>
+    <span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;datastadium&#39;</span><span class="p">,</span>
+    <span class="n">state_def</span><span class="o">=</span><span class="n">state_def</span><span class="p">,</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="n">datastadium_path</span><span class="p">,</span>
+    <span class="n">config_path</span><span class="o">=</span><span class="n">config_path</span><span class="p">,</span>
+    <span class="n">max_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">preprocess_method</span><span class="o">=</span><span class="s1">&#39;SAR&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">preprocess_data</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><strong>Details</strong></p>
 <p>This function performs the following steps:</p>
 <ol class="arabic simple">
-<li><p>Loads the event data from the CSV file specified by <cite>event_path</cite>.</p></li>
-<li><p>Loads the home and away team tracking data from the CSV files specified by <cite>home_tracking_path</cite> and <cite>away_tracking_path</cite>.</p></li>
-<li><p>Filters and preprocesses the event data by retaining required columns and sorting by absolute time.</p></li>
-<li><p>Creates a new column <cite>event_type_2</cite> based on event flags.</p></li>
-<li><p>Renames columns to standardized names and reorders them.</p></li>
-<li><p>Converts event types to English using predefined dictionaries.</p></li>
-<li><p>Calculates the period, minute, and second for each event based on absolute time.</p></li>
-<li><p>Appends tracking data to the event data by aligning timestamps.</p></li>
-<li><p>Creates and returns a final DataFrame with event and tracking data.</p></li>
+<li><p>Loads the event data from the CSV file specified by  <cite>data_path/event_data</cite>.</p></li>
+<li><p>Checks and renames the event columns to standardized names.</p></li>
+<li><p>Gets the changed player list separated by the team.</p></li>
+<li><p>Loads the player data from the CSV file specified by <cite>data_path/player_path</cite>.</p></li>
+<li><p>Checks and renames the player columns.</p></li>
+<li><p>Loads the home and away team tracking data from the CSV files specified by <cite>data_path/home_tracking_path</cite> and <cite>data_path/away_tracking_path</cite>.</p></li>
+<li><p>Splits the tracking data into player and ball tracking data.</p></li>
+<li><p>Checks and renames the player and ball tracking columns.</p></li>
+<li><p>Interpolates the ball tracking data.</p></li>
+<li><p>Merges the player and ball tracking data.</p></li>
+<li><p>Interpolates the player tracking data.</p></li>
+<li><p>Calculates the player and ball velocity and acceleration.</p></li>
+<li><p>Merges the event data with the tracking data.</p></li>
+<li><p>Saves the processed data to a CSV file.</p></li>
 </ol>
 <p>The returned DataFrame consists of event and tracking data.
 The event data includes the following columns:</p>

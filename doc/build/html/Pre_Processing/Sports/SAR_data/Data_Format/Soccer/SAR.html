@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
 <head>
@@ -5,19 +7,15 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>State Action Reward (SAR) Format &mdash; Open-STAR-Lab v0.1.27 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=92fd9be5" />
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=20192711"></script>
-        <script src="../../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=20192711"></script>
+      <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
@@ -157,37 +155,53 @@
 <h2>Examples for Standardizing Multiple Matches<a class="headerlink" href="#examples-for-standardizing-multiple-matches" title="Permalink to this heading"></a></h2>
 <p>Refer to the data provider pages to convet between single file and multiple file</p>
 <p>Example of the SAR format for DataStadium:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAR_data</span>
 
-<span class="n">event_folder</span> <span class="o">=</span> <span class="s1">&#39;path/to/event/folder&#39;</span>
-<span class="n">match_folder</span> <span class="o">=</span> <span class="s1">&#39;path/to/match/folder&#39;</span>
-<span class="n">max_workers</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">datastadium_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/data_folder/&quot;</span>
+<span class="n">config_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/preprocess_config.json&quot;</span>
 
-<span class="n">datastadium_df</span> <span class="o">=</span> <span class="n">SAR_data</span><span class="p">(</span><span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;datastadium&#39;</span><span class="p">,</span><span class="n">event_path</span><span class="o">=</span><span class="n">event_folder</span><span class="p">,</span><span class="n">match_folder</span><span class="o">=</span><span class="n">match_folder</span><span class="p">,</span>
-                        <span class="n">preprocess_method</span><span class="o">=</span><span class="s2">&quot;SAR&quot;</span><span class="p">,</span><span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">)</span><span class="o">.</span><span class="n">preprocessing</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">datastadium_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">Soccer_SAR_data</span><span class="p">(</span>
+    <span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;datastadium&#39;</span><span class="p">,</span>
+    <span class="n">state_def</span><span class="o">=</span><span class="s2">&quot;PVS&quot;</span><span class="p">,</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="n">datastadium_path</span><span class="p">,</span>
+    <span class="n">config_path</span><span class="o">=</span><span class="n">config_path</span><span class="p">,</span>
+    <span class="n">preprocess_method</span><span class="o">=</span><span class="s2">&quot;SAR&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">preprocess_data</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Example of the SAR format for FIFA World Cup 2022:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAR_data</span>
+
+<span class="n">fifawc_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/data_folder/&quot;</span>
+<span class="n">config_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/preprocess_config.json&quot;</span>
+
+<span class="n">Soccer_SAR_data</span><span class="p">(</span>
+    <span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;fifawc&#39;</span><span class="p">,</span>
+    <span class="n">state_def</span><span class="o">=</span><span class="s2">&quot;PVS&quot;</span><span class="p">,</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="n">fifawc_path</span><span class="p">,</span>
+    <span class="n">config_path</span><span class="o">=</span><span class="n">config_path</span><span class="p">,</span>
+    <span class="n">preprocess_method</span><span class="o">=</span><span class="s2">&quot;SAR&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">preprocess_data</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Example of the SAR format for StatsBomb and SkillCorner:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">SAR_data</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAR_data</span>
 
-<span class="n">event_folder</span> <span class="o">=</span> <span class="s1">&#39;path/to/event/folder&#39;</span>
-<span class="n">tracking_folder</span> <span class="o">=</span> <span class="s1">&#39;path/to/tracking/folder&#39;</span>
-<span class="n">match_folder</span> <span class="o">=</span> <span class="s1">&#39;path/to/match/folder&#39;</span>
-<span class="n">match_id_df</span> <span class="o">=</span> <span class="s1">&#39;path/to/match_id.csv&#39;</span>
-<span class="n">max_workers</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;/path/to/statsbomb_skillcorner&#39;</span>
+<span class="n">config_path</span> <span class="o">=</span> <span class="s1">&#39;/path/to/preprocess_config.json&#39;</span>
+<span class="n">statsbomb_skillcorner_match_id</span> <span class="o">=</span> <span class="s1">&#39;/path/to/statsbomb_skillcorner_match_id.json&#39;</span>
 
-<span class="n">df_statsbomb_skillcorner</span><span class="o">=</span><span class="n">Event_data</span><span class="p">(</span><span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;statsbomb_skillcorner&#39;</span><span class="p">,</span>
-                                        <span class="n">statsbomb_event_dir</span><span class="o">=</span><span class="n">event_folder</span><span class="p">,</span>
-                                        <span class="n">skillcorner_tracking_dir</span><span class="o">=</span><span class="n">tracking_folder</span><span class="p">,</span>
-                                        <span class="n">skillcorner_match_dir</span><span class="o">=</span><span class="n">match_folder</span><span class="p">,</span>
-                                        <span class="n">match_id_df</span><span class="o">=</span><span class="n">match_id_df</span><span class="p">,</span>
-                                        <span class="n">preprocess_method</span><span class="o">=</span><span class="s2">&quot;SAR&quot;</span><span class="p">,</span>
-                                        <span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">)</span><span class="o">.</span><span class="n">preprocessing</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">wyscout_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">Soccer_SAR_data</span><span class="p">(</span>
+    <span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;statsbomb_skillcorner&#39;</span><span class="p">,</span>
+    <span class="n">state_def</span><span class="o">=</span><span class="s2">&quot;PVS&quot;</span><span class="p">,</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="n">data_path</span><span class="p">,</span>
+    <span class="n">config_path</span><span class="o">=</span><span class="n">config_path</span><span class="p">,</span>
+    <span class="n">statsbomb_skillcorner_match_id</span><span class="o">=</span><span class="n">statsbomb_skillcorner_match_id</span><span class="p">,</span>
+    <span class="n">preprocess_method</span><span class="o">=</span><span class="s2">&quot;SAR&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">preprocess_data</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>

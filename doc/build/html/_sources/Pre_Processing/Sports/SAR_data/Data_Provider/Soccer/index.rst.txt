@@ -6,3 +6,4 @@ Football/Soccer Data Providers
 
    DataStadium/contents
    Statsbomb_Skillcorner/contents
+   FIFAWorldCup/contents

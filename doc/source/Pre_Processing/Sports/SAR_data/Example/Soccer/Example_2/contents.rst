@@ -6,22 +6,12 @@ This script downloads StatsBomb event and match data, matches it with SkillCorne
 Dependencies
 ------------
 
-* `os`
-* `json`
-* `tqdm`
-* `pandas`
 * `openstarlab_preprocessing`
 
 Usage
 -----
 
 .. code-block:: python
-    
-    import os
-    import json
-    from tqdm import tqdm
-    import pandas as pd
-    from statsbombpy import sb
 
     from preprocessing import SAR_data
 
@@ -76,53 +66,35 @@ Usage
 
         #Match the statsbomb and skillcorner (one file)
         data_path = save_dir+'/events'
+        state_def = 'PVS'
         match_id = "1120811"
         config_path = '/path/to/preprocess_config.json'
         statsbomb_skillcorner_match_id = '/path/to/statsbomb_skillcorner_match_id.json'
 
-        #Load single match data
+        #Load and preprocess single match data
         Soccer_SAR_data(
             data_provider='statsbomb_skillcorner',
+            state_def=state_def,
             data_path=data_path,
             match_id=match_id, # match_id for skillcorner
             config_path=config_path,
             statsbomb_skillcorner_match_id=statsbomb_skillcorner_match_id,
-        ).load_data()
+            preprocess_method='SAR'
+        ).preprocess_method()
 
         #Match the statsbomb and skillcorner (multiple files)
         config_path = '/path/to/preprocess_config.json'
         statsbomb_skillcorner_match_id = '/path/to/statsbomb_skillcorner_match_id.json'
 
-        #Load multiple matches data
+        #Load and preprocess multiple matches data
         Soccer_SAR_data(
             data_provider='statsbomb_skillcorner',
+            state_def=state_def,
             data_path=data_path,
             config_path=config_path,
             statsbomb_skillcorner_match_id=statsbomb_skillcorner_match_id,
-            max_workers=2
-        ).load_data()
-
-        # Preprocess the statsbomb and skillcorner data (single file)
-        Soccer_SAR_data(
-            data_provider='statsbomb_skillcorner',
-            data_path=data_path,
-            match_id=match_id,
-            config_path=config_path,
-            preprocess_method="SAR"
-        ).preprocess_single_data(
-            cleaning_dir=os.getcwd()+"/data/stb_skc/clean_data",
-            preprocessed_dir=os.getcwd()+"/data/stb_skc/preprocess_data"
-        )
-
-        # Preprocess the statsbomb and skillcorner data (multiple files)
-        Soccer_SAR_data(
-            data_provider='statsbomb_skillcorner',
-            data_path=data_path,
-            config_path=config_path,
-            preprocess_method="SAR"
-        ).preprocess_multiple_data(
-            cleaning_dir=os.getcwd()+"/data/stb_skc/clean_data",
-            preprocessed_dir=os.getcwd()+"/data/stb_skc/preprocess_data"
-        )
+            max_workers=2,
+            preprocess_method='SAR'
+        ).preprocess_method()
 
         print("---------------done-----------------")

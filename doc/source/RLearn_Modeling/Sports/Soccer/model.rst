@@ -7,7 +7,7 @@ The models in this package has been edited to be compatible with the framework s
 
 Framework
 ---------
-The data were then converted to the `SAR format <https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Event_data/Data_Format/Football/UEID.html>`_ using the OpenSTARLab `Pre-Processing <https://github.com/open-starlab/PreProcessing>`_ package. Afterward, all models were trained with the OpenSTARLab Event package. For more details refer to our paper.
+The data were then converted to the `SAR format <https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Event_data/Data_Format/Football/UEID.html>`_ using the OpenSTARLab `Pre-Processing <https://github.com/open-starlab/PreProcessing>`_ package. Afterward, all models were trained with the OpenSTARLab RLearn package. For more details refer to our paper.
 
 .. code-block:: text
 
@@ -20,7 +20,7 @@ The data were then converted to the `SAR format <https://openstarlab.readthedocs
 
 
 Model: sarsa_attacker
-------------------
+----------------------
 The sarsa_attacker model serves as a foundational framework for implementing reward models in soccer decision-making analysis. Designed to evaluate and assign rewards based on specific game situations, this class provides a structured approach to integrating domain-specific reward functions into reinforcement learning models. By leveraging spatiotemporal data, it enables a more interpretable assessment of player decisions and tactical effectiveness.
 
 .. code-block:: text

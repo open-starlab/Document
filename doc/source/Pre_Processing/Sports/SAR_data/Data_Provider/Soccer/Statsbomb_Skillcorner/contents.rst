@@ -1,13 +1,21 @@
 Statsbomb with Skillcorner
 ============================
-.. class:: Soccer_SAR_data(data_provider='statsbomb_skillcorner', data_path=statsbomb_skillcorner_path, match_id="1120811", config_path=config_path, statsbomb_skillcorner_match_id=statsbomb_skillcorner_match_id).load_data()
+.. class:: Soccer_SAR_data(data_provider='statsbomb_skillcorner', state_def=state_def, data_path=statsbomb_skillcorner_path, match_id="1120811", config_path=config_path, statsbomb_skillcorner_match_id=statsbomb_skillcorner_match_id, preprocess_method='SAR').preprocess_data()
 
-    Load and merge StatsBomb event data with SkillCorner tracking data.
+    Load, merge and process StatsBomb event data with SkillCorner tracking data.
 
-    :param str data_path: Directory path for StatsBomb and SkillCorner data.
-    :param str match_id: Match ID for SkillCorner data.
-    :param str config_path: Path to the configuration file.
-    :param str statsbomb_skillcorner_match_id: Path to a CSV file containing match IDs for multiple matches.
+    :param state_def: The state definition to use for preprocessing.
+    :type state_def: str
+    :param data_path: Directory path for StatsBomb and SkillCorner data.
+    :type data_path: str
+    :param match_id: Match ID for SkillCorner data.
+    :type match_id: str
+    :param config_path: Path to the configuration file.
+    :type config_path: str
+    :param statsbomb_skillcorner_match_id: Path to a CSV file containing match IDs for multiple matches.
+    :type statsbomb_skillcorner_match_id: str
+    :param preprocess_method: The preprocessing method to use. Defaults to None.
+    :type preprocess_method: str
 
     **Example usage for single match**:
 
@@ -17,6 +25,7 @@ Statsbomb with Skillcorner
         from preprocessing import SAR_data
 
         data_path = '/path/to/statsbomb_skillcorner'
+        state_def = 'PVS'
         match_id = 'match_id'
         config_path = '/path/to/preprocess_config.json'
         statsbomb_skillcorner_match_id = '/path/to/statsbomb_skillcorner_match_id.json'
@@ -24,11 +33,13 @@ Statsbomb with Skillcorner
         #Load single match data
         Soccer_SAR_data(
             data_provider='statsbomb_skillcorner',
+            state_def=state_def,
             data_path=data_path,
             match_id=match_id, # match_id for skillcorner
             config_path=config_path,
             statsbomb_skillcorner_match_id=statsbomb_skillcorner_match_id,
-        ).load_data()
+            preprocess_method='SAR'
+        ).preprocess_method()
 
 
     **Example usage for multiple matches**:
@@ -39,17 +50,20 @@ Statsbomb with Skillcorner
         from preprocessing import SAR_data
 
         data_path = '/path/to/statsbomb_skillcorner'
+        state_def = 'PVS'
         config_path = '/path/to/preprocess_config.json'
         statsbomb_skillcorner_match_id = '/path/to/statsbomb_skillcorner_match_id.json'
 
         #Load multiple matches data
         Soccer_SAR_data(
             data_provider='statsbomb_skillcorner',
+            state_def=state_def,
             data_path=data_path,
             config_path=config_path,
             statsbomb_skillcorner_match_id=statsbomb_skillcorner_match_id,
-            max_workers=2
-        ).load_data()
+            max_workers=2,
+            preprocess_method='SAR'
+        ).preprocess_data()
 
     **Details**:
 
