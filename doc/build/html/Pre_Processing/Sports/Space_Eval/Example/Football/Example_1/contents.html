@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download and Preprocess Wyscout Data &mdash; Open-STAR-Lab v0.1.29 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js?v=6c7b00ca"></script>
+        <script src="../../../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../../index.html" class="icon icon-home">
+            Open-STAR-Lab
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../index.html">Pre-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../Event_Modeling/index.html">Event-Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../RLearn_Modeling/index.html">RLearn-Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../Space_Eval/index.html">spaceEval</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../Other/index.html">Other</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Open-STAR-Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Download and Preprocess Wyscout Data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../../_sources/Pre_Processing/Sports/Space_Eval/Example/Football/Example_1/contents.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="download-and-preprocess-wyscout-data">
+<h1>Download and Preprocess Wyscout Data<a class="headerlink" href="#download-and-preprocess-wyscout-data" title="Permalink to this heading"></a></h1>
+<p>This script downloads, unzips, and preprocesses Wyscout event and match data. The processed data is then split into training, validation, and test sets.</p>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><cite>subprocess</cite></p></li>
+<li><p><cite>numpy</cite></p></li>
+<li><p><cite>pandas</cite></p></li>
+<li><p><cite>openstarlab_preprocessing</cite></p></li>
+</ul>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">def</span> <span class="nf">download_with_wget</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">output_directory</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+    <span class="c1"># Construct the wget command</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;wget&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="s1">&#39;-P&#39;</span><span class="p">,</span> <span class="n">output_directory</span><span class="p">]</span>
+
+    <span class="c1"># Execute the command</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloaded </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> successfully.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to download </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">. Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1">#path for the wyscout data</span>
+    <span class="n">event_path</span><span class="o">=</span><span class="s1">&#39;./event&#39;</span>
+    <span class="n">matches_path</span><span class="o">=</span><span class="s1">&#39;./matches&#39;</span>
+
+    <span class="c1">#download the wyscout data</span>
+    <span class="n">event_url</span> <span class="o">=</span> <span class="s2">&quot;https://figshare.com/ndownloader/files/14464685/events.zip&quot;</span>
+    <span class="n">matches_url</span> <span class="o">=</span> <span class="s2">&quot;https://figshare.com/ndownloader/files/14464622/matches.zip&quot;</span>
+    <span class="n">download_with_wget</span><span class="p">(</span><span class="n">event_url</span><span class="p">,</span> <span class="n">event_path</span><span class="p">)</span>
+    <span class="n">download_with_wget</span><span class="p">(</span><span class="n">matches_url</span><span class="p">,</span> <span class="n">matches_path</span><span class="p">)</span>
+
+    <span class="c1">#unzip the downloaded files</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;unzip&#39;</span><span class="p">,</span> <span class="s1">&#39;event/events.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;event&#39;</span><span class="p">])</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;unzip&#39;</span><span class="p">,</span> <span class="s1">&#39;matches/matches.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;matches&#39;</span><span class="p">])</span>
+
+    <span class="c1">#remove the unnecessary files (expect England/France/Italy/Spain/Germany files)</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;rm&#39;</span><span class="p">,</span> <span class="s1">&#39;-rf&#39;</span><span class="p">,</span> <span class="s1">&#39;event/events.zip&#39;</span><span class="p">])</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;rm&#39;</span><span class="p">,</span> <span class="s1">&#39;-rf&#39;</span><span class="p">,</span> <span class="s1">&#39;matches/matches.zip&#39;</span><span class="p">])</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;rm&#39;</span><span class="p">,</span> <span class="s1">&#39;-rf&#39;</span><span class="p">,</span> <span class="s1">&#39;event/events_European_Championship.json&#39;</span><span class="p">])</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;rm&#39;</span><span class="p">,</span> <span class="s1">&#39;-rf&#39;</span><span class="p">,</span> <span class="s1">&#39;event/events_World_Cup.json&#39;</span><span class="p">])</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;rm&#39;</span><span class="p">,</span> <span class="s1">&#39;-rf&#39;</span><span class="p">,</span> <span class="s1">&#39;matches/matches_European_Championship.json&#39;</span><span class="p">])</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;rm&#39;</span><span class="p">,</span> <span class="s1">&#39;-rf&#39;</span><span class="p">,</span> <span class="s1">&#39;matches/matches_World_Cup.json&#39;</span><span class="p">])</span>
+
+    <span class="c1">#load and preprocess the data (increase max_workers for faster processing)</span>
+    <span class="n">wyscout_df</span><span class="o">=</span><span class="n">Event_data</span><span class="p">(</span><span class="n">data_provider</span><span class="o">=</span><span class="s1">&#39;wyscout&#39;</span><span class="p">,</span><span class="n">event_path</span><span class="o">=</span><span class="n">event_path</span><span class="p">,</span><span class="n">wyscout_matches_path</span><span class="o">=</span><span class="n">matches_path</span><span class="p">,</span>
+                        <span class="n">preprocess_method</span><span class="o">=</span><span class="s2">&quot;NMSTPP&quot;</span><span class="p">,</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">preprocessing</span><span class="p">()</span>
+    <span class="n">wyscout_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1">#split the data into train valid and test</span>
+    <span class="n">Train_ratio</span><span class="o">=</span><span class="mf">0.8</span>
+    <span class="n">Valid_ratio</span><span class="o">=</span><span class="mf">0.1</span>
+    <span class="n">Test_ratio</span><span class="o">=</span><span class="mf">0.1</span>
+
+    <span class="n">Train_id</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">Valid_id</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">Test_id</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">wyscout_df</span><span class="p">[[</span><span class="s1">&#39;comp&#39;</span><span class="p">]]):</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">wyscout_df</span><span class="p">[</span><span class="n">wyscout_df</span><span class="p">[</span><span class="s1">&#39;comp&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">id_list</span><span class="o">=</span><span class="n">temp</span><span class="o">.</span><span class="n">match_id</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+        <span class="n">Train_id</span><span class="o">+=</span><span class="n">id_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">match_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">*</span><span class="n">Train_ratio</span><span class="p">)]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">Valid_id</span><span class="o">+=</span><span class="n">id_list</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">match_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">*</span><span class="n">Train_ratio</span><span class="p">):</span><span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">match_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="n">Train_ratio</span><span class="o">+</span><span class="n">Valid_ratio</span><span class="p">))]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">Test_id</span><span class="o">+=</span><span class="n">id_list</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">match_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="n">Train_ratio</span><span class="o">+</span><span class="n">Valid_ratio</span><span class="p">)):]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="n">train</span><span class="o">=</span><span class="n">wyscout_df</span><span class="p">[</span><span class="n">wyscout_df</span><span class="p">[</span><span class="s2">&quot;match_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">Train_id</span><span class="p">)]</span>
+    <span class="n">valid</span><span class="o">=</span><span class="n">wyscout_df</span><span class="p">[</span><span class="n">wyscout_df</span><span class="p">[</span><span class="s2">&quot;match_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">Valid_id</span><span class="p">)]</span>
+    <span class="n">test</span><span class="o">=</span><span class="n">wyscout_df</span><span class="p">[</span><span class="n">wyscout_df</span><span class="p">[</span><span class="s2">&quot;match_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">Test_id</span><span class="p">)]</span>
+
+    <span class="n">train</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;train.csv&quot;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">valid</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;valid.csv&quot;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">test</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;test.csv&quot;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------done-----------------&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024,  Openstarlab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
