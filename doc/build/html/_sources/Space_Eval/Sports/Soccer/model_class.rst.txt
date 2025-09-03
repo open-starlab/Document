@@ -3,7 +3,7 @@ Space_Model Class
 This class provides a framework for soccer events space evaluation, including the calculation and visualization of space model.
 
 Initialization
---------------
+----------------------------
 .. class:: Space_Model(space_model, event_data=None, tracking_home=None, tracking_away=None, out_path=None, testing_mode=False)
 
    Initializes the OBSO calculator.
@@ -15,7 +15,7 @@ Initialization
    :param out_path: (str, optional) Directory to save OBSO results and visualizations. Defaults to None.
    :param testing_mode: (bool, optional) If True, only a limited number of frames/events will be processed. Defaults to False.
 Methods
--------
+--------------
 .. method:: read_data()
 
    Reads the event and tracking data. Supports both single CSV files and directories containing multiple CSV files.  

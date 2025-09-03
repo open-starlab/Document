@@ -25,7 +25,7 @@ Calculate OBSO
 
 
 Visualize OBSO
-----------
+--------------------
 
 After calculating OBSO, you can visualize it. Here’s how to do it:
 
