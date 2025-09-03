@@ -21,6 +21,7 @@ Welcome to Open-STAR-Lab documentation!
    Pre_Processing/index
    Event_Modeling/index
    RLearn_Modeling/index
+   Space_Eval/index
    Other/index
 
 

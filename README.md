@@ -5,7 +5,7 @@
 
 Step 1
 ```
-cd build/html
+cd doc/build/html
 ```
 Step 2
 ```

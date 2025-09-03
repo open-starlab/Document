@@ -1,25 +1,27 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example: Train and Visualize RLearn Model &mdash; Open-STAR-Lab v0.1.27 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+  <title>Example: Train and Visualize RLearn Model &mdash; Open-STAR-Lab v0.1.29 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
   
-      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=20192711"></script>
-      <script src="../../../_static/doctools.js?v=888ff710"></script>
-      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=6c7b00ca"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Other" href="../../../Other/index.html" />
+    <link rel="next" title="spaceEval" href="../../../Space_Eval/index.html" />
     <link rel="prev" title="Application of the RLearn Model in Soccer" href="application.html" /> 
 </head>
 
@@ -59,6 +61,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Space_Eval/index.html">spaceEval</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Other/index.html">Other</a></li>
 </ul>
 
@@ -94,8 +97,8 @@
 <p>To train and visualize the RLearn model, you can utilize the following code snippets.</p>
 <section id="run-all-at-once">
 <h2>Run All at Once<a class="headerlink" href="#run-all-at-once" title="Permalink to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.soccer.main_class_soccer.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.soccer.main_class_soccer.main</span> <span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># Set path and experiment name for split data</span>
 <span class="n">config</span> <span class="o">=</span> <span class="s1">&#39;/path/to/exp_config.json&#39;</span>
@@ -133,8 +136,8 @@
 </section>
 <section id="spliting-test-and-train-data">
 <h2>Spliting Test and Train Data<a class="headerlink" href="#spliting-test-and-train-data" title="Permalink to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.soccer.main_class_soccer.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.soccer.main_class_soccer.main</span> <span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># Set path and experiment name for split data</span>
 <span class="n">input_path</span> <span class="o">=</span> <span class="s1">&#39;/path/to/dataprovider&#39;</span>
@@ -148,8 +151,8 @@
 </section>
 <section id="preprocess-observations">
 <h2>Preprocess Observations<a class="headerlink" href="#preprocess-observations" title="Permalink to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.soccer.main_class_soccer.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.soccer.main_class_soccer.main</span> <span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># Set path and experiment name for preprocess data</span>
 <span class="n">config</span> <span class="o">=</span> <span class="s1">&#39;/path/to/preprocessing_dataprovider.json&#39;</span>
@@ -166,8 +169,8 @@
 </section>
 <section id="train-the-rlearn-model">
 <h2>Train the RLearn Model<a class="headerlink" href="#train-the-rlearn-model" title="Permalink to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.soccer.main_class_soccer.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.soccer.main_class_soccer.main</span> <span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># Set path and experiment name for train model</span>
 <span class="n">config</span> <span class="o">=</span> <span class="s1">&#39;/path/to/exp_config.json&#39;</span>
@@ -193,8 +196,8 @@
 </section>
 <section id="visualize-the-q-values">
 <h2>Visualize the Q-values<a class="headerlink" href="#visualize-the-q-values" title="Permalink to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.soccer.main_class_soccer.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.soccer.main_class_soccer.main</span> <span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># Set path and experiment name for visualize data</span>
 <span class="n">model_name</span> <span class="o">=</span> <span class="s1">&#39;exp_config&#39;</span>
@@ -219,7 +222,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="application.html" class="btn btn-neutral float-left" title="Application of the RLearn Model in Soccer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../../Other/index.html" class="btn btn-neutral float-right" title="Other" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../../Space_Eval/index.html" class="btn btn-neutral float-right" title="spaceEval" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
