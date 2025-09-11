@@ -1,6 +1,6 @@
 FIFA WC 2022 (PFF format)
 ============================================
-.. class:: Space_data(data_provider='fifa_wc_2022').load_data() -> pd.DataFrame
+.. class:: Space_data(data_provider='fifa_wc_2022', event_data_path=event_data_path, tracking_data_path=tracking_data_path, out_path=None, testing_mode=False).preprocessing() -> pd.DataFrame
 
     Load the FIFA WC 2022 event data and tracking from JSON file(s) and bz2 files(s) and convert it into a DataFrame.
 
