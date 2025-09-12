@@ -29,7 +29,7 @@ Methods
 
    :return: Dictionary mapping match IDs to the results tuple `(home_obso, away_obso, home_onball_obso, away_onball_obso, PPCF_dict)`.
 
-.. method:: vis_obso(event_id, events_data, tracking_home, tracking_away, PPCF, out_path=None)
+.. method:: vis_obso(event_id, events_data, tracking_home, tracking_away, PPCF, with_vel=False, plot_heatmap=True, out_path=None)
 
    Visualizes the OBSO for a specific event on a soccer pitch. Saves the figure to `out_path` if specified.
 
@@ -38,6 +38,8 @@ Methods
    :param tracking_home: (str or pd.DataFrame) Home tracking CSV file/folder or DataFrame.
    :param tracking_away: (str or pd.DataFrame) Away tracking CSV file/folder or DataFrame.
    :param PPCF: (str or dict) Precomputed PPCF dictionary file (numpy `.npy`) or dict.
+   :param with_vel: (bool, optional) If True, player velocities will be included in the visualization. Defaults to False.
+   :param plot_heatmap: (bool, optional) If True, a heatmap of the pitch control will be plotted. Defaults to True.
    :param out_path: (str, optional) Directory to save the visualization. Defaults to `self.out_path` if provided.
    :return: Matplotlib figure and axis `(fig, ax)`.
 
