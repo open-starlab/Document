@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Space_Model Class &mdash; Open-STAR-Lab v0.1.32 documentation</title>
+  <title>Space_Model Class &mdash; Open-STAR-Lab v0.1.33 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=1cdf69eb"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b8a7edf2"></script>
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -141,7 +141,7 @@ Returns dictionaries mapping match IDs to their respective DataFrames.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="vis_obso">
-<span class="sig-name descname"><span class="pre">vis_obso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tracking_home</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tracking_away</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PPCF</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vis_obso" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">vis_obso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tracking_home</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tracking_away</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PPCF</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_vel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_heatmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vis_obso" title="Permalink to this definition"></a></dt>
 <dd><p>Visualizes the OBSO for a specific event on a soccer pitch. Saves the figure to <cite>out_path</cite> if specified.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -151,6 +151,8 @@ Returns dictionaries mapping match IDs to their respective DataFrames.</p>
 <li><p><strong>tracking_home</strong> – (str or pd.DataFrame) Home tracking CSV file/folder or DataFrame.</p></li>
 <li><p><strong>tracking_away</strong> – (str or pd.DataFrame) Away tracking CSV file/folder or DataFrame.</p></li>
 <li><p><strong>PPCF</strong> – (str or dict) Precomputed PPCF dictionary file (numpy <cite>.npy</cite>) or dict.</p></li>
+<li><p><strong>with_vel</strong> – (bool, optional) If True, player velocities will be included in the visualization. Defaults to False.</p></li>
+<li><p><strong>plot_heatmap</strong> – (bool, optional) If True, a heatmap of the pitch control will be plotted. Defaults to True.</p></li>
 <li><p><strong>out_path</strong> – (str, optional) Directory to save the visualization. Defaults to <cite>self.out_path</cite> if provided.</p></li>
 </ul>
 </dd>
