@@ -6,3 +6,4 @@ Sports
 
 
    Soccer/index
+   Ultimate/index
