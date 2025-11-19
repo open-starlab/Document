@@ -6,3 +6,4 @@ Data Providers
 
 
    Football/index
+   Ultimate/index
