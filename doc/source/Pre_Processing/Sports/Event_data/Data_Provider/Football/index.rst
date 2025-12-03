@@ -14,3 +14,4 @@ Football/Soccer Data Providers
    Statsbomb/contents
    Statsbomb_Skillcorner/contents
    Wyscout/contents
+   PFF_FC/contents
