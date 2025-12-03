@@ -1,21 +1,21 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PVS State Definition &mdash; Open-STAR-Lab v0.1.27 documentation</title>
+  <title>PVS State Definition &mdash; Open-STAR-Lab v0.1.28 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=20192711"></script>
-      <script src="../../../../../_static/doctools.js?v=888ff710"></script>
-      <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../../../_static/documentation_options.js?v=9f131445"></script>
+      <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
@@ -94,13 +94,13 @@
            <div itemprop="articleBody">
              
   <section id="pvs-state-definition">
-<h1>PVS State Definition<a class="headerlink" href="#pvs-state-definition" title="Permalink to this heading"></a></h1>
+<h1>PVS State Definition<a class="headerlink" href="#pvs-state-definition" title="Link to this heading"></a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>PVS (Position and Velocity State) is a simple state definition system designed for multi-agent reinforcement learning applications. It focuses on basic position and action information and is applied to applications where simple state representation is sufficient.</p>
 </section>
 <section id="data-structure">
-<h2>Data Structure<a class="headerlink" href="#data-structure" title="Permalink to this heading"></a></h2>
+<h2>Data Structure<a class="headerlink" href="#data-structure" title="Link to this heading"></a></h2>
 <p>PVS has the following simple hierarchical structure:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">State_PVS</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">ball</span><span class="p">:</span> <span class="n">Ball</span>
@@ -111,9 +111,9 @@
 </div>
 </section>
 <section id="components">
-<h2>Components<a class="headerlink" href="#components" title="Permalink to this heading"></a></h2>
+<h2>Components<a class="headerlink" href="#components" title="Link to this heading"></a></h2>
 <section id="ball">
-<h3>Ball<a class="headerlink" href="#ball" title="Permalink to this heading"></a></h3>
+<h3>Ball<a class="headerlink" href="#ball" title="Link to this heading"></a></h3>
 <p>Basic ball information:</p>
 <ul class="simple">
 <li><p><strong>position</strong>: Ball position information (x, y coordinates)</p></li>
@@ -121,7 +121,7 @@
 </ul>
 </section>
 <section id="player">
-<h3>Player<a class="headerlink" href="#player" title="Permalink to this heading"></a></h3>
+<h3>Player<a class="headerlink" href="#player" title="Link to this heading"></a></h3>
 <p>Basic player information:</p>
 <ul class="simple">
 <li><p><strong>index</strong>: Player index</p></li>
@@ -136,11 +136,11 @@
 </ul>
 </section>
 <section id="attack-defense-players">
-<h3>Attack/Defense Players<a class="headerlink" href="#attack-defense-players" title="Permalink to this heading"></a></h3>
+<h3>Attack/Defense Players<a class="headerlink" href="#attack-defense-players" title="Link to this heading"></a></h3>
 <p>Separate management of player lists during attack and defense</p>
 </section>
 <section id="action-structure">
-<h3>Action Structure<a class="headerlink" href="#action-structure" title="Permalink to this heading"></a></h3>
+<h3>Action Structure<a class="headerlink" href="#action-structure" title="Link to this heading"></a></h3>
 <p>PVS assigns a single action to each player:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">action</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>  <span class="c1"># One action per player</span>
 </pre></div>
@@ -148,7 +148,7 @@
 </section>
 </section>
 <section id="processing-flow">
-<h2>Processing Flow<a class="headerlink" href="#processing-flow" title="Permalink to this heading"></a></h2>
+<h2>Processing Flow<a class="headerlink" href="#processing-flow" title="Link to this heading"></a></h2>
 <p>Main Processing Functions</p>
 <ol class="arabic simple">
 <li><p><strong>frames2events_pvs()</strong></p>
@@ -168,7 +168,7 @@
 </ol>
 </section>
 <section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
 <p>Example of using the PVS system:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SAR_data</span> <span class="o">=</span> <span class="n">SAR_data</span><span class="p">(</span>
     <span class="n">data_provider</span><span class="o">=</span><span class="s2">&quot;fifawc&quot;</span><span class="p">,</span>
@@ -181,7 +181,7 @@
 </div>
 </section>
 <section id="application-scenarios">
-<h2>Application Scenarios<a class="headerlink" href="#application-scenarios" title="Permalink to this heading"></a></h2>
+<h2>Application Scenarios<a class="headerlink" href="#application-scenarios" title="Link to this heading"></a></h2>
 <p>PVS is suitable for the following applications:</p>
 <ul class="simple">
 <li><p><strong>Basic reinforcement learning</strong>: Learning tasks where simple state representation is sufficient</p></li>
@@ -191,7 +191,7 @@
 </ul>
 </section>
 <section id="technical-limitations">
-<h2>Technical Limitations<a class="headerlink" href="#technical-limitations" title="Permalink to this heading"></a></h2>
+<h2>Technical Limitations<a class="headerlink" href="#technical-limitations" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Does not include advanced tactical analysis functions</p></li>
 <li><p>No support for spatial control or formation analysis</p></li>
@@ -199,7 +199,7 @@
 </ul>
 </section>
 <section id="file-structure">
-<h2>File Structure<a class="headerlink" href="#file-structure" title="Permalink to this heading"></a></h2>
+<h2>File Structure<a class="headerlink" href="#file-structure" title="Link to this heading"></a></h2>
 <p>Main PVS-related files:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SAR_class.py</span></code>: Factory class for PVS/EDMS switching</p></li>
@@ -209,7 +209,7 @@
 </ul>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading"></a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
 <p>PVS is a lightweight system optimized for multi-agent reinforcement learning applications that require simple state representation. It focuses on basic position and action information with a design that emphasizes fast processing and ease of understanding.</p>
 </section>
 </section>

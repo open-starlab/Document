@@ -1,21 +1,21 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Application of the RLearn Model in Soccer &mdash; Open-STAR-Lab v0.1.27 documentation</title>
+  <title>Application of the RLearn Model in Soccer &mdash; Open-STAR-Lab v0.1.28 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=20192711"></script>
-      <script src="../../../_static/doctools.js?v=888ff710"></script>
-      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/documentation_options.js?v=9f131445"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -53,6 +53,7 @@
 <li class="toctree-l4"><a class="reference internal" href="model.html">Models and Framework</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Application of the RLearn Model in Soccer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="example.html">Example: Train and Visualize RLearn Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example.html#advanced-usage-manual-step-execution">Advanced Usage: Manual Step Execution</a></li>
 </ul>
 </li>
 </ul>
@@ -90,11 +91,11 @@
            <div itemprop="articleBody">
              
   <section id="application-of-the-rlearn-model-in-soccer">
-<h1>Application of the RLearn Model in Soccer<a class="headerlink" href="#application-of-the-rlearn-model-in-soccer" title="Permalink to this heading"></a></h1>
+<h1>Application of the RLearn Model in Soccer<a class="headerlink" href="#application-of-the-rlearn-model-in-soccer" title="Link to this heading"></a></h1>
 <p>This section demonstrates applications of the RLearn Model in soccer.</p>
 <section id="q-values-and-location-visualization">
-<h2>Q-values and Location Visualization<a class="headerlink" href="#q-values-and-location-visualization" title="Permalink to this heading"></a></h2>
-<p>The following code snippet shows how to visualize the Q-values for the trained RLearn model.</p>
+<h2>Q-values and Location Visualization<a class="headerlink" href="#q-values-and-location-visualization" title="Link to this heading"></a></h2>
+<p>The following code snippet shows how to visualize the Q-values for the trained RLearn model. You can use either the direct visualization method or integrate it into the automated pipeline.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.soccer.main_class_soccer.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
@@ -112,8 +113,25 @@
 </pre></div>
 </div>
 <p>The generated image will show the predicted Q-values based on reinforcement learning.</p>
-<a class="reference internal image-reference" href="../../../_images/qvalues.png"><img alt="Image of predicted Q-values" class="align-center" src="../../../_images/qvalues.png" style="width: 640px; height: 360px;" /></a>
-<p>This visualization helps identify potential areas for the next event, making it easier to analyze patterns and trends in soccer gameplay.</p>
+<a class="reference internal image-reference" href="../../../_images/qvalues.png"><img alt="Image of predicted Q-values" class="align-center" src="../../../_images/qvalues.png" style="width: 640px; height: 460px;" />
+</a>
+<p>Alternatively, you can use the automated pipeline approach:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.soccer.main_class_soccer.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Automated pipeline visualization</span>
+<span class="n">RLearn_Model</span><span class="p">(</span>
+    <span class="n">state_def</span><span class="o">=</span><span class="s2">&quot;PVS&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">run_rlearn</span><span class="p">(</span>
+    <span class="n">run_visualize_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;exp_config&#39;</span><span class="p">,</span>
+    <span class="n">checkpoint_path</span><span class="o">=</span><span class="s1">&#39;/path/to/output/sarsa_attacker/test/checkpoints/epoch=1-step=2.ckpt&#39;</span><span class="p">,</span>
+    <span class="n">match_id</span><span class="o">=</span><span class="s1">&#39;2022100106&#39;</span><span class="p">,</span>
+    <span class="n">sequence_id</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This visualization helps identify potential areas for the next event, making it easier to analyze patterns and trends in soccer gameplay. The automated approach provides better error handling and integrates seamlessly with the training pipeline.</p>
 </section>
 </section>
 

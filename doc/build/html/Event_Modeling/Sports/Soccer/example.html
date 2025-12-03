@@ -1,21 +1,21 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example: Train and Inference NMSTPP model &mdash; Open-STAR-Lab v0.1.27 documentation</title>
+  <title>Example: Train and Inference NMSTPP model &mdash; Open-STAR-Lab v0.1.28 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=20192711"></script>
-      <script src="../../../_static/doctools.js?v=888ff710"></script>
-      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/documentation_options.js?v=9f131445"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -90,7 +90,7 @@
            <div itemprop="articleBody">
              
   <section id="example-train-and-inference-nmstpp-model">
-<h1>Example: Train and Inference NMSTPP model<a class="headerlink" href="#example-train-and-inference-nmstpp-model" title="Permalink to this heading"></a></h1>
+<h1>Example: Train and Inference NMSTPP model<a class="headerlink" href="#example-train-and-inference-nmstpp-model" title="Link to this heading"></a></h1>
 <p>To train, infer, and simulate using the NMSTPP model, you can utilize the following code snippets.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -98,7 +98,7 @@
 <a class="reference external" href="https://colab.research.google.com/drive/1c7pAwXDVaT_XTYNHvgvxgmxj0E-6IEKH?authuser=1#scrollTo=jtQIUUhHf43K">Wyscout Dataset Example on Colab</a>.</p>
 </div>
 <section id="training-the-nmstpp-model">
-<h2>Training the NMSTPP Model<a class="headerlink" href="#training-the-nmstpp-model" title="Permalink to this heading"></a></h2>
+<h2>Training the NMSTPP Model<a class="headerlink" href="#training-the-nmstpp-model" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">event</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event_Model</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
@@ -113,7 +113,7 @@
 </div>
 </section>
 <section id="inference">
-<h2>Inference<a class="headerlink" href="#inference" title="Permalink to this heading"></a></h2>
+<h2>Inference<a class="headerlink" href="#inference" title="Link to this heading"></a></h2>
 <p>After training, you can perform inference. Here’s how to do it:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/_model_1.pth&#39;</span>
 <span class="n">model_config</span> <span class="o">=</span> <span class="s1">&#39;path/to/hyperparameters.json&#39;</span>
@@ -127,7 +127,7 @@
 </div>
 </section>
 <section id="inference-on-other-data">
-<h2>Inference on Other Data<a class="headerlink" href="#inference-on-other-data" title="Permalink to this heading"></a></h2>
+<h2>Inference on Other Data<a class="headerlink" href="#inference-on-other-data" title="Link to this heading"></a></h2>
 <p>To run inference on other datasets, set the <cite>train_path</cite> in the YAML file to <cite>None</cite>. Here’s an example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">min_max_dict_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/min_max_dict.json&#39;</span>
 <span class="n">path_to_inference_data</span> <span class="o">=</span> <span class="s1">&#39;path/to/inference.csv&#39;</span>
@@ -141,7 +141,7 @@
 </div>
 </section>
 <section id="yaml-configuration-for-training-the-nmstpp-model">
-<h2>YAML Configuration for Training the NMSTPP Model<a class="headerlink" href="#yaml-configuration-for-training-the-nmstpp-model" title="Permalink to this heading"></a></h2>
+<h2>YAML Configuration for Training the NMSTPP Model<a class="headerlink" href="#yaml-configuration-for-training-the-nmstpp-model" title="Link to this heading"></a></h2>
 <p>The YAML file for training the NMSTPP model should look like this:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># OpenStarLab Event Modeling, Apache-2.0 license</span>
 <span class="c1"># UEID data (with openstarlab-preprocessing package) and NMSTPP model</span>
@@ -188,7 +188,7 @@
 </div>
 </section>
 <section id="yaml-configuration-for-optuna-hyperparameter-optimization">
-<h2>YAML Configuration for Optuna Hyperparameter Optimization<a class="headerlink" href="#yaml-configuration-for-optuna-hyperparameter-optimization" title="Permalink to this heading"></a></h2>
+<h2>YAML Configuration for Optuna Hyperparameter Optimization<a class="headerlink" href="#yaml-configuration-for-optuna-hyperparameter-optimization" title="Link to this heading"></a></h2>
 <p>When using Optuna for hyperparameter optimization, your YAML file should resemble the following:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># OpenStarLab Event Modeling, Apache-2.0 license</span>
 <span class="c1"># UEID data (with openstarlab-preprocessing package) and NMSTPP model</span>

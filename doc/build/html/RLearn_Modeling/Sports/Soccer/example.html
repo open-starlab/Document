@@ -1,21 +1,21 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example: Train and Visualize RLearn Model &mdash; Open-STAR-Lab v0.1.27 documentation</title>
+  <title>Example: Train and Visualize RLearn Model &mdash; Open-STAR-Lab v0.1.28 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=20192711"></script>
-      <script src="../../../_static/doctools.js?v=888ff710"></script>
-      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/documentation_options.js?v=9f131445"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -53,6 +53,7 @@
 <li class="toctree-l4"><a class="reference internal" href="model.html">Models and Framework</a></li>
 <li class="toctree-l4"><a class="reference internal" href="application.html">Application of the RLearn Model in Soccer</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Example: Train and Visualize RLearn Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-usage-manual-step-execution">Advanced Usage: Manual Step Execution</a></li>
 </ul>
 </li>
 </ul>
@@ -90,10 +91,19 @@
            <div itemprop="articleBody">
              
   <section id="example-train-and-visualize-rlearn-model">
-<h1>Example: Train and Visualize RLearn Model<a class="headerlink" href="#example-train-and-visualize-rlearn-model" title="Permalink to this heading"></a></h1>
+<h1>Example: Train and Visualize RLearn Model<a class="headerlink" href="#example-train-and-visualize-rlearn-model" title="Link to this heading"></a></h1>
 <p>To train and visualize the RLearn model, you can utilize the following code snippets.</p>
-<section id="run-all-at-once">
-<h2>Run All at Once<a class="headerlink" href="#run-all-at-once" title="Permalink to this heading"></a></h2>
+<section id="automated-pipeline-execution-recommended">
+<h2>Automated Pipeline Execution (Recommended)<a class="headerlink" href="#automated-pipeline-execution-recommended" title="Link to this heading"></a></h2>
+<p>The RLearn model now supports fully automated pipeline execution through the <code class="docutils literal notranslate"><span class="pre">run_rlearn</span></code> method. This approach allows you to execute the entire machine learning workflow in a single command, including data splitting, preprocessing, training, and visualization. The pipeline automatically manages file paths, configuration updates, and error handling.</p>
+<p><strong>Benefits of automated execution:</strong></p>
+<ul class="simple">
+<li><p><strong>Simplified workflow</strong>: Execute all steps with one command</p></li>
+<li><p><strong>Automatic path management</strong>: Input/output paths are managed automatically</p></li>
+<li><p><strong>Error handling</strong>: Built-in error detection and recovery</p></li>
+<li><p><strong>Configuration management</strong>: Settings are automatically updated between steps</p></li>
+<li><p><strong>Reduced manual intervention</strong>: Minimizes the risk of configuration errors</p></li>
+</ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.soccer.main_class_soccer.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
@@ -130,9 +140,21 @@
 <span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>Parameters explanation:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">run_split_train_test=True</span></code>: Automatically splits data into training and testing sets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_preprocess_observation=True</span></code>: Applies preprocessing to observation data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_train_and_test=True</span></code>: Trains the model and runs evaluation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_visualize_data=True</span></code>: Generates visualization of Q-values and model outputs</p></li>
+</ul>
+<p>The pipeline automatically manages intermediate file paths and updates configuration files as needed.</p>
 </section>
-<section id="spliting-test-and-train-data">
-<h2>Spliting Test and Train Data<a class="headerlink" href="#spliting-test-and-train-data" title="Permalink to this heading"></a></h2>
+</section>
+<section id="advanced-usage-manual-step-execution">
+<h1>Advanced Usage: Manual Step Execution<a class="headerlink" href="#advanced-usage-manual-step-execution" title="Link to this heading"></a></h1>
+<p>For advanced users who need fine-grained control over each step, you can execute individual components manually. This approach is useful for debugging, custom modifications, or when you need to inspect intermediate results.</p>
+<section id="data-splitting">
+<h2>Data Splitting<a class="headerlink" href="#data-splitting" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.soccer.main_class_soccer.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
@@ -147,7 +169,7 @@
 </div>
 </section>
 <section id="preprocess-observations">
-<h2>Preprocess Observations<a class="headerlink" href="#preprocess-observations" title="Permalink to this heading"></a></h2>
+<h2>Preprocess Observations<a class="headerlink" href="#preprocess-observations" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.soccer.main_class_soccer.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
@@ -164,8 +186,8 @@
 </pre></div>
 </div>
 </section>
-<section id="train-the-rlearn-model">
-<h2>Train the RLearn Model<a class="headerlink" href="#train-the-rlearn-model" title="Permalink to this heading"></a></h2>
+<section id="model-training">
+<h2>Model Training<a class="headerlink" href="#model-training" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.soccer.main_class_soccer.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
@@ -191,8 +213,8 @@
 </pre></div>
 </div>
 </section>
-<section id="visualize-the-q-values">
-<h2>Visualize the Q-values<a class="headerlink" href="#visualize-the-q-values" title="Permalink to this heading"></a></h2>
+<section id="q-values-visualization">
+<h2>Q-values Visualization<a class="headerlink" href="#q-values-visualization" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.soccer.main_class_soccer.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">rlearn_model_soccer</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
