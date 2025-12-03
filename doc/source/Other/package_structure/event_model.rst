@@ -5,7 +5,7 @@ The structure of the Event_Modeling package is as follows:
 
 structure
 ---------
-.. code-block:: python
+.. code-block:: text
     
     └── main_class.py  #main class for the event data
     └── Sports

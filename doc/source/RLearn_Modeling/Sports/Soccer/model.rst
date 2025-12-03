@@ -7,7 +7,11 @@ The models in this package has been edited to be compatible with the framework s
 
 Framework
 ---------
-The data were then converted to the `SAR format <https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Event_data/Data_Format/Football/UEID.html>`_ using the OpenSTARLab `Pre-Processing <https://github.com/open-starlab/PreProcessing>`_ package. Afterward, all models were trained with the OpenSTARLab RLearn package. For more details refer to our paper.
+The data were then converted to the `SAR format <https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Event_data/Data_Format/Football/UEID.html>`_ using the OpenSTARLab `Pre-Processing <https://github.com/open-starlab/PreProcessing>`_ package. Afterward, all models were trained with the OpenSTARLab RLearn package. 
+
+The RLearn package now supports automated pipeline execution through the ``run_rlearn`` method, which streamlines the entire workflow from data preprocessing to model training and visualization. This automated approach reduces configuration complexity and minimizes potential errors in the machine learning pipeline.
+
+For more details refer to our paper.
 
 .. code-block:: text
 

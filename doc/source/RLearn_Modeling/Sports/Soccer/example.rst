@@ -2,8 +2,17 @@ Example: Train and Visualize RLearn Model
 =============================================
 To train and visualize the RLearn model, you can utilize the following code snippets.
 
-Run All at Once
------------------------------
+Automated Pipeline Execution (Recommended)
+--------------------------------------------
+The RLearn model now supports fully automated pipeline execution through the ``run_rlearn`` method. This approach allows you to execute the entire machine learning workflow in a single command, including data splitting, preprocessing, training, and visualization. The pipeline automatically manages file paths, configuration updates, and error handling.
+
+**Benefits of automated execution:**
+
+- **Simplified workflow**: Execute all steps with one command
+- **Automatic path management**: Input/output paths are managed automatically
+- **Error handling**: Built-in error detection and recovery
+- **Configuration management**: Settings are automatically updated between steps
+- **Reduced manual intervention**: Minimizes the risk of configuration errors
 
 .. code-block:: python
 
@@ -42,8 +51,20 @@ Run All at Once
         sequence_id=0
     )
 
+**Parameters explanation:**
 
-Spliting Test and Train Data
+- ``run_split_train_test=True``: Automatically splits data into training and testing sets
+- ``run_preprocess_observation=True``: Applies preprocessing to observation data
+- ``run_train_and_test=True``: Trains the model and runs evaluation
+- ``run_visualize_data=True``: Generates visualization of Q-values and model outputs
+
+The pipeline automatically manages intermediate file paths and updates configuration files as needed.
+
+Advanced Usage: Manual Step Execution
+======================================
+For advanced users who need fine-grained control over each step, you can execute individual components manually. This approach is useful for debugging, custom modifications, or when you need to inspect intermediate results.
+
+Data Splitting
 -----------------------------
 
 .. code-block:: python
@@ -80,7 +101,7 @@ Preprocess Observations
     ).run_rlearn(run_preprocess_observation=True, batch_size=64)
 
 
-Train the RLearn Model
+Model Training
 -------------------------------
 
 .. code-block:: python
@@ -109,7 +130,7 @@ Train the RLearn Model
     )
 
 
-Visualize the Q-values
+Q-values Visualization
 -----------------------
 
 .. code-block:: python
