@@ -1,23 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Application of the Event Model in Soccer &mdash; Open-STAR-Lab v0.1.34 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=732e7d3f"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=243eeda9"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -93,14 +91,14 @@
            <div itemprop="articleBody">
              
   <section id="application-of-the-event-model-in-soccer">
-<h1>Application of the Event Model in Soccer<a class="headerlink" href="#application-of-the-event-model-in-soccer" title="Permalink to this heading"></a></h1>
+<h1>Application of the Event Model in Soccer<a class="headerlink" href="#application-of-the-event-model-in-soccer" title="Link to this heading"></a></h1>
 <p>This section demonstrates applications of the Event Model in soccer.</p>
 <section id="heat-map-of-the-predicted-next-event-location-gaussian-smoothed">
-<h2>Heat Map of the Predicted Next Event Location (Gaussian Smoothed)<a class="headerlink" href="#heat-map-of-the-predicted-next-event-location-gaussian-smoothed" title="Permalink to this heading"></a></h2>
+<h2>Heat Map of the Predicted Next Event Location (Gaussian Smoothed)<a class="headerlink" href="#heat-map-of-the-predicted-next-event-location-gaussian-smoothed" title="Link to this heading"></a></h2>
 <p>The following code snippet shows how to use the <cite>Event_Model</cite> class to plot a heat map of the next event location based on model predictions.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">event</span> <span class="kn">import</span> <span class="n">Event_Model</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">event</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event_Model</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="c1"># Initialize the LEM model</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">Event_Model</span><span class="p">(</span><span class="s1">&#39;LEM&#39;</span><span class="p">,</span> <span class="s1">&#39;path/to/LEM.yaml&#39;</span><span class="p">)</span>
@@ -121,15 +119,16 @@
 </pre></div>
 </div>
 <p>The generated heat map will show the predicted next event location based on model inference.</p>
-<a class="reference internal image-reference" href="../../../_images/heatmap.png"><img alt="Heat map of predicted next event location" class="align-center" src="../../../_images/heatmap.png" style="width: 640px; height: 480px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/heatmap.png"><img alt="Heat map of predicted next event location" class="align-center" src="../../../_images/heatmap.png" style="width: 640px; height: 480px;" />
+</a>
 <p>This visualization helps identify potential areas for the next event, making it easier to analyze patterns and trends in soccer gameplay.</p>
 </section>
 <section id="holistic-possession-utilization-score-hpus-and-hpus">
-<h2>Holistic Possession Utilization Score (HPUS) and HPUS+<a class="headerlink" href="#holistic-possession-utilization-score-hpus-and-hpus" title="Permalink to this heading"></a></h2>
+<h2>Holistic Possession Utilization Score (HPUS) and HPUS+<a class="headerlink" href="#holistic-possession-utilization-score-hpus-and-hpus" title="Link to this heading"></a></h2>
 <p>The following code snippet demonstrates how to use the <cite>Event_Model</cite> class to plot the HPUS score for each 5-minute segment of a match. For a detailed explanation of HPUS and HPUS+, including their formulas, please refer to the <cite>NMSTPP</cite> model paper.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">event</span> <span class="kn">import</span> <span class="n">Event_Model</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">event</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event_Model</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="c1"># Initialize the LEM model</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">Event_Model</span><span class="p">(</span><span class="s1">&#39;LEM&#39;</span><span class="p">,</span> <span class="s1">&#39;path/to/LEM.yaml&#39;</span><span class="p">)</span>
@@ -154,17 +153,19 @@
 <span class="n">hpus_plus</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">cal_HPUS</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_match</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="n">save_path_folder</span><span class="p">,</span> <span class="n">plus</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/HPUS.png"><img alt="HPUS score for each 5-minute segment of the match" class="align-center" src="../../../_images/HPUS.png" style="width: 500px; height: 300px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/HPUS.png"><img alt="HPUS score for each 5-minute segment of the match" class="align-center" src="../../../_images/HPUS.png" style="width: 500px; height: 300px;" />
+</a>
 <p>This visualization illustrates the overall value of each possession during each 5-minute interval, providing insights into team performance and strategy over the course of the match.</p>
-<a class="reference internal image-reference" href="../../../_images/HPUS_plus.png"><img alt="HPUS+ score for each 5-minute segment of the match" class="align-center" src="../../../_images/HPUS_plus.png" style="width: 500px; height: 300px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/HPUS_plus.png"><img alt="HPUS+ score for each 5-minute segment of the match" class="align-center" src="../../../_images/HPUS_plus.png" style="width: 500px; height: 300px;" />
+</a>
 <p>This visualization shows how effectively the team has realized possession value during each 5-minute segment, offering insights into their attacking performance and overall effectiveness.</p>
 </section>
 <section id="possession-utilization-score-poss-util">
-<h2>Possession Utilization Score (Poss-Util)<a class="headerlink" href="#possession-utilization-score-poss-util" title="Permalink to this heading"></a></h2>
+<h2>Possession Utilization Score (Poss-Util)<a class="headerlink" href="#possession-utilization-score-poss-util" title="Link to this heading"></a></h2>
 <p>The following code snippet demonstrates how to use the <cite>Event_Model</cite> class to plot the Poss-Util and Poss-Util+ metrics for each team’s performance over a specified period. For a detailed explanation of Poss-Util and Poss-Util+, including their formulas, please refer to the <cite>Seq2Event</cite> model paper.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">event</span> <span class="kn">import</span> <span class="n">Event_Model</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">event</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event_Model</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="c1"># Initialize the LEM model</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">Event_Model</span><span class="p">(</span><span class="s1">&#39;LEM&#39;</span><span class="p">,</span> <span class="s1">&#39;path/to/LEM.yaml&#39;</span><span class="p">)</span>
@@ -182,9 +183,11 @@
 <span class="n">poss_util</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">cal_poss_util</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">inference_data_path</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="n">save_path_folder</span><span class="p">,</span> <span class="n">team</span><span class="o">=</span><span class="n">teams</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/poss_util.png"><img alt="Distribution of Poss-Util score per match for each team" class="align-center" src="../../../_images/poss_util.png" style="width: 600px; height: 400px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/poss_util.png"><img alt="Distribution of Poss-Util score per match for each team" class="align-center" src="../../../_images/poss_util.png" style="width: 600px; height: 400px;" />
+</a>
 <p>This visualization illustrates the overall possession value performance of each team over a given period, offering insights into possession effectiveness and team strategy.</p>
-<a class="reference internal image-reference" href="../../../_images/poss_util_plus.png"><img alt="Distribution of Poss-Util+ score per match for each team" class="align-center" src="../../../_images/poss_util_plus.png" style="width: 600px; height: 400px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/poss_util_plus.png"><img alt="Distribution of Poss-Util+ score per match for each team" class="align-center" src="../../../_images/poss_util_plus.png" style="width: 600px; height: 400px;" />
+</a>
 <p>This visualization illustrates the attacking performance of each team over the period, highlighting their success in maximizing possession value.</p>
 </section>
 </section>

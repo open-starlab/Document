@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BePro (SoccerTrackv2) &mdash; Open-STAR-Lab v0.1.34 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../../_static/documentation_options.js?v=243eeda9"></script>
+      <script src="../../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <link rel="next" title="StatsBomb &amp; SkillCorner Integration" href="../Statsbomb_Skillcorner/contents.html" />
+    <link rel="prev" title="Football/Soccer Data Providers" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../../index.html" class="icon icon-home">
+            Open-STAR-Lab
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Pre-Processing</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../index.html">Sports</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../Event_data/index.html">Event Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../SAR_data/index.html">SAR Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../Tracking_data/index.html">Tracking Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../Space_Eval/index.html">Space Data</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html">Phase Data</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">Data Providers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../Data_Format/index.html">Data Format</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../Event_Modeling/index.html">Event-Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../RLearn_Modeling/index.html">RLearn-Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../Space_Eval/index.html">spaceEval</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../PhaseLearn_Modeling/index.html">PhaseLearn-Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../Other/index.html">Other</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Open-STAR-Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../../index.html">Pre-Processing</a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Sports</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Phase Data</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Data Providers</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Football/Soccer Data Providers</a></li>
+      <li class="breadcrumb-item active">BePro (SoccerTrackv2)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../../_sources/Pre_Processing/Sports/Phase_data/Data_Provider/Football/Bepro/contents.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bepro-soccertrackv2">
+<h1>BePro (SoccerTrackv2)<a class="headerlink" href="#bepro-soccertrackv2" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Phase_data">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Phase_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bepro'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bp_tracking_json_paths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bp_tracking_xml_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Phase_data" title="Link to this definition"></a></dt>
+<dd><blockquote>
+<div><p>Load and process event and tracking data for the BePro (SoccerTrackv2) dataset.
+This class supports both modern JSON-based tracking sequences and legacy XML tracking files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">param str data_provider<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Name of the data provider (default is ‘bepro’).</p>
+</dd>
+<dt class="field-even">param str event_path<span class="colon">:</span></dt>
+<dd class="field-even"><p>File path to the BePro event CSV file.</p>
+</dd>
+<dt class="field-odd">param list bp_tracking_json_paths<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(For Match ID &gt;= 130000) A list of paths to JSON frame data files.</p>
+</dd>
+<dt class="field-even">param str bp_tracking_xml_path<span class="colon">:</span></dt>
+<dd class="field-even"><p>(For Match ID &lt; 130000) File path to the tracker box XML data.</p>
+</dd>
+<dt class="field-odd">param str meta_data<span class="colon">:</span></dt>
+<dd class="field-odd"><p>File path to the match metadata (JSON or XML depending on the match ID).</p>
+</dd>
+<dt class="field-even">return<span class="colon">:</span></dt>
+<dd class="field-even"><p>A synchronized DataFrame containing processed phase data.</p>
+</dd>
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Example Usage</strong>:</p>
+<blockquote>
+<div><p>Depending on the Match ID, the data structure differs. The following example shows the conditional loading logic.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Phase_data</span>
+
+<span class="n">match_id</span> <span class="o">=</span> <span class="s2">&quot;130001&quot;</span>
+<span class="n">data_provider</span> <span class="o">=</span> <span class="s1">&#39;bepro&#39;</span>
+<span class="n">base_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/data&#39;</span>
+
+<span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">match_id</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">130000</span><span class="p">:</span>
+     <span class="c1"># New Format (JSON)</span>
+     <span class="n">file_pattern</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;tracking_data&#39;</span><span class="p">,</span> <span class="n">data_provider</span><span class="p">,</span> <span class="n">match_id</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">match_id</span><span class="si">}</span><span class="s2">_*_frame_data.json&quot;</span><span class="p">)</span>
+     <span class="n">tracking_json_paths</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">file_pattern</span><span class="p">))</span>
+     <span class="n">meta_data</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;tracking_data&#39;</span><span class="p">,</span> <span class="n">data_provider</span><span class="p">,</span> <span class="n">match_id</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">match_id</span><span class="si">}</span><span class="s2">_metadata.json&quot;</span><span class="p">)</span>
+     <span class="n">event_csv_path</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;event_data&#39;</span><span class="p">,</span> <span class="n">data_provider</span><span class="p">,</span> <span class="n">match_id</span><span class="p">,</span> <span class="s1">&#39;*.csv&#39;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+
+     <span class="n">preprocessing_df</span> <span class="o">=</span> <span class="n">Phase_data</span><span class="p">(</span>
+          <span class="n">data_provider</span><span class="o">=</span><span class="n">data_provider</span><span class="p">,</span>
+          <span class="n">bp_tracking_json_paths</span><span class="o">=</span><span class="n">tracking_json_paths</span><span class="p">,</span>
+          <span class="n">event_path</span><span class="o">=</span><span class="n">event_csv_path</span><span class="p">,</span>
+          <span class="n">meta_data</span><span class="o">=</span><span class="n">meta_data</span>
+     <span class="p">)</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+     <span class="c1"># Old Format (XML)</span>
+     <span class="n">tracking_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;tracking_data&#39;</span><span class="p">,</span> <span class="n">data_provider</span><span class="p">,</span> <span class="n">match_id</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">match_id</span><span class="si">}</span><span class="s2">_tracker_box_data.xml&quot;</span><span class="p">)</span>
+     <span class="n">meta_data</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;tracking_data&#39;</span><span class="p">,</span> <span class="n">data_provider</span><span class="p">,</span> <span class="n">match_id</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">match_id</span><span class="si">}</span><span class="s2">_tracker_box_metadata.xml&quot;</span><span class="p">)</span>
+     <span class="n">event_csv_path</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;event_data&#39;</span><span class="p">,</span> <span class="n">data_provider</span><span class="p">,</span> <span class="n">match_id</span><span class="p">,</span> <span class="s1">&#39;*.csv&#39;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+
+     <span class="n">preprocessing_df</span> <span class="o">=</span> <span class="n">Phase_data</span><span class="p">(</span>
+          <span class="n">data_provider</span><span class="o">=</span><span class="n">data_provider</span><span class="p">,</span>
+          <span class="n">bp_tracking_xml_path</span><span class="o">=</span><span class="n">tracking_path</span><span class="p">,</span>
+          <span class="n">event_path</span><span class="o">=</span><span class="n">event_csv_path</span><span class="p">,</span>
+          <span class="n">meta_data</span><span class="o">=</span><span class="n">meta_data</span>
+     <span class="p">)</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># Save the standardized output</span>
+<span class="n">output_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;phase_data&#39;</span><span class="p">,</span> <span class="n">data_provider</span><span class="p">,</span> <span class="n">match_id</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">match_id</span><span class="si">}</span><span class="s2">_main_data.csv&quot;</span><span class="p">)</span>
+<span class="n">preprocessing_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Details</strong>:</p>
+<blockquote>
+<div><p>The BePro processing pipeline unifies disparate data sources into a standardized coordinate system:</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Format Detection</strong>: Automatically handles JSON sequences for newer matches and XML files for legacy data.</p></li>
+<li><p><strong>Metadata Integration</strong>: Extracts pitch dimensions, team rosters, and player details from metadata files.</p></li>
+<li><p><strong>Time Synchronization</strong>: Merges tracking frames with event data using the nearest time-match logic.</p></li>
+<li><dl class="simple">
+<dt><strong>Feature Extraction</strong>:</dt><dd><ul class="simple">
+<li><p>Normalizes position coordinates.</p></li>
+<li><p>Adds ball-specific tracking columns.</p></li>
+<li><p>Organizes player data (id, name, position, x, y) for both home and away teams.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Downsampling</strong>: Standardizes the output to 5fps (200ms) to ensure consistency across the OpenSTARLab ecosystem.</p></li>
+</ol>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Football/Soccer Data Providers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Statsbomb_Skillcorner/contents.html" class="btn btn-neutral float-right" title="StatsBomb &amp; SkillCorner Integration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Openstarlab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

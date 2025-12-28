@@ -1,23 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../../../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Metrica &mdash; Open-STAR-Lab v0.1.34 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=92fd9be5" />
-      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js?v=732e7d3f"></script>
-        <script src="../../../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../../_static/documentation_options.js?v=243eeda9"></script>
+      <script src="../../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
@@ -97,10 +95,10 @@
            <div itemprop="articleBody">
              
   <section id="metrica">
-<h1>Metrica<a class="headerlink" href="#metrica" title="Permalink to this heading"></a></h1>
+<h1>Metrica<a class="headerlink" href="#metrica" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="Event_data">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Event_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider='metrica'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_path=metrica_event_csv_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id=match_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tracking_home_path=metrica_tracking_home_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tracking_away_path=metrica_tracking_away_path).load_data(</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Event_data" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Event_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider='metrica'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_path=metrica_event_csv_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id=match_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tracking_home_path=metrica_tracking_home_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tracking_away_path=metrica_tracking_away_path).load_data(</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Event_data" title="Link to this definition"></a></dt>
 <dd><p>Loads event data and tracking data from specified file paths and returns a DataFrame containing the merged information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -119,8 +117,8 @@
 </dd>
 </dl>
 <p><strong>Example usage</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event_data</span>
 
 <span class="n">event_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/event_data.json&#39;</span>
 <span class="n">match_id</span> <span class="o">=</span> <span class="s1">&#39;12345&#39;</span>

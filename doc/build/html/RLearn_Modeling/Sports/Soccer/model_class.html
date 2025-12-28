@@ -1,23 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RLearn_Model Class &mdash; Open-STAR-Lab v0.1.34 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=92fd9be5" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=732e7d3f"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=243eeda9"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -93,13 +91,13 @@
            <div itemprop="articleBody">
              
   <section id="rlearn-model-class">
-<h1>RLearn_Model Class<a class="headerlink" href="#rlearn-model-class" title="Permalink to this heading"></a></h1>
+<h1>RLearn_Model Class<a class="headerlink" href="#rlearn-model-class" title="Link to this heading"></a></h1>
 <p>This class provides the splitting test and train data for the SAR model, attacker simple observation, train the RLearn model and visualize the Q values.</p>
 <section id="initialization">
-<h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h2>
+<h2>Initialization<a class="headerlink" href="#initialization" title="Link to this heading"></a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_def</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_process</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_def</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_process</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#init__" title="Link to this definition"></a></dt>
 <dd><p>Initializes the RLearn model with the specified configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -117,16 +115,16 @@
 
 </section>
 <section id="methods">
-<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h2>
+<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading"></a></h2>
 <dl class="py method">
 <dt class="sig sig-object py" id="split_train_test">
-<span class="sig-name descname"><span class="pre">split_train_test</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#split_train_test" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">split_train_test</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#split_train_test" title="Link to this definition"></a></dt>
 <dd><p>Splits the input data into training and testing sets.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="preprocess_observations">
-<span class="sig-name descname"><span class="pre">preprocess_observations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocess_observations" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">preprocess_observations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#preprocess_observations" title="Link to this definition"></a></dt>
 <dd><p>Preprocesses the input data to generate the observations for the attacker.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -137,7 +135,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="train_model">
-<span class="sig-name descname"><span class="pre">train_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exp_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accelerator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">devices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#train_model" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">train_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exp_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accelerator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">devices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#train_model" title="Link to this definition"></a></dt>
 <dd><p>Trains the RLearn model using the preprocessed data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -154,7 +152,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="visualize_q_values">
-<span class="sig-name descname"><span class="pre">visualize_q_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkpoint_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualize_q_values" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">visualize_q_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkpoint_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequence_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#visualize_q_values" title="Link to this definition"></a></dt>
 <dd><p>Visualizes the Q-values for the trained RLearn model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -170,7 +168,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="run_rlearn">
-<span class="sig-name descname"><span class="pre">run_rlearn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_split_train_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_preprocess_observation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_train_and_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_visualize_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accelerator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">devices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#run_rlearn" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">run_rlearn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_split_train_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_preprocess_observation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_train_and_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_visualize_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accelerator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">devices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#run_rlearn" title="Link to this definition"></a></dt>
 <dd><p>Runs the RLearn data splitting, observation processing, model training and evaluation pipeline.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
