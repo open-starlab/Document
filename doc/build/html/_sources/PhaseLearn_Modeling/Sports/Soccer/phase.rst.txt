@@ -24,3 +24,5 @@ The framework provides a probability distribution across these nine phases. This
 .. image:: phases_of_play_diagram.png
    :width: 600px
    :align: center
+
+|

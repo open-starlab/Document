@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BePro (SoccerTrackv2) &mdash; Open-STAR-Lab v0.1.34 documentation</title>
+  <title>BePro (SoccerTrackv2) &mdash; Open-STAR-Lab v0.1.35 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../../../../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../../../_static/documentation_options.js?v=243eeda9"></script>
+      <script src="../../../../../../_static/documentation_options.js?v=804669b0"></script>
       <script src="../../../../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../../../_static/js/theme.js"></script>
@@ -100,36 +100,29 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="Phase_data">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Phase_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_provider</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bepro'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bp_tracking_json_paths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bp_tracking_xml_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Phase_data" title="Link to this definition"></a></dt>
-<dd><blockquote>
-<div><p>Load and process event and tracking data for the BePro (SoccerTrackv2) dataset.
+<dd><p>Load and process event and tracking data for the BePro (SoccerTrackv2) dataset.
 This class supports both modern JSON-based tracking sequences and legacy XML tracking files.</p>
 <dl class="field-list simple">
-<dt class="field-odd">param str data_provider<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Name of the data provider (default is ‘bepro’).</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_provider</strong> (<em>str</em>) – Name of the data provider (default is ‘bepro’).</p></li>
+<li><p><strong>event_path</strong> (<em>str</em>) – File path to the BePro event CSV file.</p></li>
+<li><p><strong>bp_tracking_json_paths</strong> (<em>list</em>) – (For Match ID &gt;= 130000) A list of paths to JSON frame data files.</p></li>
+<li><p><strong>bp_tracking_xml_path</strong> (<em>str</em>) – (For Match ID &lt; 130000) File path to the tracker box XML data.</p></li>
+<li><p><strong>meta_data</strong> (<em>str</em>) – File path to the match metadata (JSON or XML depending on the match ID).</p></li>
+</ul>
 </dd>
-<dt class="field-even">param str event_path<span class="colon">:</span></dt>
-<dd class="field-even"><p>File path to the BePro event CSV file.</p>
-</dd>
-<dt class="field-odd">param list bp_tracking_json_paths<span class="colon">:</span></dt>
-<dd class="field-odd"><p>(For Match ID &gt;= 130000) A list of paths to JSON frame data files.</p>
-</dd>
-<dt class="field-even">param str bp_tracking_xml_path<span class="colon">:</span></dt>
-<dd class="field-even"><p>(For Match ID &lt; 130000) File path to the tracker box XML data.</p>
-</dd>
-<dt class="field-odd">param str meta_data<span class="colon">:</span></dt>
-<dd class="field-odd"><p>File path to the match metadata (JSON or XML depending on the match ID).</p>
-</dd>
-<dt class="field-even">return<span class="colon">:</span></dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A synchronized DataFrame containing processed phase data.</p>
 </dd>
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>pandas.DataFrame</p>
 </dd>
 </dl>
-</div></blockquote>
+</dd></dl>
+
 <p><strong>Example Usage</strong>:</p>
-<blockquote>
-<div><p>Depending on the Match ID, the data structure differs. The following example shows the conditional loading logic.</p>
+<p>Depending on the Match ID, the data structure differs. The following example shows the conditional loading logic.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Phase_data</span>
@@ -169,11 +162,8 @@ This class supports both modern JSON-based tracking sequences and legacy XML tra
 <span class="n">preprocessing_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-</div></blockquote>
 <p><strong>Details</strong>:</p>
-<blockquote>
-<div><p>The BePro processing pipeline unifies disparate data sources into a standardized coordinate system:</p>
-</div></blockquote>
+<p>The BePro processing pipeline unifies disparate data sources into a standardized coordinate system:</p>
 <ol class="arabic simple">
 <li><p><strong>Format Detection</strong>: Automatically handles JSON sequences for newer matches and XML files for legacy data.</p></li>
 <li><p><strong>Metadata Integration</strong>: Extracts pitch dimensions, team rosters, and player details from metadata files.</p></li>
@@ -189,8 +179,6 @@ This class supports both modern JSON-based tracking sequences and legacy XML tra
 </li>
 <li><p><strong>Downsampling</strong>: Standardizes the output to 5fps (200ms) to ensure consistency across the OpenSTARLab ecosystem.</p></li>
 </ol>
-</dd></dl>
-
 </section>
 
 

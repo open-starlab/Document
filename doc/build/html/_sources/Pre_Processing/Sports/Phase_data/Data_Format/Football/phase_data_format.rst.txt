@@ -3,17 +3,17 @@ Phase Data
 
 Phase data format is an original design to provide a standardized format for tracking data in football.
 
-Pitch Coordinates Standardization
----------------------------------
+**Pitch Coordinates Standardization**:
+--------------------------------------
 
 .. image:: pitch_coord.png
-   :width: 600px
-   :align: center
+    :width: 600px
+    :align: center
 
 The team attacking towards the positive x-axis is defined as the **left team**, and the team attacking towards the negative x-axis is defined as the **right team**.
 
-Phase Data Format
------------------
+**Phase Data Format**:
+--------------------------------------
 
 Phase data format includes the following columns:
 
