@@ -1,23 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EDMS State Definition &mdash; Open-STAR-Lab v0.1.34 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=92fd9be5" />
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=19f00094" />
+  <title>EDMS State Definition &mdash; Open-STAR-Lab v0.1.35 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=732e7d3f"></script>
-        <script src="../../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=804669b0"></script>
+      <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
@@ -58,6 +56,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../../Tracking_data/index.html">Tracking Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../Space_Eval/index.html">Space Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Phase_data/index.html">Phase Data</a></li>
 </ul>
 </li>
 </ul>
@@ -65,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../Event_Modeling/index.html">Event-Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../RLearn_Modeling/index.html">RLearn-Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../Space_Eval/index.html">spaceEval</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../PhaseLearn_Modeling/index.html">PhaseLearn-Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../Other/index.html">Other</a></li>
 </ul>
 
@@ -98,15 +98,15 @@
            <div itemprop="articleBody">
              
   <section id="edms-state-definition">
-<h1>EDMS State Definition<a class="headerlink" href="#edms-state-definition" title="Permalink to this heading"></a></h1>
+<h1>EDMS State Definition<a class="headerlink" href="#edms-state-definition" title="Link to this heading"></a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>EDMS (Expandable Decision-Making State) is an advanced state definition system specialized for sophisticated soccer analysis and complex multi-agent learning scenarios. It provides a three-layer structured state representation containing more detailed information than PVS, numerically expressing the tactical aspects of soccer.</p>
 </section>
 <section id="data-structure">
-<h2>Data Structure<a class="headerlink" href="#data-structure" title="Permalink to this heading"></a></h2>
+<h2>Data Structure<a class="headerlink" href="#data-structure" title="Link to this heading"></a></h2>
 <p>EDMS has a hierarchical structure composed of three main state levels:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">State_EDMS</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">State_EDMS</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">relative_state</span><span class="p">:</span> <span class="n">RelativeState</span>  <span class="c1"># Relative state (OnBall/OffBall)</span>
     <span class="n">absolute_state</span><span class="p">:</span> <span class="n">AbsoluteState</span>  <span class="c1"># Absolute state (formation, etc.)</span>
     <span class="n">raw_state</span><span class="p">:</span> <span class="n">RawState</span>           <span class="c1"># Raw state data (same structure as PVS)</span>
@@ -114,9 +114,9 @@
 </div>
 </section>
 <section id="state-level-details">
-<h2>State Level Details<a class="headerlink" href="#state-level-details" title="Permalink to this heading"></a></h2>
+<h2>State Level Details<a class="headerlink" href="#state-level-details" title="Link to this heading"></a></h2>
 <section id="relative-state">
-<h3>1. Relative State<a class="headerlink" href="#relative-state" title="Permalink to this heading"></a></h3>
+<h3>1. Relative State<a class="headerlink" href="#relative-state" title="Link to this heading"></a></h3>
 <p>Numerical representation of relative relationships between players and ball, goal, and other players:</p>
 <p><strong>OnBall (Information of ball-possessing player):</strong></p>
 <ul class="simple">
@@ -148,7 +148,7 @@
 </ul>
 </section>
 <section id="absolute-state">
-<h3>2. Absolute State<a class="headerlink" href="#absolute-state" title="Permalink to this heading"></a></h3>
+<h3>2. Absolute State<a class="headerlink" href="#absolute-state" title="Link to this heading"></a></h3>
 <p>Tactical information for the entire team:</p>
 <ul class="simple">
 <li><p><strong>dist_offside_line</strong>: List of distances to offside line</p></li>
@@ -158,7 +158,7 @@
 </ul>
 </section>
 <section id="raw-state">
-<h3>3. Raw State<a class="headerlink" href="#raw-state" title="Permalink to this heading"></a></h3>
+<h3>3. Raw State<a class="headerlink" href="#raw-state" title="Link to this heading"></a></h3>
 <p>Basic data with the same structure as PVS:</p>
 <ul class="simple">
 <li><p><strong>ball</strong>: Ball position and velocity information</p></li>
@@ -169,7 +169,7 @@
 </section>
 </section>
 <section id="player-information">
-<h2>Player Information<a class="headerlink" href="#player-information" title="Permalink to this heading"></a></h2>
+<h2>Player Information<a class="headerlink" href="#player-information" title="Link to this heading"></a></h2>
 <p>EDMS player information uses the same structure as PVS:</p>
 <ul class="simple">
 <li><p><strong>index</strong>: Player index</p></li>
@@ -184,7 +184,7 @@
 </ul>
 </section>
 <section id="action-structure">
-<h2>Action Structure<a class="headerlink" href="#action-structure" title="Permalink to this heading"></a></h2>
+<h2>Action Structure<a class="headerlink" href="#action-structure" title="Link to this heading"></a></h2>
 <p>EDMS adopts a two-dimensional action structure:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">action</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>  <span class="c1"># [attacking team action, defending team action]</span>
 </pre></div>
@@ -197,9 +197,9 @@
 </ul>
 </section>
 <section id="edms-distinctive-features">
-<h2>EDMS Distinctive Features<a class="headerlink" href="#edms-distinctive-features" title="Permalink to this heading"></a></h2>
+<h2>EDMS Distinctive Features<a class="headerlink" href="#edms-distinctive-features" title="Link to this heading"></a></h2>
 <section id="advanced-analysis-by-relative-state">
-<h3>Advanced Analysis by Relative State<a class="headerlink" href="#advanced-analysis-by-relative-state" title="Permalink to this heading"></a></h3>
+<h3>Advanced Analysis by Relative State<a class="headerlink" href="#advanced-analysis-by-relative-state" title="Link to this heading"></a></h3>
 <p>The greatest feature of EDMS is detailed analysis through relative state (RelativeState):</p>
 <p><strong>Spatial Evaluation System:</strong></p>
 <ul class="simple">
@@ -223,7 +223,7 @@
 </section>
 </section>
 <section id="data-processing-flow">
-<h2>Data Processing Flow<a class="headerlink" href="#data-processing-flow" title="Permalink to this heading"></a></h2>
+<h2>Data Processing Flow<a class="headerlink" href="#data-processing-flow" title="Link to this heading"></a></h2>
 <p>EDMS has the following processing flow:</p>
 <ol class="arabic simple">
 <li><p><strong>Raw State Generation</strong>
@@ -240,7 +240,7 @@
 </ol>
 </section>
 <section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
 <p>Example of using the EDMS system:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SAR_data</span> <span class="o">=</span> <span class="n">SAR_data</span><span class="p">(</span>
     <span class="n">data_provider</span><span class="o">=</span><span class="s2">&quot;fifawc&quot;</span><span class="p">,</span>
@@ -253,10 +253,10 @@
 </div>
 </section>
 <section id="application-scenarios">
-<h2>Application Scenarios<a class="headerlink" href="#application-scenarios" title="Permalink to this heading"></a></h2>
+<h2>Application Scenarios<a class="headerlink" href="#application-scenarios" title="Link to this heading"></a></h2>
 <p>EDMS is optimal for the following advanced applications:</p>
 <section id="research-academic-use">
-<h3>Research &amp; Academic Use<a class="headerlink" href="#research-academic-use" title="Permalink to this heading"></a></h3>
+<h3>Research &amp; Academic Use<a class="headerlink" href="#research-academic-use" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><strong>Soccer AI Research</strong>: Cutting-edge multi-agent AI research</p></li>
 <li><p><strong>Tactical Analysis Research</strong>: Academic-level tactical and strategic analysis</p></li>
@@ -264,7 +264,7 @@
 </ul>
 </section>
 <section id="commercial-applications">
-<h3>Commercial Applications<a class="headerlink" href="#commercial-applications" title="Permalink to this heading"></a></h3>
+<h3>Commercial Applications<a class="headerlink" href="#commercial-applications" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><strong>Professional Team Analysis</strong>: Tactical analysis systems for professional soccer teams</p></li>
 <li><p><strong>Player Evaluation</strong>: Advanced player performance evaluation</p></li>
@@ -272,7 +272,7 @@
 </ul>
 </section>
 <section id="advanced-applications">
-<h3>Advanced Applications<a class="headerlink" href="#advanced-applications" title="Permalink to this heading"></a></h3>
+<h3>Advanced Applications<a class="headerlink" href="#advanced-applications" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><strong>Real-time Analysis</strong>: Live tactical analysis during matches</p></li>
 <li><p><strong>Prediction Systems</strong>: High-precision prediction of match results and play outcomes</p></li>
@@ -280,9 +280,9 @@
 </section>
 </section>
 <section id="technical-specifications">
-<h2>Technical Specifications<a class="headerlink" href="#technical-specifications" title="Permalink to this heading"></a></h2>
+<h2>Technical Specifications<a class="headerlink" href="#technical-specifications" title="Link to this heading"></a></h2>
 <section id="computational-complexity">
-<h3>Computational Complexity<a class="headerlink" href="#computational-complexity" title="Permalink to this heading"></a></h3>
+<h3>Computational Complexity<a class="headerlink" href="#computational-complexity" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><strong>Spatial Calculation</strong>: O(n²) ~ O(n³) complexity (depending on number of players n)</p></li>
 <li><p><strong>Probability Calculation</strong>: Multivariate optimization using statistical models</p></li>
@@ -290,7 +290,7 @@
 </ul>
 </section>
 <section id="memory-requirements">
-<h3>Memory Requirements<a class="headerlink" href="#memory-requirements" title="Permalink to this heading"></a></h3>
+<h3>Memory Requirements<a class="headerlink" href="#memory-requirements" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Approximately 3-5 times the memory usage of PVS</p></li>
 <li><p>Retention of large amounts of intermediate calculation results</p></li>
@@ -299,7 +299,7 @@
 </section>
 </section>
 <section id="technical-comparison-with-pvs">
-<h2>Technical Comparison with PVS<a class="headerlink" href="#technical-comparison-with-pvs" title="Permalink to this heading"></a></h2>
+<h2>Technical Comparison with PVS<a class="headerlink" href="#technical-comparison-with-pvs" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
@@ -352,9 +352,9 @@
 </table>
 </section>
 <section id="system-requirements">
-<h2>System Requirements<a class="headerlink" href="#system-requirements" title="Permalink to this heading"></a></h2>
+<h2>System Requirements<a class="headerlink" href="#system-requirements" title="Link to this heading"></a></h2>
 <section id="recommended-environment">
-<h3>Recommended Environment<a class="headerlink" href="#recommended-environment" title="Permalink to this heading"></a></h3>
+<h3>Recommended Environment<a class="headerlink" href="#recommended-environment" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><strong>CPU</strong>: High-performance multi-core processor</p></li>
 <li><p><strong>RAM</strong>: 16GB or more (32GB or more for large datasets)</p></li>
@@ -362,7 +362,7 @@
 </ul>
 </section>
 <section id="dependency-libraries">
-<h3>Dependency Libraries<a class="headerlink" href="#dependency-libraries" title="Permalink to this heading"></a></h3>
+<h3>Dependency Libraries<a class="headerlink" href="#dependency-libraries" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>NumPy/SciPy: Scientific computing</p></li>
 <li><p>Pandas: Data processing</p></li>
@@ -373,7 +373,7 @@
 </section>
 </section>
 <section id="file-structure">
-<h2>File Structure<a class="headerlink" href="#file-structure" title="Permalink to this heading"></a></h2>
+<h2>File Structure<a class="headerlink" href="#file-structure" title="Link to this heading"></a></h2>
 <p>Main EDMS-related files:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SAR_class.py</span></code>: Factory class for PVS/EDMS switching</p></li>
@@ -383,7 +383,7 @@
 </ul>
 </section>
 <section id="data-class-structure">
-<h2>Data Class Structure<a class="headerlink" href="#data-class-structure" title="Permalink to this heading"></a></h2>
+<h2>Data Class Structure<a class="headerlink" href="#data-class-structure" title="Link to this heading"></a></h2>
 <p>EDMS consists of the following classes:</p>
 <p><strong>Basic Classes:</strong>
 * Position, Velocity: Position and velocity information
@@ -400,7 +400,7 @@
 * Events_EDMS: Sequence management of multiple events</p>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading"></a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
 <p>EDMS is a three-layer structured state definition system that maintains the basic structure of PVS while having two additional layers: relative state (RelativeState) and absolute state (AbsoluteState).</p>
 <p><strong>Key Features:</strong></p>
 <ul class="simple">
