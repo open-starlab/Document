@@ -4,5 +4,5 @@ Ultimate Data Providers
 .. toctree::
    :maxdepth: 1
 
-   UFA/contents
+   UFATrack/contents
    UltimateTrack/contents

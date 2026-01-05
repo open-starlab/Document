@@ -1,8 +1,8 @@
-UFA
+UFATrack
 ============================================
-.. class:: Space_data(data_provider='UFA', tracking_data_path=tracking_data_path, out_path=None, testing_mode=False).preprocessing() -> pd.DataFrame
+.. class:: Space_data(data_provider='UFATrack', tracking_data_path=tracking_data_path, out_path=None, testing_mode=False).preprocessing() -> pd.DataFrame
 
-    Load the UFA tracking from csv files(s) and convert it into a DataFrame.
+    Load the UFATrack from csv files(s) and convert it into a DataFrame.
 
     :param tracking_data_path: Path to the csv file/folder containing tracking data.
     :type tracking_data_path: str
@@ -22,10 +22,10 @@ UFA
 
         from preprocessing import Space_data
 
-        tracking_path = './UFA/Tracking Data'
+        tracking_path = './UFATrack/Tracking Data'
         out_path = './'
 
-        Space_data(data_provider='UFA',
+        Space_data(data_provider='UFATrack',
                 tracking_data_path=tracking_path,
                 out_path=out_path
                 ).preprocessing()
