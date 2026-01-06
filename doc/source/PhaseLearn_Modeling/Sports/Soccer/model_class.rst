@@ -11,10 +11,10 @@ Initialization
 
       :param str model_name: Name of the architecture to be used. Supported models:
       
-         - ``'transformer'``: Standard Spatio-Temporal Transformer.
-         - ``'baller2vec'``: Implementation based on the Baller2Vec architecture.
-         - ``'gcn_transformer'``: Graph Convolutional Network combined with a Transformer.
-         - ``'gat_transformer'``: Graph Attention Network combined with a Transformer.
+            - ``'transformer'``: Standard Spatio-Temporal Transformer.
+            - ``'baller2vec'``: Implementation based on the Baller2Vec architecture.
+            - ``'gcn_transformer'``: Graph Convolutional Network combined with a Transformer.
+            - ``'gat_transformer'``: Graph Attention Network combined with a Transformer.
 
 Methods
 -------
