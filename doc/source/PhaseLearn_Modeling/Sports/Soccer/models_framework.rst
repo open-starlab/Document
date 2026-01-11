@@ -77,10 +77,11 @@ Preprocessing
 ------------------
 Before training or inference, you must generate `**Phase Data**<https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Phase_data/index.html>`_ using the ``Pre-Processing`` package. This ensures all tracking and event data are standardized into the required format.
 
-
 Training Pipeline
 ------------------
-The framework uses the ``load_train_data()`` and ``preprocessing_data()`` functions to convert raw data into sequences and labels. Training is executed via the ``train()`` method of the ``phase_model_soccer`` class.
+The framework uses the ``load_train_data()`` and ``preprocessing_data()`` functions to convert raw data into sequences and labels. 
+The ``augmentation()`` function then enhances the dataset by flipping spatial coordinates and swapping team positions to improve model robustness.
+Training is executed via the ``train()`` method of the ``phase_model_soccer`` class.
 
 Inference and Analysis
 ------------------
