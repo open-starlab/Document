@@ -12,7 +12,7 @@ Depending on your objective, you can either use a pre-trained model for immediat
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If you want to perform inference immediately, obtain the pre-trained weights and configuration files.
 
-- **Pre-trained Weights**: Download the model package from `Pre-trained Model Link <INSERT_MODEL_URL_HERE>`_ (Coming Soon).
+- **Pre-trained Weights**: Download the model package from `Pre-trained Model Link <https://tsukuba.repo.nii.ac.jp/records/2021338>`_ .
 
     .. code-block:: text
 
