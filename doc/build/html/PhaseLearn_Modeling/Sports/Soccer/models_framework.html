@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Models and Framework &mdash; Open-STAR-Lab v0.1.35 documentation</title>
+  <title>Framework &mdash; Open-STAR-Lab v0.1.35 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
 
@@ -52,7 +52,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Sports</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Football/Soccer PhaseLearn Modeling</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="phase.html">Phase of Play Estimation</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Models and Framework</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Framework</a></li>
 <li class="toctree-l4"><a class="reference internal" href="model_class.html">Phase Model Class</a></li>
 <li class="toctree-l4"><a class="reference internal" href="example.html">Example: Training and Inference</a></li>
 </ul>
@@ -81,7 +81,7 @@
           <li class="breadcrumb-item"><a href="../../index.html">PhaseLearn-Modeling</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Sports</a></li>
           <li class="breadcrumb-item"><a href="index.html">Football/Soccer PhaseLearn Modeling</a></li>
-      <li class="breadcrumb-item active">Models and Framework</li>
+      <li class="breadcrumb-item active">Framework</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/PhaseLearn_Modeling/Sports/Soccer/models_framework.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,34 +91,109 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="models-and-framework">
-<h1>Models and Framework<a class="headerlink" href="#models-and-framework" title="Link to this heading"></a></h1>
+  <section id="framework">
+<h1>Framework<a class="headerlink" href="#framework" title="Link to this heading"></a></h1>
 <p>This section details the framework for data preparation, model training, and inference for Play Phase estimation.</p>
-<section id="framework-overview">
-<h2>Framework Overview<a class="headerlink" href="#framework-overview" title="Link to this heading"></a></h2>
-<section id="preprocessing">
-<h3>Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading"></a></h3>
-<p>Before training or inference, you must generate <strong>Phase Data</strong> using the <code class="docutils literal notranslate"><span class="pre">Pre-Processing</span></code> package. This ensures all tracking and event data are standardized into the required format.</p>
-</section>
 <section id="data-acquisition">
-<h3>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Link to this heading"></a></h3>
-<p>To train a model from scratch:
-1. <strong>Raw Tracking Data</strong>: Obtain from the <a class="reference external" href="https://github.com/Hiro-Nishio/SoccerTrackV2">SoccerTrack-v2</a> dataset.
-2. <strong>Ground Truth Labels</strong>: Download the play phase labels from the <a class="reference external" href="INSERT_GT_LINK_HERE">provided link</a>.</p>
+<h2>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Link to this heading"></a></h2>
+<p>Depending on your objective, you can either use a pre-trained model for immediate inference or collect raw data to train a model from scratch.</p>
+<section id="quick-start-using-pre-trained-models">
+<h3>1. Quick Start: Using Pre-trained Models<a class="headerlink" href="#quick-start-using-pre-trained-models" title="Link to this heading"></a></h3>
+<p>If you want to perform inference immediately, obtain the pre-trained weights and configuration files.</p>
+<ul>
+<li><p><strong>Pre-trained Weights</strong>: Download the model package from <a class="reference external" href="INSERT_MODEL_URL_HERE">Pre-trained Model Link</a> (Coming Soon).</p>
+<blockquote>
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>model/
+└── {architecture_name}/           # e.g., gat_transformer
+    └── {mode_name}/               # e.g., 2team_mode
+        └── {timestamp}/           # e.g., 20251221_155257
+            └── run1/
+                ├── best.pth
+                ├── hyperparameters.json
+                ├── loss.csv
+                └── model_stats.txt
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="train-a-model-from-scratch">
+<h3>2. Train a Model from Scratch<a class="headerlink" href="#train-a-model-from-scratch" title="Link to this heading"></a></h3>
+<p>To train a new model, you need both raw tracking data and specialized play phase annotations.</p>
+<ul>
+<li><p><strong>Raw Tracking Data</strong>: Obtain from the <a class="reference external" href="https://atomscott.github.io/SoccerTrack-v2/">SoccerTrack-v2</a> dataset. The required files depend on the <strong>Match ID</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Match ID &gt;= 130000 (e.g., Match ID: 132831)</dt><dd><ul>
+<li><p>Event Data: <code class="docutils literal notranslate"><span class="pre">raw/{MatchID}/{TeamA}</span> <span class="pre">vs</span> <span class="pre">{TeamB}</span> <span class="pre">player_nodes.csv</span></code></p></li>
+<li><p>Tracking Data: <code class="docutils literal notranslate"><span class="pre">raw/{MatchID}/{MatchID}_{1,2,3}_frame_data.json</span></code></p></li>
+<li><p>Meta Data: <code class="docutils literal notranslate"><span class="pre">raw/{MatchID}/{MatchID}_metadata.json</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Match ID &lt; 130000 (e.g., Match ID: 117092)</dt><dd><ul>
+<li><p>Event Data: <code class="docutils literal notranslate"><span class="pre">raw/{MatchID}/{TeamA}</span> <span class="pre">vs</span> <span class="pre">{TeamB}</span> <span class="pre">player_nodes.csv</span></code></p></li>
+<li><p>Tracking Data: <code class="docutils literal notranslate"><span class="pre">raw/{MatchID}/{MatchID}_{tracker_box_data}.xml</span></code></p></li>
+<li><p>Meta Data: <code class="docutils literal notranslate"><span class="pre">raw/{MatchID}/{MatchID}_{tracker_box_metadata}.xml</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Example Directory Structure (SoccerTrack-v2):</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SoccerTrack-v2
+└── raw/
+    ├── 117092/  (Match ID &lt; 130000)
+    │   ├── 筑波大学 B vs 筑波大学 - C1 player_nodes.csv
+    │   ├── 117092_tracker_box_data.xml
+    │   └── 117092_tracker_box_metadata.xml
+    └── 132831/  (Match ID &gt;= 130000)
+        ├── 中央学院大学 vs 筑波大学 - C1 player_nodes.csv
+        ├── 132831_1_frame_data.json
+        ├── 132831_2_frame_data.json
+        ├── 132831_3_frame_data.json
+        └── 132831_metadata.json
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Ground Truth Labels</strong>: The Play Phase annotation data is not currently public. Please contact <strong>Kento Kuroda</strong> (<a class="reference external" href="mailto:kuroda&#46;kento&#37;&#52;&#48;image&#46;iit&#46;tsukuba&#46;ac&#46;jp">kuroda<span>&#46;</span>kento<span>&#64;</span>image<span>&#46;</span>iit<span>&#46;</span>tsukuba<span>&#46;</span>ac<span>&#46;</span>jp</a>) to request access to the dataset.</p>
+<blockquote>
+<div><p><strong>Example Directory Structure (Annotations):</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PhaseLearn
+└── annotation/
+    ├── 117092/
+    │   ├── 117092_00_01-04_18_annotation.csv
+    │   └── ...
+    └── 132877/
+        └── ...
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="preprocessing">
+<h2>Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading"></a></h2>
+<p>Before training or inference, you must generate <a href="#id1"><span class="problematic" id="id2">`**Phase Data**&lt;https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Phase_data/index.html&gt;`_</span></a> using the <code class="docutils literal notranslate"><span class="pre">Pre-Processing</span></code> package. This ensures all tracking and event data are standardized into the required format.</p>
 </section>
 <section id="training-pipeline">
-<h3>Training Pipeline<a class="headerlink" href="#training-pipeline" title="Link to this heading"></a></h3>
+<h2>Training Pipeline<a class="headerlink" href="#training-pipeline" title="Link to this heading"></a></h2>
 <p>The framework uses the <code class="docutils literal notranslate"><span class="pre">load_train_data()</span></code> and <code class="docutils literal notranslate"><span class="pre">preprocessing_data()</span></code> functions to convert raw data into sequences and labels. Training is executed via the <code class="docutils literal notranslate"><span class="pre">train()</span></code> method of the <code class="docutils literal notranslate"><span class="pre">phase_model_soccer</span></code> class.</p>
 </section>
 <section id="inference-and-analysis">
-<h3>Inference and Analysis<a class="headerlink" href="#inference-and-analysis" title="Link to this heading"></a></h3>
+<h2>Inference and Analysis<a class="headerlink" href="#inference-and-analysis" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">phase_model_soccer</span></code> class provides three specialized functions for inference:</p>
 <ul class="simple">
 <li><p><strong>quantitative_test()</strong>: Evaluates the model using the test split of the dataset created during preprocessing. This is used for standard performance benchmarking (e.g., accuracy, F1-score).</p></li>
 <li><p><strong>qualitative_analysis()</strong>: Uses sample sequences from datasets with ground truth (like SoccerTrack-v2) to analyze time-series prediction transitions and model behavior.</p></li>
 <li><p><strong>live_prediction()</strong>: Conducts inference on any tracking data, even those without ground truth labels, for real-world application.</p></li>
 </ul>
-</section>
 </section>
 <section id="model-architectures">
 <h2>Model Architectures<a class="headerlink" href="#model-architectures" title="Link to this heading"></a></h2>

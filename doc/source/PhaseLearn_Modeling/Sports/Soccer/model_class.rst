@@ -5,16 +5,21 @@ The ``phase_model_soccer`` class provides a comprehensive framework for training
 
 Initialization
 --------------
-.. py:class:: phase_model_soccer(model_name)
+.. py:class:: phase_model_soccer(model_name, team_mode)
 
       Initializes the model wrapper with a specific architecture.
 
       :param str model_name: Name of the architecture to be used. Supported models:
       
-         - ``'transformer'``: Standard Spatio-Temporal Transformer.
-         - ``'baller2vec'``: Implementation based on the Baller2Vec architecture.
-         - ``'gcn_transformer'``: Graph Convolutional Network combined with a Transformer.
-         - ``'gat_transformer'``: Graph Attention Network combined with a Transformer.
+            - ``'transformer'``: Standard Spatio-Temporal Transformer.
+            - ``'baller2vec'``: Implementation based on the Baller2Vec architecture.
+            - ``'gcn_transformer'``: Graph Convolutional Network combined with a Transformer.
+            - ``'gat_transformer'``: Graph Attention Network combined with a Transformer.
+      
+      :param str team_mode: Specifies the prediction target configuration. Options include:
+      
+            - ``'1team_mode'``: Predicts only for the team attacking in the positive x-axis direction of the pitch.
+            - ``'2team_mode'``: Predicts for both teams.
 
 Methods
 -------

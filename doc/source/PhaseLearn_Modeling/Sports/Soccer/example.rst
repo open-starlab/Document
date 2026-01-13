@@ -9,10 +9,9 @@ Training
 .. code-block:: python
 
     from phase_model import Phase_Model
-    import os
 
     # Initialize model (e.g., 'gcn_transformer')
-    model = Phase_Model('gcn_transformer')
+    model = Phase_Model(model_name='gcn_transformer', team_mode='1team_mode')
     
     # Run training with YAML config
     train_config = 'phase/sports/soccer/models/model_yaml/train_gcn_transformer.yaml'
@@ -24,7 +23,7 @@ Quantitative Evaluation
 .. code-block:: python
 
     # Run evaluation on test dataset
-    model_config = 'test/model/gcn_transformer/2team_mode/2025-12-24/run_1/hyperparameters.json'
+    model_config = 'model/gat_transformer/1team_mode/20260110_191939/run_1/hyperparameters.json'
     model.quantitative_test(model_config)
 
 Qualitative Analysis
@@ -64,10 +63,11 @@ YAML Configuration Example
     # DATA
     # -----------------------------------
     data:
-        train_sequence_np_path: 'D:/lab/My_Research/Github/OpenSTARLab/PhaseLearn/test/data/train_data/bepro/sequence_np.npy'
-        train_label_np_path: 'D:/lab/My_Research/Github/OpenSTARLab/PhaseLearn/test/data/train_data/bepro/label_np.npy'
-        save_dir: 'D:/lab/My_Research/Github/OpenSTARLab/PhaseLearn/test/'
+        train_sequence_np_path: 'data/train_data/bepro/sequence_np.npy'
+        train_label_np_path: 'data/train_data/bepro/label_np.npy'
+        save_dir: '.'
         mode: '2team_mode'
+        augmentation: True
 
     # -----------------------------------
     # MODEL PARAMETERS (Baller2Vec)
