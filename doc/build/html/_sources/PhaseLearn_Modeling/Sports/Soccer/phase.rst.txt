@@ -1,11 +1,11 @@
-Phase of Play Estimation
+Phases of Play Estimation
 =====================
 
 This section defines the target play phases for estimation. The objective is to estimate the probability of each phase for a given match situation, rather than assigning a single label.
 
 Target Play Phases
 ------------------
-The estimation targets are the **9 major Phases of Play** as defined by FIFA. These phases capture the tactical dynamics of a match across different states of possession and defensive organization:
+The estimation targets are the **9 major Phases of Play** as defined by FIFA. These phases capture the tactical dynamics of a match across different states of possession and defensive organization. Detailed definitions by FIFA can be found in the `Enhanced Football Intelligence <https://www.fifatrainingcentre.com/media/native/world-cup-2022/Enhanced%20Football%20Intelligence%20EN.pdf>`_ document.
 
 1. **Build up**
 2. **Progression**

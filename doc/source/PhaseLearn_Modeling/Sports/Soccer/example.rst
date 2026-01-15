@@ -3,7 +3,7 @@ Example: Training and Inference
 
 To utilize the Play Phase estimation framework, you can follow these code snippets using the ``Phase_Model`` class.
 
-Training
+1. Training
 --------
 
 .. code-block:: python
@@ -17,45 +17,7 @@ Training
     train_config = 'phase/sports/soccer/models/model_yaml/train_gcn_transformer.yaml'
     model.train(train_config)
 
-Quantitative Evaluation
-------------------------
-
-.. code-block:: python
-
-    # Run evaluation on test dataset
-    model_config = 'model/gat_transformer/1team_mode/20260110_191939/run_1/hyperparameters.json'
-    model.quantitative_test(model_config)
-
-Qualitative Analysis
----------------------
-
-.. code-block:: python
-
-    # Analyze specific sequences with ground truth
-    analysis_data = {
-        'sequence_np_path': 'data/inference/117093_sequence_np.npy',
-        'label_np_path': 'data/inference/117093_label_np.npy',
-        'time_np_path': 'data/inference/117093_time_np.npy',
-        'phase_data_path': 'data/phase_data/117093_main_data.csv',
-        'phase_annotation_data_path': 'data/phase_annotation/117093_annotation.csv'
-    }
-    model.qualitative_analysis(model_config, **analysis_data)
-
-Live Prediction
-----------------
-
-.. code-block:: python
-
-    # Inference on unlabeled tracking data
-    prediction_data = {
-        'sequence_np_path': 'data/inference/117092_sequence_np.npy',
-        'time_np_path': 'data/inference/117092_time_np.npy',
-        'phase_data_path': 'data/phase_data/117092_main_data.csv'
-    }
-    model.live_prediction(model_config, **prediction_data)
-
 YAML Configuration Example
---------------------------
 
 .. code-block:: yaml
 
@@ -101,3 +63,43 @@ YAML Configuration Example
         optimizer: 'AdamW'        # Optimization method
         loss_function: 'HuberLoss' # Loss function
         device: 'cuda:0'
+
+2. Inference
+------------------------
+
+2.1. Quantitative Evaluation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    # Run evaluation on test dataset
+    model_config = 'model/gat_transformer/1team_mode/20260110_191939/run_1/hyperparameters.json'
+    model.quantitative_test(model_config)
+
+2.2. Qualitative Analysis
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    # Analyze specific sequences with ground truth
+    analysis_data = {
+        'sequence_np_path': 'data/inference/117093_sequence_np.npy',
+        'label_np_path': 'data/inference/117093_label_np.npy',
+        'time_np_path': 'data/inference/117093_time_np.npy',
+        'phase_data_path': 'data/phase_data/117093_main_data.csv',
+        'phase_annotation_data_path': 'data/phase_annotation/117093_annotation.csv'
+    }
+    model.qualitative_analysis(model_config, **analysis_data)
+
+2.3. Live Prediction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    # Inference on unlabeled tracking data
+    prediction_data = {
+        'sequence_np_path': 'data/inference/117092_sequence_np.npy',
+        'time_np_path': 'data/inference/117092_time_np.npy',
+        'phase_data_path': 'data/phase_data/117092_main_data.csv'
+    }
+    model.live_prediction(model_config, **prediction_data)

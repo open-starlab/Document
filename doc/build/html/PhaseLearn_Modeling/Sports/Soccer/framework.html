@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Framework &mdash; Open-STAR-Lab v0.1.35 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=804669b0"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Phase Model Class" href="model_class.html" />
+    <link rel="prev" title="Phases of Play Estimation" href="phase.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Open-STAR-Lab
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Pre_Processing/index.html">Pre-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Event_Modeling/index.html">Event-Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../RLearn_Modeling/index.html">RLearn-Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Space_Eval/index.html">spaceEval</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">PhaseLearn-Modeling</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Sports</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Football/Soccer PhaseLearn Modeling</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="phase.html">Phases of Play Estimation</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Framework</a></li>
+<li class="toctree-l4"><a class="reference internal" href="model_class.html">Phase Model Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example.html">Example: Training and Inference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Other/index.html">Other</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Open-STAR-Lab</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">PhaseLearn-Modeling</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Sports</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Football/Soccer PhaseLearn Modeling</a></li>
+      <li class="breadcrumb-item active">Framework</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/PhaseLearn_Modeling/Sports/Soccer/framework.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="framework">
+<h1>Framework<a class="headerlink" href="#framework" title="Link to this heading"></a></h1>
+<p>This section details the framework for data preparation, model training, and inference for Play Phase estimation.</p>
+<section id="data-acquisition">
+<h2>1. Data Acquisition<a class="headerlink" href="#data-acquisition" title="Link to this heading"></a></h2>
+<p>Depending on your objective, you can either use a pre-trained model for immediate inference or collect raw data to train a model from scratch.</p>
+<section id="quick-start-using-pre-trained-models">
+<h3>1.1. Quick Start: Using Pre-trained Models<a class="headerlink" href="#quick-start-using-pre-trained-models" title="Link to this heading"></a></h3>
+<p>If you want to perform inference immediately, obtain the pre-trained weights and configuration files.</p>
+<ul>
+<li><p><strong>Pre-trained Weights</strong>: Download the model package from <a class="reference external" href="https://tsukuba.repo.nii.ac.jp/records/2021338">Pre-trained Model Link</a> .</p>
+<blockquote>
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>model/
+└── {architecture_name}/           # e.g., gat_transformer
+    └── {mode_name}/               # e.g., 2team_mode
+        └── {timestamp}/           # e.g., 20251221_155257
+            └── run1/
+                ├── best.pth
+                ├── hyperparameters.json
+                ├── loss.csv
+                └── model_stats.txt
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="train-a-model-from-scratch">
+<h3>1.2. Train a Model from Scratch<a class="headerlink" href="#train-a-model-from-scratch" title="Link to this heading"></a></h3>
+<p>To train a new model, you need both raw tracking data and specialized play phase annotations.</p>
+<ul>
+<li><p><strong>Raw Tracking Data</strong>: Obtain from the <a class="reference external" href="https://atomscott.github.io/SoccerTrack-v2/">SoccerTrack-v2</a> dataset. The required files depend on the <strong>Match ID</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Match ID &gt;= 130000 (e.g., Match ID: 132831)</dt><dd><ul>
+<li><p>Event Data: <code class="docutils literal notranslate"><span class="pre">raw/{MatchID}/{TeamA}</span> <span class="pre">vs</span> <span class="pre">{TeamB}</span> <span class="pre">player_nodes.csv</span></code></p></li>
+<li><p>Tracking Data: <code class="docutils literal notranslate"><span class="pre">raw/{MatchID}/{MatchID}_{1,2,3}_frame_data.json</span></code></p></li>
+<li><p>Meta Data: <code class="docutils literal notranslate"><span class="pre">raw/{MatchID}/{MatchID}_metadata.json</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Match ID &lt; 130000 (e.g., Match ID: 117092)</dt><dd><ul>
+<li><p>Event Data: <code class="docutils literal notranslate"><span class="pre">raw/{MatchID}/{TeamA}</span> <span class="pre">vs</span> <span class="pre">{TeamB}</span> <span class="pre">player_nodes.csv</span></code></p></li>
+<li><p>Tracking Data: <code class="docutils literal notranslate"><span class="pre">raw/{MatchID}/{MatchID}_{tracker_box_data}.xml</span></code></p></li>
+<li><p>Meta Data: <code class="docutils literal notranslate"><span class="pre">raw/{MatchID}/{MatchID}_{tracker_box_metadata}.xml</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>SoccerTrack-v2 Directory Structure:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SoccerTrack-v2
+└── raw/
+    ├── 117092/  (Match ID &lt; 130000)
+    │   ├── 筑波大学 B vs 筑波大学 - C1 player_nodes.csv
+    │   ├── 117092_tracker_box_data.xml
+    │   └── 117092_tracker_box_metadata.xml
+    └── 132831/  (Match ID &gt;= 130000)
+        ├── 中央学院大学 vs 筑波大学 - C1 player_nodes.csv
+        ├── 132831_1_frame_data.json
+        ├── 132831_2_frame_data.json
+        ├── 132831_3_frame_data.json
+        └── 132831_metadata.json
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Ground Truth Labels</strong>: Obtain from the <a class="reference external" href="https://tsukuba.repo.nii.ac.jp/records/2021338">Soccer Play Phase Dataset</a> dataset. Once you have obtained the <code class="docutils literal notranslate"><span class="pre">phase_annotaion_data</span></code>, please place the files in the following directory structure.</p>
+<blockquote>
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data
+└── phase_annotation_data/
+    ├── 117092/
+    │   ├── 117092_00_01-04_18_annotation.csv
+    │   └── ...
+    └── 132877/
+        └── ...
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="preprocessing">
+<h2>2. Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading"></a></h2>
+<p>Before training or inference, you must generate <a class="reference external" href="https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Phase_data/index.html">Phase Data</a> using the <code class="docutils literal notranslate"><span class="pre">Pre-Processing</span></code> package. This ensures all tracking and event data are standardized into the required format. Once you have obtained the <code class="docutils literal notranslate"><span class="pre">phase_data</span></code>, please place the files in the following directory structure.</p>
+<blockquote>
+<div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data
+└── phase_data/
+    ├── bepro/
+    │   ├── 117092/117092_main_data
+    │   ├── ...
+    └── statsbomb_skillcorner/
+        ├── 3894537_1018887/3894537_1018887_main_data
+        ├── ...
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="training-pipeline">
+<h2>3. Training Pipeline<a class="headerlink" href="#training-pipeline" title="Link to this heading"></a></h2>
+<p>The framework uses the <code class="docutils literal notranslate"><span class="pre">load_train_data()</span></code> and <code class="docutils literal notranslate"><span class="pre">preprocessing_data()</span></code> functions to convert raw data into sequences and labels.
+The <code class="docutils literal notranslate"><span class="pre">augmentation()</span></code> function then enhances the dataset by flipping spatial coordinates and swapping team positions to improve model robustness.
+Training is executed via the <code class="docutils literal notranslate"><span class="pre">train()</span></code> method of the <code class="docutils literal notranslate"><span class="pre">phase_model_soccer</span></code> class.</p>
+</section>
+<section id="inference-and-analysis">
+<h2>4. Inference and Analysis<a class="headerlink" href="#inference-and-analysis" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">phase_model_soccer</span></code> class provides three specialized functions for inference:</p>
+<ul class="simple">
+<li><p><strong>quantitative_test()</strong>: Evaluates the model using the test split of the dataset created during preprocessing. This is used for standard performance benchmarking (e.g., accuracy, F1-score).</p></li>
+<li><p><strong>qualitative_analysis()</strong>: Uses sample sequences from datasets with ground truth (like SoccerTrack-v2) to analyze time-series prediction transitions and model behavior.</p></li>
+<li><p><strong>live_prediction()</strong>: Conducts inference on any tracking data, even those without ground truth labels, for real-world application.</p></li>
+</ul>
+</section>
+<section id="model-architectures">
+<h2>Model Architectures<a class="headerlink" href="#model-architectures" title="Link to this heading"></a></h2>
+<p>The framework supports four state-of-the-art spatio-temporal architectures:</p>
+<ol class="arabic simple">
+<li><p><strong>Transformer</strong>: A standard spatio-temporal transformer leveraging self-attention mechanisms.</p></li>
+<li><p><strong>Baller2vec</strong>: An architecture designed to capture agent-based dynamics in sports.</p></li>
+<li><p><strong>GCN + Transformer</strong>: Integrates Graph Convolutional Networks to model spatial relationships between players before temporal processing.</p></li>
+<li><p><strong>GAT + Transformer</strong>: Utilizes Graph Attention Networks to dynamically weight player interactions within the spatio-temporal sequence.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="phase.html" class="btn btn-neutral float-left" title="Phases of Play Estimation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="model_class.html" class="btn btn-neutral float-right" title="Phase Model Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Openstarlab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

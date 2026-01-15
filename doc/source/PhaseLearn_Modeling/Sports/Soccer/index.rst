@@ -5,6 +5,6 @@ Football/Soccer PhaseLearn Modeling
    :maxdepth: 1
 
    phase
-   models_framework
+   framework
    model_class
    example

@@ -5,7 +5,7 @@ The ``phase_model_soccer`` class provides a comprehensive framework for training
 
 Initialization
 --------------
-.. py:class:: phase_model_soccer(model_name)
+.. py:class:: phase_model_soccer(model_name, team_mode)
 
       Initializes the model wrapper with a specific architecture.
 
@@ -15,6 +15,11 @@ Initialization
             - ``'baller2vec'``: Implementation based on the Baller2Vec architecture.
             - ``'gcn_transformer'``: Graph Convolutional Network combined with a Transformer.
             - ``'gat_transformer'``: Graph Attention Network combined with a Transformer.
+      
+      :param str team_mode: Specifies the prediction target configuration. Options include:
+      
+            - ``'1team_mode'``: Predicts only for the team attacking in the positive x-axis direction of the pitch.
+            - ``'2team_mode'``: Predicts for both teams.
 
 Methods
 -------
@@ -26,7 +31,7 @@ Methods
       :param str train_config: Path to a YAML file containing training parameters (e.g., batch size, learning rate, and data paths).
       :raises ValueError: If the ``model_name`` provided during initialization is not supported.
 
-    **Note**: If the NumPy sequences (``.npz`` or ``.npy``) do not exist at the paths specified in the config, the method will automatically trigger the ``preprocessing_data`` routine.
+      **Note**: If the NumPy sequences (``.npz`` or ``.npy``) do not exist at the paths specified in the config, the method will automatically trigger the ``preprocessing_data`` routine.
 
 .. py:method:: quantitative_test(model_config)
 
