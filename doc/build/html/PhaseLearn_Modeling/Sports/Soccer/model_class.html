@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Example: Training and Inference" href="example.html" />
-    <link rel="prev" title="Framework" href="models_framework.html" /> 
+    <link rel="prev" title="Framework" href="framework.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,8 +51,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">PhaseLearn-Modeling</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Sports</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Football/Soccer PhaseLearn Modeling</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="phase.html">Phase of Play Estimation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models_framework.html">Framework</a></li>
+<li class="toctree-l4"><a class="reference internal" href="phase.html">Phases of Play Estimation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="framework.html">Framework</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Phase Model Class</a></li>
 <li class="toctree-l4"><a class="reference internal" href="example.html">Example: Training and Inference</a></li>
 </ul>
@@ -98,18 +98,26 @@
 <h2>Initialization<a class="headerlink" href="#initialization" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="phase_model_soccer">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">phase_model_soccer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#phase_model_soccer" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">phase_model_soccer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">team_mode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#phase_model_soccer" title="Link to this definition"></a></dt>
 <dd><p>Initializes the model wrapper with a specific architecture.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>model_name</strong> (<em>str</em>) – <p>Name of the architecture to be used. Supported models:</p>
-<ul class="simple">
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_name</strong> (<em>str</em>) – <p>Name of the architecture to be used. Supported models:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">'transformer'</span></code>: Standard Spatio-Temporal Transformer.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'baller2vec'</span></code>: Implementation based on the Baller2Vec architecture.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'gcn_transformer'</span></code>: Graph Convolutional Network combined with a Transformer.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'gat_transformer'</span></code>: Graph Attention Network combined with a Transformer.</p></li>
 </ul>
-</p>
+</p></li>
+<li><p><strong>team_mode</strong> (<em>str</em>) – <p>Specifies the prediction target configuration. Options include:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'1team_mode'</span></code>: Predicts only for the team attacking in the positive x-axis direction of the pitch.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'2team_mode'</span></code>: Predicts for both teams.</p></li>
+</ul>
+</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -120,17 +128,15 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="train">
 <span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train_config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#train" title="Link to this definition"></a></dt>
-<dd><blockquote>
-<div><p>Trains the selected model architecture using the provided configuration.</p>
+<dd><p>Trains the selected model architecture using the provided configuration.</p>
 <dl class="field-list simple">
-<dt class="field-odd">param str train_config<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Path to a YAML file containing training parameters (e.g., batch size, learning rate, and data paths).</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>train_config</strong> (<em>str</em>) – Path to a YAML file containing training parameters (e.g., batch size, learning rate, and data paths).</p>
 </dd>
-<dt class="field-even">raises ValueError<span class="colon">:</span></dt>
-<dd class="field-even"><p>If the <code class="docutils literal notranslate"><span class="pre">model_name</span></code> provided during initialization is not supported.</p>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the <code class="docutils literal notranslate"><span class="pre">model_name</span></code> provided during initialization is not supported.</p>
 </dd>
 </dl>
-</div></blockquote>
 <p><strong>Note</strong>: If the NumPy sequences (<code class="docutils literal notranslate"><span class="pre">.npz</span></code> or <code class="docutils literal notranslate"><span class="pre">.npy</span></code>) do not exist at the paths specified in the config, the method will automatically trigger the <code class="docutils literal notranslate"><span class="pre">preprocessing_data</span></code> routine.</p>
 </dd></dl>
 
@@ -190,7 +196,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="models_framework.html" class="btn btn-neutral float-left" title="Framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="framework.html" class="btn btn-neutral float-left" title="Framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="example.html" class="btn btn-neutral float-right" title="Example: Training and Inference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

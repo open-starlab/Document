@@ -3,12 +3,12 @@ Framework
 
 This section details the framework for data preparation, model training, and inference for Play Phase estimation.
 
-Data Acquisition
+1. Data Acquisition
 ------------------
 
 Depending on your objective, you can either use a pre-trained model for immediate inference or collect raw data to train a model from scratch.
 
-1. Quick Start: Using Pre-trained Models
+1.1. Quick Start: Using Pre-trained Models
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If you want to perform inference immediately, obtain the pre-trained weights and configuration files.
 
@@ -26,7 +26,7 @@ If you want to perform inference immediately, obtain the pre-trained weights and
                         ├── loss.csv
                         └── model_stats.txt
 
-2. Train a Model from Scratch
+1.2. Train a Model from Scratch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 To train a new model, you need both raw tracking data and specialized play phase annotations.
 
@@ -42,7 +42,7 @@ To train a new model, you need both raw tracking data and specialized play phase
         - Tracking Data: ``raw/{MatchID}/{MatchID}_{tracker_box_data}.xml``
         - Meta Data: ``raw/{MatchID}/{MatchID}_{tracker_box_metadata}.xml``
 
-    **Example Directory Structure (SoccerTrack-v2):**
+    SoccerTrack-v2 Directory Structure:
 
     .. code-block:: text
 
@@ -59,31 +59,40 @@ To train a new model, you need both raw tracking data and specialized play phase
                 ├── 132831_3_frame_data.json
                 └── 132831_metadata.json
 
-- **Ground Truth Labels**: The Play Phase annotation data is not currently public. Please contact **Kento Kuroda** (`kuroda.kento@image.iit.tsukuba.ac.jp <mailto:kuroda.kento@image.iit.tsukuba.ac.jp>`_) to request access to the dataset.
-
-    **Example Directory Structure (Annotations):**
+- **Ground Truth Labels**: Obtain from the `Soccer Play Phase Dataset <https://tsukuba.repo.nii.ac.jp/records/2021338>`_ dataset. Once you have obtained the ``phase_annotaion_data``, please place the files in the following directory structure.
 
     .. code-block:: text
 
-        PhaseLearn
-        └── annotation/
+        data
+        └── phase_annotation_data/
             ├── 117092/
             │   ├── 117092_00_01-04_18_annotation.csv
             │   └── ...
             └── 132877/
                 └── ...
 
-Preprocessing
+2. Preprocessing
 ------------------
-Before training or inference, you must generate `**Phase Data**<https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Phase_data/index.html>`_ using the ``Pre-Processing`` package. This ensures all tracking and event data are standardized into the required format.
+Before training or inference, you must generate `Phase Data <https://openstarlab.readthedocs.io/en/latest/Pre_Processing/Sports/Phase_data/index.html>`_ using the ``Pre-Processing`` package. This ensures all tracking and event data are standardized into the required format. Once you have obtained the ``phase_data``, please place the files in the following directory structure.
 
-Training Pipeline
+    .. code-block:: text
+
+        data
+        └── phase_data/
+            ├── bepro/
+            │   ├── 117092/117092_main_data
+            │   ├── ...
+            └── statsbomb_skillcorner/
+                ├── 3894537_1018887/3894537_1018887_main_data
+                ├── ...
+
+3. Training Pipeline
 ------------------
 The framework uses the ``load_train_data()`` and ``preprocessing_data()`` functions to convert raw data into sequences and labels. 
 The ``augmentation()`` function then enhances the dataset by flipping spatial coordinates and swapping team positions to improve model robustness.
 Training is executed via the ``train()`` method of the ``phase_model_soccer`` class.
 
-Inference and Analysis
+4. Inference and Analysis
 ------------------
 The ``phase_model_soccer`` class provides three specialized functions for inference:
 

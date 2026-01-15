@@ -31,7 +31,7 @@ Methods
       :param str train_config: Path to a YAML file containing training parameters (e.g., batch size, learning rate, and data paths).
       :raises ValueError: If the ``model_name`` provided during initialization is not supported.
 
-    **Note**: If the NumPy sequences (``.npz`` or ``.npy``) do not exist at the paths specified in the config, the method will automatically trigger the ``preprocessing_data`` routine.
+      **Note**: If the NumPy sequences (``.npz`` or ``.npy``) do not exist at the paths specified in the config, the method will automatically trigger the ``preprocessing_data`` routine.
 
 .. py:method:: quantitative_test(model_config)
 
