@@ -22,6 +22,7 @@ Welcome to Open-STAR-Lab documentation!
    Event_Modeling/index
    RLearn_Modeling/index
    Space_Eval/index
+   PhaseLearn_Modeling/index
    Other/index
 
 
