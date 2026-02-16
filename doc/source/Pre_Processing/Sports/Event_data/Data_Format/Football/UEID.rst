@@ -73,6 +73,7 @@ Example of the UIED format for StatsBomb::
     event_folder = 'path/to/event/folder'
     sb360_folder = 'path/to/sb360/folder'
     statsbomb_match_id = '12345'
+    max_workers = 1
 
     #json/csv file
     statsbomb_df=Event_data(data_provider='statsbomb',event_path=event_folder,
@@ -111,7 +112,7 @@ Example of the UIED format for DataStadium::
     import pandas as pd
     from preprocessing import Event_data
     data_dir = 'path/to/data/folder' #the dir contain folders that contain the play.csv and tracking.csv files
-
+    max_workers = 1
 
     df_datastadium=Event_data(data_provider='datastadium',
                                             event_path=data_dir,
@@ -127,6 +128,7 @@ Example of the UIED format for BePro::
     data_dir = path/to/event.csv 
     st_track_path = path/to/tracking.xml,
     st_meta_path = path/to/meta.xml
+    max_workers = 1
 
     df_bepro=Event_data(data_provider='bepro',
                                             event_path=data_dir,
