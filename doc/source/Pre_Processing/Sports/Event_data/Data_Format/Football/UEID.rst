@@ -104,7 +104,7 @@ Example of the UIED format for StatsBomb and SkillCorner::
                                             preprocess_method="UIED",
                                             max_workers=max_workers).preprocessing()
 
-    print(wyscout_df.head())
+    print(df_statsbomb_skillcorner.head())
 
 Example of the UIED format for DataStadium::
 
@@ -120,3 +120,19 @@ Example of the UIED format for DataStadium::
 
     print(df_datastadium.head())
 
+Example of the UIED format for BePro::
+
+    import pandas as pd
+    from preprocessing import Event_data
+    data_dir = path/to/event.csv 
+    st_track_path = path/to/tracking.xml,
+    st_meta_path = path/to/meta.xml
+
+    df_bepro=Event_data(data_provider='bepro',
+                                            event_path=data_dir,
+                                            st_track_path=st_track_path,
+                                            st_meta_path=st_meta_path,
+                                            preprocess_method="UIED",
+                                            max_workers=max_workers).preprocessing()
+
+    print(df_bepro.head())
