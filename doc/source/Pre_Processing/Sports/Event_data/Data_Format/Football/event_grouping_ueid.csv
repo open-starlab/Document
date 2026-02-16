@@ -1,29 +1,29 @@
-﻿Overall,google research football,Statsbomb,Wyscout,DataStadium
-Short Pass,Short Pass,Ground pass,Goal kick,Direct FK - Pass
-,-,Low pass,Free kick,Indirect FK
-,-,Half Start,Simple pass,KickOff
-,-,-,Hand pass,HomePass
-,-,-,Head pass,AwayPass
-,-,-,Smart pass,PKPass
-,-,-,Throw in,Through Pass
-,-,-,-,ThrowIn
-,-,-,-,Feed
-,-,-,-,FrickOn
-High Pass,High Pass,High pass,High pass,-
-Long Pass,Long Pass,Ground pass,Goal kick,Direct FK - Pass
-,-,Low pass,Free kick,Indirect FK
-,-,-,Simple pass,KickOff
-,-,-,-,HomePass
-,-,-,-,AwayPass
-,-,-,-,PKPass
-,-,-,-,Through Pass
-,-,-,-,ThrowIn
-,-,-,-,Feed
-,-,-,-,FrickOn
-Shot,Shot,Shot,Shot,Shoot
-,-,-,Free kick shot,Direct FK - Shot
-Carry,Sprint,Carry,Acceleration,-
-Dribble,Dribble,Dribble,Touch,Dribble
-,-,-,-,Touch
-Cross,-,Cross,Cross,CK
-,-,Corner,Free kick cross,Cross
+﻿Overall,google research football,Statsbomb,Wyscout,DataStadium,BePro
+Short Pass,Short Pass,Ground pass,Goal kick,Direct FK - Pass,Pass
+,-,Low pass,Free kick,Indirect FK,Throw In
+,-,Half Start,Simple pass,KickOff,
+,-,-,Hand pass,HomePass,
+,-,-,Head pass,AwayPass,
+,-,-,Smart pass,PKPass,
+,-,-,Throw in,Through Pass,
+,-,-,-,ThrowIn,
+,-,-,-,Feed,
+,-,-,-,FrickOn,
+High Pass,High Pass,High pass,High pass,-,
+Long Pass,Long Pass,Ground pass,Goal kick,Direct FK - Pass,Free Kick
+,-,Low pass,Free kick,Indirect FK,Goal Kick
+,-,-,Simple pass,KickOff,Corner Kick
+,-,-,-,HomePass,
+,-,-,-,AwayPass,
+,-,-,-,PKPass,
+,-,-,-,Through Pass,
+,-,-,-,ThrowIn,
+,-,-,-,Feed,
+,-,-,-,FrickOn,
+Shot,Shot,Shot,Shot,Shoot,Shot
+,-,-,Free kick shot,Direct FK - Shot,Goal
+Carry,Sprint,Carry,Acceleration,-,
+Dribble,Dribble,Dribble,Touch,Dribble,Dribble To Space
+,-,-,-,Touch,Dribble
+Cross,-,Cross,Cross,CK,Cross
+,-,Corner,Free kick cross,Cross,
