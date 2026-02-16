@@ -4,8 +4,8 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Other Event Data Formats &mdash; Open-STAR-Lab v0.1.34 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=92fd9be5" />
+  <title>Other Event Data Formats &mdash; Open-STAR-Lab v0.1.35 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,7 +15,7 @@
   
         <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=732e7d3f"></script>
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js?v=d756f926"></script>
         <script src="../../../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../../../_static/js/theme.js"></script>
@@ -104,8 +104,8 @@
 <h2>Method: NMSTPP<a class="headerlink" href="#method-nmstpp" title="Permalink to this heading"></a></h2>
 <p>The Transformer-Based Neural Marked Spatio Temporal Point Process (NMSTPP) model is a comprehensive approach designed to handle large-scale spatiotemporal data, particularly in the context of football event data.</p>
 <p>Example for a single file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event_data</span>
 
 <span class="n">event_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/event_data.csv&#39;</span>
 <span class="n">match_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/match_data.csv&#39;</span>
@@ -116,8 +116,8 @@
 </pre></div>
 </div>
 <p>Example for multiple files:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event_data</span>
 
 <span class="n">event_folder</span> <span class="o">=</span> <span class="s1">&#39;path/to/event/folder&#39;</span>
 <span class="n">match_folder</span> <span class="o">=</span> <span class="s1">&#39;path/to/match/folder&#39;</span>
@@ -141,8 +141,8 @@
 <h2>Method: Seq2Event<a class="headerlink" href="#method-seq2event" title="Permalink to this heading"></a></h2>
 <p>Seq2Event is a model designed to predict the next event in a sequence of events within a given context, specifically tailored for analyzing dynamic sports like soccer. The model leverages Transformer or Recurrent Neural Network (RNN) components to handle the complexity of player actions and roles which occur simultaneously and at multiple temporal scales with high spatial freedom.</p>
 <p>Example for a single file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event_data</span>
 
 <span class="n">event_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/event_data.csv&#39;</span>
 <span class="n">match_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/match_data.csv&#39;</span>
@@ -153,8 +153,8 @@
 </pre></div>
 </div>
 <p>Example for multiple files:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event_data</span>
 
 <span class="n">event_folder</span> <span class="o">=</span> <span class="s1">&#39;path/to/event/folder&#39;</span>
 <span class="n">match_folder</span> <span class="o">=</span> <span class="s1">&#39;path/to/match/folder&#39;</span>
@@ -179,8 +179,8 @@
 <h2>Method: LEM<a class="headerlink" href="#method-lem" title="Permalink to this heading"></a></h2>
 <p>The Large Event Model (LEM) is a comprehensive machine-learning model designed to predict and analyze events within a specific domain, such as soccer matches. Unlike traditional models that often simplify event dynamics by abstracting or relying on a combination of sequential models, LEMs aim to predict the entire chain of variables that constitute an event. This holistic approach allows LEMs to offer several advantages.</p>
 <p>Example for a single file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event_data</span>
 
 <span class="n">event_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/event_data.csv&#39;</span>
 <span class="n">match_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/match_data.csv&#39;</span>
@@ -191,8 +191,8 @@
 </pre></div>
 </div>
 <p>Example for multiple files:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">preprocessing</span> <span class="kn">import</span> <span class="n">Event_data</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event_data</span>
 
 <span class="n">event_folder</span> <span class="o">=</span> <span class="s1">&#39;path/to/event/folder&#39;</span>
 <span class="n">match_folder</span> <span class="o">=</span> <span class="s1">&#39;path/to/match/folder&#39;</span>
