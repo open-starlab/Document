@@ -22,7 +22,7 @@ sphinx-autobuild source build/html
 ## To Update this doc
 1. Clone this repo
 2. Update the content in ./doc/source
-3. Test it with rebuild the doc (section above) 
+3. (Optional) Test it with rebuild the doc (section above) 
 4. Update the version on ./doc/source/conf.py
 4. Update this repo 
 5. Check the document deployment on https://readthedocs.org/
