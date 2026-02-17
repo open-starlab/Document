@@ -1,21 +1,23 @@
 BePro
 ==============
-.. class:: Event_data(data_provider='bepro', event_path=event_path, st_track_path=st_track_path, st_meta_path=st_meta_path, verbose=False).load_data() -> pd.DataFrame
+.. class:: Event_data(data_provider='bepro', event_path=event_path, tracking_path=tracking_path, meta_data=meta_data, soccertrackv2=False, verbose=False).load_data() -> pd.DataFrame
 
    Load and process event and tracking data for the SoccerTrackv2 dataset (BePro data).
 
    :param event_path: Path to the CSV file containing event data.
    :type event_path: str
-   :param st_track_path: Path to the XML file containing tracking data.
-   :type st_track_path: str
-   :param st_meta_path: Path to the XML file containing match metadata (pitch dimensions, teams, players, etc.).
-   :type st_meta_path: str
+   :param tracking_path: Path to the XML file containing tracking data.
+   :type tracking_path: str
+   :param meta_data: Path to the XML file containing match metadata (pitch dimensions, teams, players, etc.).
+   :type meta_data: str
+   :param soccertrackv2: If True, loads data using the SoccerTrackv2 format. If False, loads data using the BePro format. Defaults to False.
+   :type soccertrackv2: bool, optional
    :param verbose: If True, prints additional information about the merging process and feature extraction. Defaults to False.
    :type verbose: bool, optional
    :returns: A DataFrame containing the merged and processed event and tracking data.
    :rtype: pandas.DataFrame
 
-   **Example usage**:
+   **Example usage on SoccerTrackv2 Data**:
 
    .. code-block:: python
 
@@ -24,12 +26,35 @@ BePro
 
         event_path = 'path/to/event.csv'
         tracking_path = 'path/to/tracking.xml'
-        meta_path = 'path/to/meta.xml'
+        meta_data = 'path/to/meta.xml'
 
         # Load and process soccer data
         soccertrack_df = Event_data('bepro',event_path, 
-                                          st_track_path = tracking_path, 
-                                          st_meta_path = meta_path).load_data()
+                                          tracking_path = tracking_path, 
+                                          meta_data = meta_data,
+                                          soccertrackv2 = True,
+                                          ).load_data()
+        print(soccertrack_df.head())
+
+   **Example usage on BePro Data**:
+
+   .. code-block:: python
+
+        import pandas as pd
+        from preprocessing import Event_data
+
+        data_dir=["./_1st Half.json",
+                            "._2nd Half.json"] # List of paths to the JSON files containing event data of the same match
+        tracking_path = 'path/to/tracking.xml'
+        meta_data = 'path/to/meta.xml'
+        match_id = 12345  # Specify the match ID for BePro data or any unique identifier
+
+        # Load and process soccer data
+        soccertrack_df = Event_data('bepro',data_dir, 
+                                          tracking_path = tracking_path, 
+                                          meta_data = meta_data,
+                                          match_id = match_id,
+                                          ).load_data()
         print(soccertrack_df.head())
 
    **Details**:
@@ -53,12 +78,14 @@ BePro
    - ``team_id``: ID of the team involved in the event.
    - ``player_id``: ID of the player involved in the event.
    - ``x``, ``y``: Scaled coordinates of the event on the pitch.
+   - ``to_x``, ``to_y``: Scaled coordinates of the target location of the event (if applicable).
    - ``event_types``: Types of the event.
    - ``period``: Numerical representation of the match period (1 for first half, 2 for second half, etc.).
    - ``seconds``: Time of the event in seconds.
    - ``event_type``: Primary type of the event.
    - ``home_team``: Binary indicator (1 for home team, 0 for away team).
    - ``x_unscaled``, ``y_unscaled``: Unscaled coordinates of the event on the pitch.
+   - ``to_x_unscaled``, ``to_y_unscaled``: Unscaled coordinates of the target location of the event (if applicable).
    - ``tracking_time``: The matchTime of the synced tracking data in milliseconds.
 
    For each player (both home and away teams):

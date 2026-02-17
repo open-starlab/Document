@@ -120,19 +120,39 @@ Example of the UIED format for DataStadium::
 
     print(df_datastadium.head())
 
-Example of the UIED format for BePro::
+Example of the UIED format for SoccerTrackv2::
 
     import pandas as pd
     from preprocessing import Event_data
     data_dir = path/to/event.csv 
-    st_track_path = path/to/tracking.xml,
-    st_meta_path = path/to/meta.xml
+    tracking_path = path/to/tracking.xml,
+    meta_data = path/to/meta.xml
 
     df_bepro=Event_data(data_provider='bepro',
                                             event_path=data_dir,
-                                            st_track_path=st_track_path,
-                                            st_meta_path=st_meta_path,
+                                            tracking_path=tracking_path,
+                                            meta_data=meta_data,
                                             preprocess_method="UIED",
+                                            soccertrackv2 = True,
+                                            max_workers=max_workers).preprocessing()
+
+    print(df_bepro.head())
+
+Example of the UIED format for BePro::
+
+    import pandas as pd
+    from preprocessing import Event_data
+    data_dir = ["./_1st Half.json", "./_2nd Half.json"] # List of paths to the JSON files containing event data of the same match
+    tracking_path = path/to/tracking.xml,
+    meta_data = path/to/meta.xml
+    match_id = 12345  # Specify the match ID for BePro data or any unique identifier
+
+    df_bepro=Event_data(data_provider='bepro',
+                                            event_path=data_dir,
+                                            tracking_path=tracking_path,
+                                            meta_data=meta_data,
+                                            preprocess_method="UIED",
+                                            match_id = match_id,
                                             max_workers=max_workers).preprocessing()
 
     print(df_bepro.head())
