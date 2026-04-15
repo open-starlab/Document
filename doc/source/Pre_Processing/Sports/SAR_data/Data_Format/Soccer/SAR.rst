@@ -59,6 +59,39 @@ The tracking data includes the following columns:
     - ``x (float)``: The x-coordinate of the player location scale by the field size.
     - ``y (float)``: The y-coordinate of the player location scale by the field size.
 
+SAR-to-RL Dataset Conversion (DQN / QMIX)
+--------------------------------------------
+
+This section describes a SAR-to-RL dataset conversion step that formats SAR outputs
+(`events.jsonl`) into tensors used by
+DQN and QMIX training. This is a preprocessing/data-format step, not a training
+algorithm.
+- The conversion script is `soccer_sar_to_rl_dataset.py`.
+
+This produces a single shared multi-agent dataset with:
+- `observation`: `(B, T, N, O)` (`N=10 attackers`)
+- `action`: `(B, T, N)` (discrete action ids; default vocab size 16 with `PAD=15`)
+- `reward`, `done`, `mask`: `(B, T)`
+- `onball_mask`: `(B, T, N)` (for masking unavailable actions)
+
+### Run via `SAR_data(...).preprocess_data()`
+You can run SAR2RL through the same entry point as SAR:
+
+.. code-block:: python
+
+    from preprocessing import SAR_data
+
+    data_path = "/path/to/data_folder/"
+    config_path = "/path/to/preprocess_config.json"
+    state_def = "PVS"
+
+    Soccer_SAR_data(
+        data_provider='datastadium',
+        state_def=state_def,
+        data_path=data_path,
+        config_path=config_path,
+        preprocess_method='SAR2RL'
+    ).preprocess_data()
 
 Examples for Standardizing Multiple Matches
 --------------------------------------------
